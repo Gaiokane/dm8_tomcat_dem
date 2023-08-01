@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ICommentService
+path: F0DE42BE3FF660C9AE63DC0A9D2B80A0.gwt.rpc

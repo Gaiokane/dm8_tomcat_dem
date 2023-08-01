@@ -1,0 +1,4 @@
+<DataSource ID="WindowFooterSpacer" inheritsFrom="LayoutSpacer" Constructor="WindowFooterSpacer"
+            showLocalFieldsOnly="true" showSuperClassEvents="false">
+    <addGlobalId>false</addGlobalId>
+</DataSource>

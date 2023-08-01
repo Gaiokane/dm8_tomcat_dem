@@ -1,0 +1,3 @@
+<DataSource ID="DSAddTask" inheritsFrom="ServiceTask" Constructor="DSAddTask">
+</DataSource>
+

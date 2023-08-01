@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>用户管理</title>
+</head>
+
+<body>
+	<h2>用户管理</h2>
+	<p>
+		&emsp;&emsp;双击主页左侧导航树的用户管理节点可以打开用户管理面板。该页面用于管理用户，系统管理员可以在该页面上添加、编辑、删除用户。如果发现有用户非安全登录还可以临时禁用该用户。如下图所示:</p>
+	<p>
+		<img src="images/user_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新用户列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/add.png" alt="" />添加</td>
+				<td>添加用户。点击打开<a href="user_add_dialog.html">用户添加对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/edit.png" alt="" />编辑</td>
+				<td>编辑用户。选中一个用户，点击按钮打开<a href="user_edit_dialog.html">用户编辑对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>选中一个或多个要删除的用户点击按钮可以删除选中的用户。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search_item.png" alt="" /></td>
+				<td>对用户列表进行登录名或真实姓名的过滤。搜索输入框中输入内容，敲下<b>回车</b>或者点击<img
+					src="images/search.png" />。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>用户信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;表中为系统中所有用户的信息列表。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>登录名</td>
+				<td><p>
+						用户的登录名。<br />
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>用户是否被禁用。<img src="images/css_start_using.png" alt="" />表示用户可以正常使用，<img
+					src="images/css_forbidden.png" alt="" />表示用户被禁用，被禁用的用户无法登录系统。</td>
+			</tr>
+			<tr>
+				<td>真实名</td>
+				<td>用户的真实姓名。</td>
+			</tr>
+			<tr>
+				<td>角色</td>
+				<td>用户所属角色。系统的角色类型详见<a href="role_panel.html">角色管理面板</a>。</td>
+			</tr>
+			<tr>
+				<td>邮箱地址</td>
+				<td>用户邮箱地址。用于告警邮件通知。</td>
+			</tr>
+			<tr>
+				<td>手机号</td>
+				<td>用户手机号。用户告警短信通知。</td>
+			</tr>
+			<tr>
+				<td>添加时间</td>
+				<td>添加用户的时间。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

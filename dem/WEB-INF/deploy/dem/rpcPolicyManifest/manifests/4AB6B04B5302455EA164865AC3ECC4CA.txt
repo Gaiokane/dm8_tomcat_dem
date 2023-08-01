@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IAlertService
+path: 79DF343BA9636E286246583CF751230C.gwt.rpc

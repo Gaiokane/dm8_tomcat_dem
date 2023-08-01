@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>AWR报告</title>
+</head>
+
+<body>
+	<h2>AWR报告</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>AWR报告</b>可以打开数据库AWR报告面板，该页面用于查看当前数据库实例的AWR报告。报告中包括以下几个部分：
+	</p>
+	<ul>
+		<li><a href="#tabs-1">概述</a>
+		</li>
+		<li><a href="#tabs-2">资源</a>
+		</li>
+		<li><a href="#tabs-3">性能</a>
+		</li>
+		<li><a href="#tabs-4">会话</a>
+		</li>
+		<li><a href="#tabs-5">SQL</a>
+		</li>
+		<li><a href="#tabs-6">死锁</a>
+		</li>
+		<li><a href="#tabs-7">登录异常</a>
+		</li>
+	</ul>
+	<p>&emsp;&emsp;页面如下图所示:</p>
+	<p>
+		<img src="images/database_awr_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/intv_time_item.png" alt="" /></td>
+				<td>指定要查看什么时间段的awr报告，时间间隔不能超过7天。指定时间段后点击<b>生成AWR</b>按钮重新生成awr报告。</td>
+			</tr>
+			<tr>
+				<td><img src="images/ok.png" />生成AWR</td>
+				<td>重新生成AWR报告。</td>
+			</tr>
+			<tr>
+				<td><img src="images/export.png" alt="" />导出AWR报告</td>
+				<td>导出AWR报告，报告以邮件方式发送到当前用户邮箱中。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_awr_module_button.png" alt="" />
+				</td>
+				<td>当前页面的模块定位按钮。点击每个按钮可以快速滚动到相应的模块。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-1">概述</h3>
+	<p>&emsp;&emsp;数据库以及所在主机的基本信息，如下图所示：</p>
+	<p>
+		<strong><img src="images/database_awr_panel_summary.png"
+			alt="" /> </strong>
+	</p>
+	<h3 id="tabs-2">资源</h3>
+	<p>&emsp;&emsp;数据库及其所在主机的资源使用情况曲线图。</p>
+	<p>
+		<strong>数据库资源</strong><img src="images/database_awr_panel_res_db.png"
+			alt="" />
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>图表</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>内存</td>
+				<td>内存使用情况。横坐标是时间，纵坐标是内存使用大小，单位MB。</td>
+			</tr>
+			<tr>
+				<td>CPU</td>
+				<td>cpu使用情况。横坐标是时间，纵坐标是cpu使用率，单位%。</td>
+			</tr>
+			<tr>
+				<td>网络IO</td>
+				<td>网络读写速率。横坐标是时间，纵坐标是读写速率，单位B/s。</td>
+			</tr>
+			<tr>
+				<td>文件IO</td>
+				<td>文件读写次数。横坐标是时间，纵坐标是读写次数。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>主机资源</strong>
+	</p>
+	<p>
+		<img src="images/database_awr_panel_res_mf.png" alt="" />
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>图表</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>内存</td>
+				<td>内存使用情况。横坐标是时间，纵坐标是内存使用率，单位%。</td>
+			</tr>
+			<tr>
+				<td>CPU</td>
+				<td>cpu使用情况。横坐标是时间，纵坐标是cpu使用率，单位%。</td>
+			</tr>
+			<tr>
+				<td>网络IO</td>
+				<td>网络读写速率。横坐标是时间，纵坐标是读写速率，单位B/s。</td>
+			</tr>
+			<tr>
+				<td>磁盘IO</td>
+				<td>磁盘读写速率。横坐标是时间，纵坐标是读写速率，单位B/s。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-3">性能</h3>
+	<p>
+		&emsp;&emsp;反映数据库性能指标的曲线图，如下图所示：<img
+			src="images/database_awr_panel_performance.png" alt="" />
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>图表</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>TPS</td>
+				<td>每秒事务数。横坐标是时间，纵坐标是平均每秒执行的事务数。</td>
+			</tr>
+			<tr>
+				<td>QPS</td>
+				<td>每秒请求数。横坐标是时间，纵坐标是平均每秒请求数。</td>
+			</tr>
+			<tr>
+				<td>DML</td>
+				<td>每秒DML操作数，分为三条曲线（插入，更新，删除）。横坐标是时间，纵坐标是平均每秒DML操作数</td>
+			</tr>
+			<tr>
+				<td>DDL</td>
+				<td>每秒DDL操作数。横坐标是时间，纵坐标是平均每秒DDL操作数。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-4">会话</h3>
+	<p>&emsp;&emsp;数据库会话数和线程数曲线图，如下图所示：</p>
+	<p>
+		<img src="images/database_awr_panel_session.png" alt="" />
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>图表</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>会话数</td>
+				<td>数据库会话数，分为两条曲线：总会话数和活动会话数。横坐标是时间，纵坐标是会话数。</td>
+			</tr>
+			<tr>
+				<td>DB线程数</td>
+				<td>数据库线程数。横坐标时间，纵坐标线程数。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-5">SQL</h3>
+	<p>&emsp;&emsp;数据库执行sql的统计信息，包括TOP 20条慢SQL和TOP 20条高频sql。如下图所示：</p>
+	<p>
+		<img src="images/database_awr_panel_sql.png" alt="" />
+	</p>
+	<p>
+		<strong>慢SQL列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>SQL</td>
+				<td>sql语句。</td>
+			</tr>
+			<tr>
+				<td>执行时间</td>
+				<td>在什么时间执行的这条sql语句。</td>
+			</tr>
+			<tr>
+				<td>耗时</td>
+				<td>执行sql语句用了多少时间，单位ms。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>高频SQL列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>SQL</td>
+				<td>sql语句。</td>
+			</tr>
+			<tr>
+				<td>最近执行时间</td>
+				<td>最近一次执行是在什么时间。</td>
+			</tr>
+			<tr>
+				<td>次数</td>
+				<td>该语句已经执行了多少次。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-6">死锁</h3>
+	<p>&emsp;&emsp;数据库最近20次死锁信息。如下图所示：</p>
+	<p>
+		<img src="images/database_awr_panel_deadlock.png" alt="" />
+	</p>
+	<p>
+		<strong>死锁信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>SQL语句</td>
+				<td>导致死锁的sql语句。</td>
+			</tr>
+			<tr>
+				<td>执行时间</td>
+				<td>死锁发生时间。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-7">异常登录</h3>
+	<p>&emsp;&emsp;数据库最近20次用户异常登录信息。如下图所示：</p>
+	<p>
+		<img src="images/database_awr_panel_login_unusual.png" alt="" />
+	</p>
+	<p>
+		<strong>异常登录信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>用户名</td>
+				<td>登录的用户名。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>登录状态。</td>
+			</tr>
+			<tr>
+				<td>最后锁定时间</td>
+				<td>最近一次锁定的时间。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

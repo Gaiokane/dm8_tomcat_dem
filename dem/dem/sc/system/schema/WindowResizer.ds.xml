@@ -1,0 +1,4 @@
+<DataSource ID="WindowResizer" inheritsFrom="ImgButton" Constructor="WindowResizer"
+            showLocalFieldsOnly="true" showSuperClassEvents="false">
+    <addGlobalId>false</addGlobalId>
+</DataSource>

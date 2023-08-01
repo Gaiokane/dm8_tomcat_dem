@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.admin.ISYSMetadataService
+path: B3D9FD23F065830A02F11C98419CC030.gwt.rpc

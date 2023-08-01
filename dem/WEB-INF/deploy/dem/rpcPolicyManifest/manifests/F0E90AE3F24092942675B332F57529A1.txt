@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IBackup2Service
+path: A5851D59FE21E64CD13054781123D406.gwt.rpc

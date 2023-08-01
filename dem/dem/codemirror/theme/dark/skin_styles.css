@@ -1,0 +1,194 @@
+/* Based on the theme at http://bonsaiden.github.com/JavaScript-Garden */
+.CodeMirror * {
+  font-family:Consolas;
+  font-size: 14px;
+}
+
+/*<!--match-->*/
+.cm-s-default span.CodeMirror-matchhighlight { background: #494949; }
+.cm-s-default.CodeMirror-focused span.CodeMirror-matchhighlight { background: #314D67 !important; }
+
+/*<!--activeline-->*/
+.cm-s-default .CodeMirror-activeline-background {background: var(--theme_bgcolor_1) !important;}
+
+.cm-s-default.CodeMirror {
+    background-color: var(--theme_bgcolor_0);
+    color: var(--theme_color_default);
+    /* 水印 */
+    /*background-image: url("images/logo.png");
+    background-repeat:no-repeat;
+    background-position:right bottom;
+    background-size:contain;*/
+}
+
+.cm-s-default span.cm-bracket {color: var(--theme_color_default);}
+.cm-s-default span.cm-operator {color: var(--theme_color_default);}
+.cm-s-default span.cm-punctuation {color: var(--theme_color_default);}
+.cm-s-default span.cm-def {color: var(--theme_color_default);}
+
+/*.cm-s-default.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}*/
+
+.cm-s-default div.CodeMirror-selected {background: var(--theme_bgcolor_over) !important;}
+.cm-s-default .CodeMirror-gutters {background: var(--theme_bgcolor_0); border-right: 1px solid rgba(140, 140, 140, 0.3);}
+.cm-s-default .CodeMirror-linenumber {color: #727272; font-size:12px;}
+.cm-s-default .CodeMirror-cursor {
+    border-left: 1px solid #ababab !important;
+}
+
+.cm-s-default span.cm-comment {color: #5C6370;}
+.cm-s-default span.cm-atom {color: #AF5FD7;}
+.cm-s-default span.cm-number {color: #AF5FD7;}
+
+.cm-s-default span.cm-property, .cm-s-default span.cm-attribute {color: #A6E22E;}
+.cm-s-default span.cm-keyword {color: #3A96DD;}
+.cm-s-default .cm-header {color: #cccccc;}
+.cm-s-default span.cm-string {color: #CE9178;}
+.cm-s-default .cm-quote {color: #CE9178;}
+
+.cm-s-default span.cm-variable {color: #C9B664;}
+.cm-s-default span.cm-variable-2 {color: #C9B664;}
+.cm-s-default span.cm-tag {color: #449;}
+.cm-s-default span.cm-link {color: #C19C00;}
+.cm-s-default span.cm-error {background: #F92672; color: #F8F8F0;}
+
+.cm-s-default span.cm-dmfunction {color: #C19C00;}
+
+.cm-s-default .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+
+.cm-s-default .cm-builtin {
+	color: #6A9955;
+}
+
+.cm-matchhighlight {
+	background: #808080;
+}
+
+.CodeMirror-selection-highlight-scrollbar {
+	background: #808080;
+}
+
+.CodeMirror-merge {
+  position: relative;
+  border: 1px solid var(--theme_border_color_default);
+  white-space: pre;
+}
+
+.CodeMirror-merge, .CodeMirror-merge .CodeMirror {
+  height: 350px;
+}
+
+.CodeMirror-merge-2pane .CodeMirror-merge-pane { width: 47%; }
+.CodeMirror-merge-2pane .CodeMirror-merge-gap { width: 6%; }
+.CodeMirror-merge-3pane .CodeMirror-merge-pane { width: 31%; }
+.CodeMirror-merge-3pane .CodeMirror-merge-gap { width: 3.5%; }
+
+.CodeMirror-merge-pane {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+}
+.CodeMirror-merge-pane-rightmost {
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+}
+
+.CodeMirror-merge-gap {
+  z-index: 2;
+  display: inline-block;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+ border-left: 1px solid var(--theme_border_color_default);
+  border-right: 1px solid var(--theme_border_color_default);
+  position: relative;
+  background: transparent;
+}
+
+.CodeMirror-merge-scrolllock-wrap {
+  position: absolute;
+  bottom: 0; left: 50%;
+}
+.CodeMirror-merge-scrolllock {
+  position: relative;
+  left: -50%;
+  cursor: pointer;
+  color: #3088d8;
+  line-height: 1;
+}
+.CodeMirror-merge-scrolllock:after {
+  content: "\21db\00a0\00a0\21da";
+}
+.CodeMirror-merge-scrolllock.CodeMirror-merge-scrolllock-enabled:after {
+  content: "\21db\21da";
+}
+
+.CodeMirror-merge-copybuttons-left, .CodeMirror-merge-copybuttons-right {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 1;
+  background: transparent;
+}
+
+.CodeMirror-merge-copy {
+  position: absolute;
+  cursor: pointer;
+  color: #3088d8; 
+  z-index: 3;
+}
+
+.CodeMirror-merge-copy-reverse {
+  position: absolute;
+  cursor: pointer;
+  color: #3088d8;
+}
+
+.CodeMirror-merge-copybuttons-left .CodeMirror-merge-copy { left: 2px; }
+.CodeMirror-merge-copybuttons-right .CodeMirror-merge-copy { right: 2px; }
+
+.CodeMirror-merge-r-inserted, .CodeMirror-merge-l-inserted {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAGUlEQVQI12MwuCXy3+CWyH8GBgYGJgYkAABZbAQ9ELXurwAAAABJRU5ErkJggg==);
+  background-position: bottom left;
+  background-repeat: repeat-x;
+}
+
+.CodeMirror-merge-r-deleted, .CodeMirror-merge-l-deleted {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAGUlEQVQI12M4Kyb2/6yY2H8GBgYGJgYkAABURgPz6Ks7wQAAAABJRU5ErkJggg==);
+  background-position: center left;
+  background-repeat: repeat-x;  
+}
+
+.CodeMirror-merge-r-chunk { background: none; }
+.CodeMirror-merge-r-chunk-start { border-top: 1px solid #3088d8; }
+.CodeMirror-merge-r-chunk-end { border-bottom: 1px solid #3088d8; }
+.CodeMirror-merge-r-connect { fill: none; stroke: #3088d8; stroke-width: 1px; }
+
+.CodeMirror-merge-l-chunk { background: none; }
+.CodeMirror-merge-l-chunk-start { border-top: 1px solid #3088d8; }
+.CodeMirror-merge-l-chunk-end {border-bottom: 1px solid #3088d8;}
+.CodeMirror-merge-l-connect { fill: none;  stroke: #3088d8; stroke-width: 1px; }
+
+.CodeMirror-merge-l-chunk.CodeMirror-merge-r-chunk { background: #dfd; }
+.CodeMirror-merge-l-chunk-start.CodeMirror-merge-r-chunk-start { border-top: 1px solid #4e4; }
+.CodeMirror-merge-l-chunk-end.CodeMirror-merge-r-chunk-end { border-bottom: 1px solid #4e4; }
+
+.CodeMirror-merge-collapsed-widget:before {
+  content: "(...)";
+}
+.CodeMirror-merge-collapsed-widget {
+  cursor: pointer;
+  color: #88b;
+  background: #eef;
+  border: 1px solid #ddf;
+  font-size: 90%;
+  padding: 0 3px;
+  border-radius: 4px;
+}
+.CodeMirror-merge-collapsed-line .CodeMirror-gutter-elt { display: none; }

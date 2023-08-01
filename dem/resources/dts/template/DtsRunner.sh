@@ -1,0 +1,2 @@
+nohup "{0}" -cp "{1}" -Dnl=zh_CN -Ddameng.dts.drivers.dir="{2}" -Ddameng.log.file="{3}" -DDtsLogDir="{4}" -Djava.library.path="{5}" com.dameng.dem.server.service.dbtool.dts.runner.DtsRunner2 {6} > /dev/null 2>&1 &
+exit

@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IUdSqlService
+path: 453C444826198A97ECFBFA409974149D.gwt.rpc

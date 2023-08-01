@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="data/data.js"></script>
+    <script src="js/highcharts.src.js"></script>
+    <script src="js/fun.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/highcharts.css">
+    <link rel="stylesheet" href="css/dte.css">
+
+    <title>达梦数据库评估报告</title>
+    <script>
+        $(document).ready(function () {
+
+            //禁用UTC时间
+            Highcharts.setOptions(
+                    {
+                        global: {
+                            useUTC: false
+                        }
+                    }
+            );
+		
+            $('<b>达梦数据库评估报告('+estimateName+')</b>').appendTo($('#title'));
+			
+            
+		    //源库概述
+			
+		    if(sourceOverviewData.length ==0)
+		    {
+		    	$('#db_info').attr("style","display:none;")
+		    }
+		    else
+		    {
+			   setOverviewElements($('#source-db div'),sourceOverviewData);
+			   setOverviewElements($('#dest-db div'),destOverviewData);
+		    }
+			//目的库概述
+			
+				//对象兼容情况
+			if(typeof(objStatisticsPieTitle)!="undefined"&&objStatisticsPieTitle!=null)
+			{
+          		  createPieChart($('#obj-statistics'), null, objStatisticsPieTitle, '兼容类型', '兼容率', true, objStatisticsPieData);
+		
+				  setTableElements($('#table_obj'),objStatisticsTableData);
+				   
+				//对象详情
+		          refreshObjTableElement();
+				
+				//对象按类型过滤
+		          addSelectTypeFilter();
+			}
+			else
+			{
+				$('#obj_div').attr("style","display:none;")
+			}
+			
+			//SQL兼容情况
+			if(typeof(sqlStatisticsPieTitle)!="undefined"&&sqlStatisticsPieTitle!=null)
+			{
+	            createPieChart($('#sql-statistics'), null, sqlStatisticsPieTitle, '兼容类型', '兼容率', true, sqlStatisticsPieData);
+				setTableElements($('#table_sql'),sqlStatisticsTableData);
+				//sql详情
+	            refreshSqlTableElement();
+			}
+			else
+			{
+				$('#sql_div').attr("style","display:none;")
+			}
+			
+			//程序兼容情况
+			if(typeof(codeStatisticsPieTitle)!="undefined"&&codeStatisticsPieTitle!=null)
+			{
+	            createPieChart($('#code-statistics'), null, codeStatisticsPieTitle, '兼容类型', '兼容率', true, codeStatisticsPieData);
+				setTableElements($('#table_code'),codeStatisticsTableData);
+				//程序详情
+	            refreshCodeTableElement();
+			}
+			else
+			{
+				$('#code_div').attr("style","display:none;")
+			}
+			
+			//tab 加click事件
+			addTabClick();
+			
+			//导航树点击事件
+			//addObjTypeNavClick();
+			
+			$('#dialog-td-detail').draggable();
+			$('#dialog-obj-detail').draggable();
+			
+
+        });
+		
+	
+    </script>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a id="title" class="navbar-brand"></a>
+        </div>
+    </div><!--/.nav-collapse -->
+</nav>
+
+<div class="container-fluid">	
+	<div id="db_info" class="row">
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="tab" >
+					<div class="tab_menu">
+						<ul>
+							<li class="selected">源库概要</li>
+						</ul>
+					</div>
+					<div class="tab_box">
+						<div class="tab_box_con">
+								<div id="source-db" style="height:110px;overflow:auto">
+									<div class="overview-label"></div>
+								</div>
+						</div>
+					</div>
+				</div>
+            </div>
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="tab">
+					<div class="tab_menu">
+						<ul>
+							<li class="selected">目的库配置推荐概要</li>
+						</ul>
+					</div>
+					<div class="tab_box">
+						<div class="tab_box_con">
+								<div id="dest-db" style="height:110px;overflow:auto">
+									<div class="overview-label"></div>
+								</div>
+						</div>
+					</div>
+				</div>
+            </div>
+	</div>
+
+
+	<div id="obj_div" class="tab">
+		<div class="tab_menu">
+			<ul>
+				<li class="selected">对象兼容情况概要</li>
+				<li>对象兼容详情</li>
+			</ul>
+		</div>
+		<div class="tab_box" style="height:380px; overflow:hidden;">
+			<div class="tab_box_con">
+				 <div class="row">
+					<div id="obj-statistics" class="col-sm-4 col-md-4 col-lg-4"></div>
+					<div id="table_obj_div" class="col-sm-8 col-md-8 col-lg-8" >
+					
+						<table id="table_obj" class="col-sm-8 col-md-8 col-lg-8 table table-bordered" >
+							<thead>
+							<tr class="info">
+								<th width="20"></th>
+								<th width="100">对象类型</th>
+								<th width="100">兼容率</th>
+								<th width="100">总数量</th>
+								<th width="120">完全兼容数量</th>
+								<th width="130">转换后兼容数量</th>
+								<th width="100">不兼容数量</th>
+								<th width="150">兼容状态未知数量</th>
+							</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table> 
+				
+
+					</div>
+				 </div>
+			</div>
+			<div class="tab_box_con hide">
+						<div class="border" style="height:380px; overflow:auto;">
+								<form class="form-inline" role="form">
+								   <select id="select_obj_type" onChange="refreshObjTableElement()" class="form-control">
+									</select>
+									<select id="select_obj_status" onChange="refreshObjTableElement()" class="form-control">
+										<option>所有兼容情况</option>
+										<option>完全兼容</option>
+										<option>转换后兼容</option>
+										<option>不兼容</option>
+										<option>兼容状态未知</option>
+									</select>
+									<input type="text" class="form-control" id="search-object" onKeyPress="onSearchKeyPress(event,OBJECT)" placeholder="请输入搜索信息">
+									<button type="button" class="btn btn-default" onClick="refreshObjTableElement()">搜索</button>
+								</form>
+							
+								<table id="table_obj_detail" class="table table-bordered" style="margin-bottom:5px" >
+									<thead>
+									<tr class="info">
+										<th width="20"></th>
+										<th width="100">对象名</th>
+										<th width="100">所属模式</th>
+										<th width="100">对象类型</th>
+										<th width="180">兼容情况</th>
+										<th width="120" style="text-align:center">操作</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									
+								</table>
+								
+			</div>
+		</div>
+	 </div>
+	</div>
+  <!-- SQL -->
+	<div id="sql_div" class="tab">
+		<div class="tab_menu">
+			<ul>
+				<li class="selected">SQL兼容情况概要</li>
+				<li>SQL兼容详情</li>
+			</ul>
+		</div>
+		<div class="tab_box" style="height:250px;overflow:hidden;">
+			<div class="tab_box_con">
+				 <div class="row">
+					<div id="sql-statistics" class="col-sm-4 col-md-4 col-lg-4"></div>
+					<div class="col-sm-8 col-md-8 col-lg-8">
+						<table  id="table_sql" class="table">
+							<thead>
+							<tr class="info">
+							<th width="20"></th>
+							<th width="100">兼容率</th>
+							<th width="100">SQL总数量</th>
+							<th width="120">完全兼容数量</th>
+							<th width="130">转换后兼容数量</th>
+							<th width="100">不兼容数量</th>
+							<th width="150">兼容状态未知数量</th>
+							</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				 </div>
+			</div>
+			
+			<div class="tab_box_con hide">
+					<div class="border" style="height:250px; overflow:hidden;">
+						<form class="form-inline" role="form">
+							<select id="select_sql_status"  onChange="refreshSqlTableElement()" class="form-control">
+								<option>所有兼容情况</option>
+								<option>完全兼容</option>
+								<option>转换后兼容</option>
+								<option>不兼容</option>
+								<option>兼容状态未知</option>
+							</select>
+							<input type="text" class="form-control" id="search-sql" onKeyPress="onSearchKeyPress(event,SQL)" placeholder="请输入搜索信息">
+							<button type="button" class="btn btn-default" onClick="refreshSqlTableElement()">搜索</button>
+						</form>
+					
+						<table id="table_sql_detail" class="table table-bordered" style="margin-bottom:5px" >
+							<thead>
+							<tr class="info">
+								<th width="20"></th>
+								<th width="calc(100%-150px-80px-20px)">SQL</th>
+								<th width="180">兼容情况</th>
+								<th width="120" style="text-align:center">操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							</tbody>
+							
+						</table>
+			 
+				</div>			
+			</div>
+		</div>
+	</div>
+	
+	<!-- code -->
+		<div id="code_div" class="tab">
+		<div class="tab_menu">
+			<ul>
+				<li class="selected">程序兼容情况概要</li>
+				<li>程序兼容详情</li>
+			</ul>
+		</div>
+		<div class="tab_box" style="height:250px;overflow:hidden;">
+			<div class="tab_box_con">
+				 <div class="row">
+					<div id="code-statistics" class="col-sm-4 col-md-4 col-lg-4"></div>
+					<div class="col-sm-8 col-md-8 col-lg-8">
+						<table  id="table_code" class="table">
+							<thead>
+							<tr class="info">
+							<th width="20"></th>
+							<th width="100">兼容率</th>
+							<th width="100">程序文件总数量</th>
+							<th width="120">完全兼容数量</th>
+							<th width="130">转换后兼容数量</th>
+							<th width="100">不兼容数量</th>
+							<th width="150">兼容状态未知数量</th>
+							</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				 </div>
+			</div>
+			
+			<div class="tab_box_con hide">
+					<div class="border" style="height:250px; overflow:hidden;">
+						<form class="form-inline" role="form">
+							<select id="select_code_status"  onChange="refreshCodeTableElement()" class="form-control">
+								<option>所有兼容情况</option>
+								<option>完全兼容</option>
+								<option>转换后兼容</option>
+								<option>不兼容</option>
+								<option>兼容状态未知</option>
+							</select>
+							<input type="text" class="form-control" id="search-code" onKeyPress="onSearchKeyPress(event,CODE)" placeholder="请输入搜索信息">
+							<button type="button" class="btn btn-default" onClick="refreshCodeTableElement()">搜索</button>
+						</form>
+					
+						<table id="table_code_detail" class="table table-bordered" style="margin-bottom:5px" >
+							<thead>
+							<tr class="info">
+								<th width="20"></th>
+								<th width="calc(100%-150px-80px-20px)">文件名</th>
+								<th width="180">兼容情况</th>
+								<th width="120" style="text-align:center">操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							</tbody>
+							
+						</table>
+			 
+				</div>			
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="dialog-td-detail" role="dialog" aria-labelledby="dialog-td-detail-title">
+	</div>
+	<div class="modal" id="dialog-obj-detail" role="dialog" aria-labelledby="dialog-obj-detail-title">
+	</div>
+	
+   
+</div><!-- /container -->
+</body>
+</html>

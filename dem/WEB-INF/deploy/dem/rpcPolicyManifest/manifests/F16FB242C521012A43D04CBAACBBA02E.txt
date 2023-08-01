@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.admin.ISmokeService
+path: 5EFB8F9C1FDC79FE6AA44132FA11E4B7.gwt.rpc

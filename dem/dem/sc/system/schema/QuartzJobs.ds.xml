@@ -1,0 +1,16 @@
+<DataSource ID="QuartzJobs"
+			serverConstructor="com.isomorphic.scheduler.QuartzJobs"
+>
+
+	<fields>
+		<field name="group" type="string" primaryKey="true" required="true"/>
+		<field name="name" type="string" primaryKey="true" required="true"/>
+		<field name="description" type="string"/>
+		<field name="className" type="string" required="true"/>
+
+        <field name="durability" type="boolean" defaultValue="true"/>
+        <field name="recover" type="boolean" defaultValue="true"/>
+
+		<field name="dataMap" type="Object" showIf="false"/>
+	</fields>    
+</DataSource>

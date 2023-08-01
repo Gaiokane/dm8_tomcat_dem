@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IBackupService
+path: B7A33BBD2F2FD3BF5993086CC1AF97D8.gwt.rpc

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>启动/停止集群</title>
+</head>
+
+<body>
+	<h2>启动/停止集群</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的集群分组的操作下拉菜单中点击<b>启动/停止集群</b>可以打开启动/停止集群对话框，启动/停止集群用于启动停止集群。
+	</p>
+	<p>&emsp;&emsp;数据守护和读写分离集群主要包括确认监视器,数据库实例,dmwatcher的启动和停止，如下图所示：</p>
+	<p>
+		<img src="images/database_group_startAndStop_dialog.png" alt="" />
+	</p>
+		<p>&emsp;&emsp;DMDSC集群主要包括数据库实例,dmcss,dmasm的启动和停止，如下图所示：</p>
+	<p>
+		<img src="images/database_group_startAndStop_dialog_rac.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;启动/停止集群包括两种方式:</p>
+	<ul>
+		<li><a href="#tabs-1">以服务方式启动/停止</a></li>
+		<li><a href="#tabs-2">以进程方式启动/停止</a></li>
+	</ul>
+	<br />
+	<blockquote>
+		<div>启动时可以根据需要，按服务方式启动，或按进程方式启动，如果以服务方式启动，必须是已经注册好服务。</div>
+		<div>停止时必须按照原本集群启动的方式停止，如果集群是以服务方式启动的，就应该选择以服务方式停止；如果集群是以进程方式启动，则应该选择以进程方式停止，否则无法正常停止集群。</div>
+	</blockquote>
+	
+	<h3 id="tabs-1">以服务方式启动/停止</h3>
+	<p>&emsp;&emsp;以服务方式启动/停止，即根据给定的服务名，来启动/停止集群，数据守护和读写分离集群以服务方式启动/停止如下图所示:</p>
+	<p>
+		<img src="images/database_group_startAndStop_dialog_part1.png" />
+	</p>
+	
+	<strong>以服务方式启动/停止功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/start.png" />启动集群</td>
+				<td>按照给定的服务名启动集群。</td>
+			</tr>
+			<tr>
+				<td><img src="images/stop.png" />停止集群</td>
+				<td>按照给定的服务名停止集群。</td>
+			</tr>
+			<tr>
+				<td><img src="images/refresh.png" />刷新状态</td>
+				<td>刷新集群各组件的状态。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search.png" />扫描服务</td>
+				<td>按照DM服务注册规则，自动扫描出集群已经注册的服务。</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<p>
+		<strong>集群服务信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>列出集群包含的组件，包括确认监视器，实例以及每个实例对应dmwatcher。</td>
+			</tr>
+			<tr>
+				<td>IP</td>
+				<td>集群组件所在的主机IP，实例与实例对应的dmwatcher在相同的主机上，所以只需配置实例的主机IP,且实例的主机IP在添加集群时已确定，这里不能修改。另外，如果需要启动/停止确认监视器，则需要指定确认监视器所在的主机</td>
+			</tr>
+			<tr>
+				<td>服务名(双击编辑)</td>
+				<td>集群组件的已注册的对应的服务名称。可通过<b>扫描服务</b>自动扫描填充。双击编辑，可以点击<b>...</b>打开<a href="remoteService_Dialog.html">服务选择对话框</a>,选择对应的集群组件的服务名。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>集群组件的启动/停止状态。在确定IP和服务名时，才可以显示出状态信息。</td>
+			</tr>
+			<tr>
+				<td>操作</td>
+				<td>单独操作集群的每个组件，如果对应组件状态是“停止”，则可以<b>启动</b>该组件的服务，如果状态是”启动“，则可以<b>停止</b>该组件的服务。在确定IP和服务名时，才可以显示出操作信息。</td>
+			</tr>
+		</tbody>
+
+	</table>
+	<blockquote>
+		<div>DMDSC集群以服务方式启动/停止的功能列表和服务信息列表与数据守护和读写分离集群相同，只是需要配置的是数据库实例,dmcss,dmasm的服务来启动/停止。</div>
+	</blockquote>
+    <h3 id="tabs-2">以进程方式启动/停止</h3>
+	<p>&emsp;&emsp;以进程方式启动/停止，即根据给定的bin路径和ini路径，来启动/停止集群，数据守护和读写分离集群如下图所示:</p>
+	<p>
+		<img src="images/database_group_startAndStop_dialog_part2.png" />
+	</p>
+		<strong>以进程方式启动/停止功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/start.png" />启动集群</td>
+				<td>按照给定的bin路径和ini路径启动集群。</td>
+			</tr>
+			<tr>
+				<td><img src="images/stop.png" />停止集群</td>
+				<td>按照给定的bin路径和ini路径停止集群。</td>
+			</tr>
+			<tr>
+				<td><img src="images/refresh.png" />刷新状态</td>
+				<td>刷新集群各组件的状态。</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<p>
+		<strong>集群进程信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>列出集群包含的组件，包括确认监视器，实例以及每个实例对应dmwatcher。</td>
+			</tr>
+			<tr>
+				<td>IP</td>
+				<td>集群组件所在的主机IP，实例与实例对应的dmwatcher在相同的主机上，所以只需配置实例的主机IP,且实例的主机IP在添加集群时已确定，这里不能修改。另外，如果需要启动/停止确认监视器，则需要指定确认监视器所在的主机</td>
+			</tr>
+			<tr>
+				<td>bin路径(双击可编辑)</td>
+				<td>集群组件的对应的bin路径，即执行文件所在目录。实例与实例对应的dmwatcher在相同的主机上，且建议使用同一套执行文件，所以执行配置实例的bin路径。
+				双击编辑，可以点击<b>...</b>打开<a href="remoteFile_Dialog.html">文件选择对话框</a>,选择对应的集群组件的bin路径。</td>
+			</tr>
+			<tr>
+				<td>ini路径(双击可编辑)</td>
+				<td>集群组件的对应的ini路径。双击编辑，可以点击<b>...</b>打开<a href="remoteFile_Dialog.html">文件选择对话框</a>,选择对应的集群组件的ini路径。</td>
+			</tr>
+				<tr>
+				<td>dmdcr.ini路径(双击可编辑)</td>
+				<td>仅DMDSC集群时才显示，组件的对应的dmdcr.ini路径。双击编辑，可以点击<b>...</b>打开<a href="remoteFile_Dialog.html">文件选择对话框</a>,选择对应的集群组件的dmdcr.ini路径。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>集群组件的启动/停止状态。在确定IP，bin路径以及ini路径或dmdcr.ini路径时，才可以显示出状态信息。</td>
+			</tr>
+			<tr>
+				<td>操作</td>
+				<td>单独操作集群的每个组件，如果对应组件状态是“停止”，则可以<b>启动</b>该组件的服务，如果状态是”启动“，则可以<b>停止</b>该组件的服务。在确定IP，bin路径以及ini路径或dmdcr.ini路径时，才可以显示出操作信息。</td>
+			</tr>
+		</tbody>
+	</table>
+		<blockquote>
+		<div>DMDSC集群以服务方式启动/停止的功能列表和服务信息列表与数据守护和读写分离集群相同，只是需要配置的是数据库实例,dmcss,dmasm的bin路径和ini路径来启动/停止。</div>
+	</blockquote>
+</body>
+</html>

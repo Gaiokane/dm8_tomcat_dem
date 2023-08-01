@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>表监控管理</title>
+</head>
+
+<body>
+	<h2>表监控管理</h2>
+	<p>
+		&emsp;&emsp;添加和删除表数据行数监控。单实例的表监控管理入口在<a
+			href="database_ud_sql_panel.html">表数据分析面板</a>的功能按钮<b>添加/删除</b>，而集群的表监控管理入口在<a
+			href="database_panel.html">数据库监控面板</a>中的集群分组的操作下拉菜单中的<b>表监控管理</b>。对于集群的表监控添加，会同时在集群的所有站点上添加；同样的删除时也会删除所有站点上的表监控。管理对话框如下图所示:
+	</p>
+	<p>
+		<img src="images/database_table_dialog.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" alt="" />刷新</td>
+				<td>刷新监控表列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/add.png" alt="" />添加</td>
+				<td>添加监控表。点击打开<a href="#add_table_dialog">表监控添加对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" alt="" />删除</td>
+				<td>删除监控表。</td>
+			</tr>
+			<tr>
+				<td>过滤</td>
+				<td>监控表列表的模式名或表名过滤。输入框中输入内容按<b>回车</b>。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>监控表列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>模式名</td>
+				<td>表的模式名。</td>
+			</tr>
+			<tr>
+				<td>表名</td>
+				<td>表名。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="add_table_dialog">表监控添加对话框</h3>
+	<p>
+		<img src="images/database_table_add_dialog.png" alt="" />
+	</p>
+	<p>
+		<strong>模式名</strong><br />监控表的模式名。从下拉列表中选择一个模式。
+	</p>
+	<p>
+		<strong>表名</strong><br />监控表的表名。从下拉列表中选择一个表。
+	</p>
+</body>
+</html>

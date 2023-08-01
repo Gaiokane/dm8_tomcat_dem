@@ -1,0 +1,16 @@
+<DataSource	ID="AdaptiveMenu" Constructor="AdaptiveMenu" inheritsFrom="Layout">
+	<fields>
+		<field name="inlineImgButton"	type="ImgButton" />        
+        <field name="inlineSubmenuItem"	type="IconMenuButton" />
+        <field name="inlineMenuItem"	type="ToolStripButton" />
+        <field name="menuButtonIcon"	type="SCImgURL" />        
+        <field name="menuButton"	type="MenuButton" />                
+        <field name="menuButtonTitle"	type="HTMLString" />        
+        <field name="menu"	type="Menu" />
+        <field name="items"	type="MenuItem"	multiple="true" />
+        <field name="inlinePlacement"	type="valignEnum" />        
+        <field name="partialInlining"	type="boolean" />        
+        <field name="showInlineSeparators"	type="boolean" />
+        <field name="showIconOnlyInline"	type="boolean" />        
+    </fields>
+</DataSource>

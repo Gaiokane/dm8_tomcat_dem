@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IMainframeService
+path: DA065F402ECFC7649BC8D7114B6E5A4B.gwt.rpc

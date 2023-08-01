@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ITriggerService
+path: 7301B0C87C0105C0011C962C84F41073.gwt.rpc

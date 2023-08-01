@@ -1,0 +1,27 @@
+<DataSource	ID="Img" inheritsFrom="StatefulCanvas" Constructor="Img">
+	<fields>
+        <field name="name"              type="string"/>
+ 		<field name="imageType"			type="imageTypeEnum" basic="true"/>	<!-- imageTypeEnum defined in Canvas -->
+        <!-- size doesn't work as expected in VB so hidden for now -->
+        <field name="size"              type="positiveInteger" hidden="true"/>
+        <field name="imageHeight"       type="positiveInteger" basic="true"/>
+        <field name="imageWidth"       type="positiveInteger" basic="true"/>
+        <field name="activeAreaHTML"    type="string"/>
+
+		<field name="src" type="URL" title="Image" basic="true"/>
+
+        <field name="title" inapplicable="true"/>
+        <field name="autoFit" inapplicable="true"/>
+        <field name="peers" inapplicable="true"/>
+		<field name="children" inapplicable="true"/>	
+
+        <!-- Change titles to be clearer vs image height/width -->
+        <field name="width"  type="measure" title="Canvas Width"  xmlAttribute="true" basic="true"/>	
+        <field name="height" type="measure" title="Canvas Height" xmlAttribute="true" basic="true"/>
+	</fields>
+    
+    <methods>
+        <method name="click" basic="true"/>
+        <method name="doubleClick" basic="true"/>
+    </methods>
+</DataSource>

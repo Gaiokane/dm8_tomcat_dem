@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IUdScriptService
+path: 6D590A98B6354EA6E70489BE48F32D2F.gwt.rpc

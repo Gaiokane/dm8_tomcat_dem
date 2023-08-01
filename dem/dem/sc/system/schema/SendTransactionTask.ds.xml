@@ -1,0 +1,3 @@
+<DataSource ID="SendTransactionTask" inheritsFrom="ProcessElement" Constructor="SendTransactionTask">
+</DataSource>
+

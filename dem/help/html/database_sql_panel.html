@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>SQL分析</title>
+</head>
+
+<body>
+	<h2>SQL分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>SQL分析</b>可以打开SQL分析面板，该页面用于查看最近一段时间内数据库实例执行的sql语句。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_sql_panel.png" alt="" />
+	</p>
+	<p>
+		<strong>功能按钮列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" alt="" />刷新</td>
+				<td>刷新列表信息。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_sql_panel_search.png" alt="" />
+				</td>
+				<td>关键字查找过滤。</td>
+			</tr>
+			<tr>
+				<td><img src="images/intv_time_item.png" alt="" /></td>
+				<td>执行时间过滤。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_sql_panel_type.png" alt="" /></td>
+				<td>类别过滤。分为慢sql、高频sql、错误sql。慢sql的界定时间可以在<a
+					href="./sys_config_panel.html">系统配置面板</a>调整。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>SQL语句信息列表</strong>
+	</p>
+	<p>
+		&emsp;&emsp;列表中为当前收集到的最新的表空间监控信息。sql语句超长表格中会隐藏超长部分，如果想查看完整的sql信息或者想拷贝sql语句可以双击行数据打开<a
+			href="#sql_detail_dialog">SQL详细信息对话框</a>。
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>SQL语句</td>
+				<td>sql语句内容。</td>
+			</tr>
+			<tr>
+				<td>执行时间</td>
+				<td>sql执行时间。</td>
+			</tr>
+			<tr>
+				<td>耗时</td>
+				<td>执行花费的时间。</td>
+			</tr>
+			<tr>
+				<td>会话ID</td>
+				<td>所属会话ID。</td>
+			</tr>
+			<tr>
+				<td>会话IP</td>
+				<td>所属会话的ip地址。</td>
+			</tr>
+			<tr>
+				<td>用户名</td>
+				<td>执行sql的用户。</td>
+			</tr>
+			<tr>
+				<td>应用名称</td>
+				<td>执行sql语句的应用程序名称。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="sql_detail_dialog">SQL详细信息对话框</h3>
+	<p>
+		<img src="images/database_sql_detail_dialog.png" alt="" />
+	</p>
+
+</body>
+</html>

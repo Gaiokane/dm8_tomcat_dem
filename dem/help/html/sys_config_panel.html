@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>系统管理</title>
+</head>
+
+<body>
+	<h2>系统管理</h2>
+	<p>&emsp;&emsp;双击主页左侧导航树的系统管理节点可以打开系统管理面板。该页面用于系统属性配置，系统管理员可以通过该页面随时调整系统属性，修改的属性保存后可以立即生效。如下图所示:</p>
+	<p>
+		<img src="images/sys_config_panel.png" alt="" />
+	</p>
+	<p>系统属性可以大致分为五个模块：</p>
+	<blockquote>
+		<div>1.客户端工具相关配置</div>
+		<div>2.监控告警相关配置</div>
+		<div>3.系统邮箱配置</div>
+		<div>4.短信推送配置</div>
+		<div>5.安全相关配置</div>
+	</blockquote>
+	<p>具体每个配置项的功能、属性值范围在描述信息中都有说明。每个属性的默认值是系统推荐的配置值。</p>
+	<p>
+		<strong>功能按钮列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新属性列表。未保存的属性修改将会丢失。</td>
+			</tr>
+			<tr>
+				<td><img src="images/save.png" alt="" />保存</td>
+				<td>保存属性修改。</td>
+			</tr>
+			<tr>
+				<td><img src="images/send_email.png" alt="" />邮件推送测试</td>
+				<td>配置系统邮箱后，可以点击该按钮打开<b>邮件推送测试对话框</b>检测配置是否正确，对话框如下所示： <br />
+					<br /> <img src="images/mail_test_dialog.png" alt="" /> <br /> <br />
+					输入<b>收件人邮箱</b>地址和<b>邮件内容</b>，点击<b>发送测试</b>按钮进行邮件推送测试。如果收到测试邮件说明系统邮箱配置正确，否则应该检查配置是否有误。
+
+				</td>
+			</tr>
+			<tr>
+				<td><img src="images/send.png" alt="" />短信推送测试</td>
+				<td>配置系统短信推送配置后，可以点击该按钮打开<b>短信推送测试对话框</b>检测配置是否正确, 对话框如下所示： <br />
+					<br /> <img src="images/phone_test_dialog.png" alt="" /> <br />
+					<br /> 输入<b>手机号</b>和<b>发送内容</b>，点击<b>发送测试</b>按钮进行短信推送测试。如果收到短信说明系统短信推送配置正确，否则应该检测配置是否有误。
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>系统属性信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;表中为系统中所有可配的属性信息列表。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>配置域</td>
+				<td>属性名称。</td>
+			</tr>
+			<tr>
+				<td>属性值</td>
+				<td>属性值。</td>
+			</tr>
+			<tr>
+				<td>描述</td>
+				<td>属性描述，包括属性的功能，属性值的单位，以及属性值配置范围。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

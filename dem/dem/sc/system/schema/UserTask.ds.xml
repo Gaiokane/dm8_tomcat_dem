@@ -1,0 +1,13 @@
+<DataSource ID="UserTask" inheritsFrom="Task" Constructor="UserTask">
+    <fields>
+        <field name="wizard" type="boolean" xmlAttribute="true" />
+        <field name="saveToServer" type="boolean" xmlAttribute="true" />
+        <field name="cancelElement" type="string" xmlAttribute="true" />
+        <field name="previousElement" type="text" xmlAttribute="true" />
+        <field name="inlineView" type="Canvas" propertiesOnly="true" />
+        <field name="targetView" type="Canvas" propertiesOnly="true" idAllowed="true" />
+        <field name="targetForm" type="string" xmlAttribute="true" />
+        <field name="targetVM" type="string" xmlAttribute="true" />
+    </fields>
+</DataSource>
+

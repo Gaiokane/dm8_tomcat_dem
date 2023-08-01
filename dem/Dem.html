@@ -1,0 +1,152 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+<head>
+<meta name="gwt:property" content="locale=zh_CN">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--                                           -->
+<!-- Any title is fine                         -->
+<!--                                           -->
+<title>达梦企业管理系统</title>
+<link rel="shortcut icon" href="favicon.png">
+
+<!--CSS for loading message at application Startup-->
+<style type="text/css">
+.mainLoading {
+	width: 140px;
+	height: 140px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -70px;
+	margin-top: -70px;
+	text-align: center;
+	vertical-align: middle;
+	color: #3088d8;
+}
+</style>
+
+<script type="text/javascript">
+	var appName = "dem";
+	var isomorphicDir = "dem/sc/";
+	window.isc_expirationOff = true;
+	var useWebSocket = false;
+
+	// read cookie
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ')
+				c = c.substring(1, c.length);
+			if (c.indexOf(nameEQ) == 0)
+				return c.substring(nameEQ.length, c.length);
+		}
+		return null;
+	}
+
+	// hide loading image
+	function hideLoadingImage() {
+		var div = document.getElementsByName("mainLoading");
+		for (var i = 0; i < div.length; i++) {
+			div[i].style.display = "none";
+		}
+	}
+
+	// theme
+	var themeName = readCookie('dem_skin_name_2_4');
+	if (themeName == null) {
+		themeName = "light";
+	}
+
+	function themeChange(theme) {
+		themeName = theme;
+
+		loadCommonGwt(appName, theme);
+		loadCommonTheme(appName, theme);
+		loadCodemirror(appName, theme);
+		loadDemTheme(appName, theme);
+	}
+
+	// visibility(by set global variable __is__visible__)
+	var __is__visible__ = true;
+	var hiddenProperty = 'hidden' in document ? 'hidden'
+			: 'webkitHidden' in document ? 'webkitHidden'
+					: 'mozHidden' in document ? 'mozHidden' : null;
+	var visibilityChangeEvent = hiddenProperty.replace(/hidden/i,
+			'visibilitychange');
+	document.addEventListener(visibilityChangeEvent, function() {
+		if (document[hiddenProperty]) {
+			__is__visible__ = false;
+		} else {
+			__is__visible__ = true;
+		}
+	});
+</script>
+</head>
+
+<body>
+	<!-- OPTIONAL: include this if you want history support -->
+	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
+		style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+	<!--add loading indicator while the app is being loaded-->
+	<div name="mainLoading"
+		style="position: relative; width: 100%; height: 100%"></div>
+
+	<div name="mainLoading" class="mainLoading">
+		<!--<img id="loadingImage" src="images/home/loading.gif"/>-->
+		<div class="loading-cycle">
+			<div></div>
+		</div>
+	</div>
+
+	<div name="mainLoading" class="mainLoading"
+		style="display: table-cell; line-height: 140px; font-size: 20px;">
+		DEM</div>
+
+	<!-- smartgwt -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src=dem/sc/modules/ISC_Core.js></script>
+	<script src='dem/sc/modules/ISC_Foundation.js'></script>
+	<script src='dem/sc/modules/ISC_Containers.js'></script>
+	<script src='dem/sc/modules/ISC_Grids.js'></script>
+	<script src='dem/sc/modules/ISC_Forms.js'></script>
+	<script src="dem/sc/modules/ISC_RichTextEditor.js"></script>
+	<script src="dem/sc/modules/ISC_Calendar.js"></script>
+	<script src='dem/sc/modules/ISC_DataBinding.js'></script>
+	<script src='dem/sc/modules/ISC_Drawing.js'></script>
+	<script src='dem/sc/modules/ISC_Charts.js'></script>
+	<script src='dem/sc/modules/ISC_RealtimeMessaging.js'></script>
+
+	<!--load commons-->
+	<script src="dem/commongwt/load.js"></script>
+	<script src="dem/codemirror/load.js"></script>
+
+	<!--load skin-->
+	<script src="dem/sc/skins/load.js"></script>
+	<script src="theme/load.js"></script>
+
+	<!--include the application JS-->
+	<script>
+		document
+				.write('<script type="text/javascript" src="dem/dem.nocache.js?token='
+						+ Math.random() + '"><\/script>');
+	</script>
+
+	<!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+	<noscript>
+		<div
+			style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			Your web browser must have JavaScript enabled in order for this
+			application to display correctly.</div>
+	</noscript>
+</body>
+</html>

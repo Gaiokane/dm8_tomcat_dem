@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>数据库监控</title>
+</head>
+
+<body>
+	<h2>数据库监控</h2>
+	<p>&emsp;&emsp;双击主页左侧导航树的数据库节点可以打开数据库监控面板。该页面用于管理和查看所有监控的数据库。数据库的监控需要在主机上配置和启动达梦数据库代理，然后在页面上手动添加数据库监控才生效。与主机监控页面一样，该页面每隔一定时间也会自动刷新数据库监控信息。数据库监控可以分为以下几种：</p>
+	<ul>
+		<li><a href="#tabs-1">单机监控</a>
+		</li>
+		<li><a href="#tabs-2">集群监控</a>
+		</li>
+	</ul>
+	<p>&emsp;&emsp;页面如下图所示:</p>
+	<p>
+		<img src="images/database_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新数据库列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/add.png" />添加</td>
+				<td>添加数据库监控。点击按钮展开菜单如下：<br /> <br /> <img
+					src="images/database_panel_add_button.png" alt="" /> <br /> <br />
+					单机：添加单节点数据库实例监控。详细介绍请参见<a href="database_single_dialog.html">单机监控对话框</a>
+					。<br /> <br /> 集群：添加集群环境数据库实例监控。详细介绍请参见<a
+					href="database_group_dialog.html">集群监控对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/edit.png" />编辑</td>
+				<td>编辑选中的数据库。点击打<a href="database_single_dialog.html">单机监控对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>删除选中的数据库。</td>
+			</tr>
+			<tr>
+				<td>更多>></td>
+				<td>点击按钮可以使用更多功能。弹出菜单如下图所示:<br /> <br /> <img
+					src="images/database_panel_more_button.png" /></td>
+			</tr>
+			<tr>
+				<td><img src="images/sql.png" />多连接查询</td>
+				<td>可以同时连接多个数据库实例执行sql语句并查看结果。详细介绍请参见<a
+					href="multi_conn_sql_template_panel.html">多连接查询面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/mark_all.png" />忽略全部警告</td>
+				<td>忽略所有数据库上的全部警告信息。点击按钮，弹出如下对话框：<br /> <br /> <img
+					src="images/database_panel_ignore_all_alert.png" /> <br /> <br />
+					点击<b>是</b>按钮忽略所有数据库上的警告信息。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search_item.png" />
+				</td>
+				<td>对数据库列表进行ip地址端口号的过滤。搜索输入框中输入内容，敲下<b>回车</b>或者点击<img
+					src="images/search.png" />。</td>
+			</tr>
+			<tr>
+				<td><img src="images/time_item.png" />
+				</td>
+				<td>显示最近一次获取数据库监控信息的时间，通过点击<img
+					src="images/css_time_button.png" />按钮可以关闭页面的自动刷新。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-1">单机监控</h3>
+	<p>
+		<strong>数据库监控信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;表中为当前收集到的各数据库最新的监控信息。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>数据库</td>
+				<td>数据库ip地址及端口号。 <br /> 鼠标停留在数据库列，可以显示数据库实例的其他一些信息，如下图所示:<br />
+					<br /> <img src="images/database_panel_dbname_hint.png" alt="" />
+				</td>
+			</tr>
+			<tr>
+				<td>连接</td>
+				<td>连接是否正常， <img src="images/css_success.png" alt="" />表示连接正常，<img
+					src="images/css_failed.png" alt="" />表示连接失败；</td>
+			</tr>
+			<tr>
+				<td>运行时间</td>
+				<td>数据库实例运行时间。</td>
+			</tr>
+			<tr>
+				<td>CPU</td>
+				<td>cpu使用率。</td>
+			</tr>
+			<tr>
+				<td>内存</td>
+				<td>内存使用率。</td>
+			</tr>
+			<tr>
+				<td>会话</td>
+				<td>数据库实例的会话数（活动会话数/总会话数）。</td>
+			</tr>
+			<tr>
+				<td>每秒事务</td>
+				<td>数据库实例的每秒事务数。</td>
+			</tr>
+			<tr>
+				<td>磁盘I/O</td>
+				<td>数据库实例的磁盘读写速率。</td>
+			</tr>
+			<tr>
+				<td>网络I/O</td>
+				<td>数据库实例的网络读写速率。</td>
+			</tr>
+			<tr>
+				<td>警告</td>
+				<td>未处理的告警数量。点击打开<a href="alert_history_dialog.html">告警历史对话框</a>。</td>
+			</tr>
+			<tr>
+				<td>操作</td>
+				<td>点击<img src="images/arrow_down.gif" alt="" />将弹出操作菜单，如下图所示：<br />
+					<br /> <img src="images/database_panel_action_menu.png" alt="" /><br />
+					<br /> 具体详细介绍请参见<a href="#action_menu">数据库操作菜单列表</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong id="action_menu">数据库操作菜单列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>菜单</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/chart_line.png" alt="" />AWR报告</td>
+				<td>数据库监控的AWR报告。点击打开如下对话框：<br /> <br /> <img
+					src="images/database_awr_intv_choose_dialog.png" alt="" /><br />
+					<br /> 配置要查看AWR报告的时间区间，点击<b>确定</b>按钮打开<a
+					href="./database_awr_panel.html">AWR报告面板</a>。
+					</p></td>
+			</tr>
+			<tr>
+				<td><img src="images/table_space.png" alt="" />表空间分析</td>
+				<td>数据库表空间使用情况。点击打开<a href="./database_tablespace_panel.html">表空间分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/sql.png" alt="" />SQL分析</td>
+				<td>数据库执行的SQL语句的统计分析。点击打开<a href="./database_sql_panel.html">SQL分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/connect.png" alt="" />登录锁定</td>
+				<td>数据库用户被锁定的历史记录。点击打开<a href="./database_loginlock_panel.html">登录锁定面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/lock.png" alt="" />死锁分析</td>
+				<td>数据库发生死锁的历史信息。点击打开<a href="./database_deadlock_panel.html">死锁分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/session.png" alt="" />会话分析</td>
+				<td>数据库会话使用的历史信息。点击打开<a href="./database_session_panel.html">会话分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/event.png" alt="" />事件分析</td>
+				<td>数据库事件历史信息。点击打开<a href="./database_event_panel.html">事件分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/sql_group.png" alt="" />自定义SQL分析</td>
+				<td>自定义SQL语句监控信息。点击打开<a href="./database_ud_sql_panel.html">自定义SQL分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/table.png" alt="" />表数据分析</td>
+				<td>数据库表数据监控信息。点击打开<a href="./database_table_panel.html">表数据分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/file.png" alt="" />查看DM.INI</td>
+				<td>数据库DM.INI配置信息。点击打开<a href="./database_dmini_panel.html">查看DM.INI面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/edit.png" alt="" />编辑</td>
+				<td>可以修改数据库的登录名、密码、描述等信息。点击打开<a
+					href="./database_single_dialog.html">单机监控对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" alt="" />删除</td>
+				<td>删除数据库监控。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-2">集群监控</h3>
+	<p>&emsp;&emsp;表格中的数据库实例按集群分组显示，所有单机实例被分为一组。集群中站点的主备机关系以树形结构的形式展现。如下图所示：
+	</p>
+	<p>
+		<img src="images/database_panel_group.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;组的标题栏中显示了该集群的状态信息。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/database_panel_group_status.png" alt="" />
+				</td>
+				<td>集群系统是否运行正常。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_panel_group_type.png" alt="" />
+				</td>
+				<td>集群类型。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_panel_group_name.png" alt="" />
+				</td>
+				<td>集群名称。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_panel_group_site.png" alt="" />
+				</td>
+				<td>站点数量。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_panel_group_session.png" alt="" />
+				</td>
+				<td>集群活动会话数/总会话数。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_panel_group_restart.png" alt="" />
+				</td>
+				<td>集群重启次数。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_panel_group_switch.png" alt="" />
+				</td>
+				<td>集群故障切换次数。</td>
+			</tr>
+			<tr>
+				<td>操作</td>
+				<td>点击<img src="images/arrow_down.gif" alt="" />将弹出操作菜单，如下图所示：<br />
+					<br /> <img src="images/database_panel_group_menu.png" alt="" /><br />
+					<br /> 具体详细介绍请参见<a href="#action_menu2">集群操作菜单列表</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong id="action_menu2">集群操作菜单列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>菜单</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/chart_line.png" alt="" />集群分析</td>
+				<td>集群监控总体信息。点击打开<a href="./group_awr_panel.html">集群分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/dwmon_group.png" alt="" />集群管理</td>
+				<td>集群的管理，类似命令行集群监视器的功能。点击打开<a href="./group_dwmon_panel.html">集群管理面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/start_stop_group.png" alt="" />启动/停止集群</td>
+				<td>集群的启动和停止。点击打开<a href="./group_start_stop_dialog.html">启动/停止集群对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/sql_group.png" alt="" />自定义SQL监控管理</td>
+				<td>统一给集群中的所有站点添加删除自定义SQL监控。点击打开<a
+					href="./database_ud_sql_dialog.html">自定义SQL监控管理对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/table.png" alt="" />表监控管理</td>
+				<td>统一给集群中的所有站点添加删除表监控。点击打开<a
+					href="./database_table_dialog.html">表监控管理对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/mark_all.png" alt="" />忽略全部警告</td>
+				<td>忽略集群中所有站点的警告信息。点击打开<b>忽略全部警告对话框</b>，然后点击对话框中的<b>是</b>按钮。</td>
+			</tr>
+			<tr>
+				<td><img src="images/edit.png" alt="" />编辑</td>
+				<td>集群编辑，可以修改集群中的站点列表、名称、描述等信息。点击打开<a
+					href="./database_group_dialog.html">集群监控对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" alt="" />删除</td>
+				<td>删除整个集群监控。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

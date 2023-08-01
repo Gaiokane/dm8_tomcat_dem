@@ -1,0 +1,7 @@
+<DataSource ID="GridFetchRelatedDataTask" inheritsFrom="ComponentTask" Constructor="GridFetchRelatedDataTask">
+    <fields>
+        <field name="dataSource" type="DataSource" idAllowed="true" />
+        <field name="recordSourceComponent" type="string" xmlAttribute="true" />
+    </fields>
+</DataSource>
+

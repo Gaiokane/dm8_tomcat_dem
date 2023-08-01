@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ISequenceService
+path: C1AD06051574DD602C15FE6373A01156.gwt.rpc

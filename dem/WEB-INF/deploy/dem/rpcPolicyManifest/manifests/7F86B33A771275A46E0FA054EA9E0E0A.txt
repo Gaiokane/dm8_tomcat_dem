@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.admin.IAuditService
+path: 888A97E5501233D4CB0254EC6D221501.gwt.rpc

@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+<title>工具条</title>
+<style type="text/css">
+
+/* need this one for Mozilla */
+HTML {
+	margin: 0px;
+	padding: 0px;
+}
+
+BODY {
+	background: ButtonFace;
+}
+
+#titleText {
+	font-weight: bold;
+	color: WindowText;
+}
+
+.buttonOn a {
+	display: block;
+	margin-left: 2px;
+	margin-right: 2px;
+	width: 18px;
+	height: 18px;
+	border: 1px solid Highlight;
+	vertical-align: middle;
+	background: Window;
+}
+
+.button a,.buttonMenu a {
+	display: block;
+	margin-left: 2px;
+	margin-right: 2px;
+	height: 18px;
+	border: 1px solid ButtonFace;
+	vertical-align: middle;
+}
+
+.button a {
+	width: 18px;
+}
+
+.buttonMenu a {
+	width: 30px;
+}
+
+.buttonHidden a {
+	display: none;
+}
+
+.button a:hover,.buttonMenu a:hover {
+	border-top: 1px solid ButtonHighlight;
+	border-left: 1px solid ButtonHighlight;
+	border-right: 1px solid ButtonShadow;
+	border-bottom: 1px solid ButtonShadow;
+}
+
+#b8:hover {
+	border: 1px solid ButtonFace;
+}
+
+.separator {
+	background-color: ThreeDShadow;
+	height: 100%;
+	width: 1px;
+	border-top: 2px solid ButtonFace;
+	border-bottom: 2px solid ButtonFace;
+	border-left: 3px solid ButtonFace;
+	border-right: 3px solid ButtonFace;
+}
+
+#container {
+	border-bottom: 1px solid ThreeDShadow;
+	border-top: 1px solid ThreeDShadow;
+	height: 24px;
+}
+
+/* need this one for Mozilla */
+HTML {
+	margin: 0px;
+	padding: 0px;
+}
+</style>
+
+<script language="JavaScript">
+	function e() {
+		// get to the frameset
+		var p = parent;
+		while (p && !p.toggleFrame) {
+			if (p === p.parent) {
+				return;
+			}
+			p = p.parent;
+		}
+
+		if (p != null) {
+			p.toggleFrame('');
+		}
+		document.selection.clear;
+	}
+
+	function maximizedChanged(maximizedNotRestored) {
+		if (maximizedNotRestored) {
+			document.getElementById("maximize_restore").src = "images/e_restore.gif";
+			document.getElementById("maximize_restore").setAttribute("title",
+					"Restore");
+			document.getElementById("maximize_restore").setAttribute("alt",
+					"Restore");
+			bRestore = true;
+		} else {
+			document.getElementById("maximize_restore").src = "images/e_maximize.gif";
+			document.getElementById("maximize_restore").setAttribute("title",
+					"Maximize");
+			document.getElementById("maximize_restore").setAttribute("alt",
+					"Maximize");
+			bRestore = false;
+		}
+	}
+
+	function setButtonState(buttonName, pressed) {
+		if (!document.getElementById("tdb_" + buttonName))
+			return;
+		if (pressed == "hidden")
+			document.getElementById("tdb_" + buttonName).className = "buttonHidden";
+		else if (pressed == true)
+			document.getElementById("tdb_" + buttonName).className = "buttonOn";
+		else
+			document.getElementById("tdb_" + buttonName).className = "button";
+	}
+
+	function setWindowStatus(buttonName) {
+
+		if (buttonName == "toggle\u005Fhighlight") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Highlight\u0020Search\u0020Terms";
+			}
+		}
+
+		if (buttonName == "back") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Go\u0020Back";
+			}
+		}
+
+		if (buttonName == "forward") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Go\u0020Forward";
+			}
+		}
+
+		if (buttonName == "home") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Home";
+			}
+		}
+
+		if (buttonName == "null") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "null";
+			}
+		}
+
+		if (buttonName == "synch") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Show\u0020in\u0020Table\u0020of\u0020Contents";
+			}
+		}
+
+		if (buttonName == "add\u005Fbkmrk") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Bookmark\u0020Document";
+			}
+		}
+
+		if (buttonName == "print") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Print\u0020Page";
+			}
+		}
+
+		if (buttonName == "maximize\u005Frestore") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Maximize";
+			}
+		}
+
+	}
+
+	var bRestore = false;
+	// Preload images
+
+	var toggle_highlight = new Image();
+	toggle\u005Fhighlight.src = "images\u002Fe\u005Fhighlight\u002Egif";
+
+	var back = new Image();
+	back.src = "images\u002Fe\u005Fback\u002Egif";
+
+	var forward = new Image();
+	forward.src = "images\u002Fe\u005Fforward\u002Egif";
+
+	var home = new Image();
+	home.src = "images\u002Fe\u005Fhome\u002Egif";
+
+	var synch = new Image();
+	synch.src = "images\u002Fe\u005Fsynch\u005Ftoc\u005Fnav\u002Egif";
+
+	var add_bkmrk = new Image();
+	add\u005Fbkmrk.src = "images\u002Fe\u005Fadd\u005Fbkmrk\u002Egif";
+
+	var print = new Image();
+	print.src = "images\u002Fe\u005Fprint\u005Ftopic\u002Egif";
+
+	var maximize_restore = new Image();
+	maximize\u005Frestore.src = "images\u002Fmaximize\u002Egif";
+
+	function setTitle(label) {
+		if (label == null)
+			label = "";
+		var title = document.getElementById("titleText");
+		if (title == null)
+			return;
+		var text = title.lastChild;
+		if (text == null)
+			return;
+		text.nodeValue = label;
+	}
+</script>
+
+<script language="JavaScript" src="contentActions.js"></script>
+</head>
+<body dir="ltr">
+	<table width="100%" height="100%" cellspacing="0" cellpadding="0"
+		border="0" style="padding-left: 8px;" id="container">
+
+		<tbody>
+			<tr>
+				<td valign="middle" nowrap="" style="font: icon">
+					<div style="overflow: hidden; height: 22px;" id="titleTextTableDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td nowrap="" style="font: icon"><div id="titleText">&nbsp;</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+					<div style="position: absolute; top: 1px; right: 0px;">
+						<table width="100%" height="100%" cellspacing="1" cellpadding="0"
+							border="0">
+							<tbody>
+								<tr>
+									<td align="right">
+										<table height="100%" cellspacing="0" cellpadding="0"
+											border="0" align="right" style="background: ButtonFace">
+											<tbody>
+												<tr>
+													<td height="18" align="center" class="button" id="tdb_back">
+														<a id="b1" href="javascript:goBack('b1', '');"> <img
+															border="0" id="back" title="返回" alt="Go Back"
+															src="images/e_back.gif" /> </a>
+													</td>
+
+													<td height="18" align="center" class="button"
+														id="tdb_forward"><a id="b2"
+														href="javascript:goForward('b2', '');"> <img
+															border="0" id="forward" title="前进" alt="Go Forward"
+															src="images/e_forward.gif" /> </a>
+													</td>
+													<td height="18" align="center" class="button" id="tdb_home">
+														<a id="b3" onmouseout="window.status='';"
+														onmouseover="javascript:setWindowStatus('home');return true;"
+														href="javascript:goHome('b3', '../home_page.html');">
+															<img border="0" id="home" title="主页" alt="主页"
+															src="images/e_home.gif" /> </a></td>
+												</tr>
+											</tbody>
+										</table></td>
+								</tr>
+							</tbody>
+						</table>
+					</div></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

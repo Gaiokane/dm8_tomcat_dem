@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IContextIndexService
+path: 6C4429D845B2DDEDA4072D9DAF523E32.gwt.rpc

@@ -1,0 +1,23 @@
+<DataSource ID="LayoutResizeBar" Constructor="LayoutResizeBar" inheritsFrom="Snapbar">
+
+    <fields>
+        <field name="resizeDirection" type="resizeEnum" title="Resize Before or After"
+               defaultValue="before" basic="true"/>
+        <field name="canCollapse" type="boolean" title="Can collapse Target Member" 
+               defaultValue="true" basic="true"/>
+
+        <field name="title" inapplicable="true" />
+        <field name="enableWhen" inapplicable="true"/>
+        <field name="visibleWhen" inapplicable="true"/>
+    </fields>
+
+    <types>
+		<type ID="resizeEnum" inheritsFrom="enum">
+			<valueMap>
+				<value>before</value>
+				<value>after</value> 
+			</valueMap>
+		</type>	
+    </types>
+
+</DataSource>

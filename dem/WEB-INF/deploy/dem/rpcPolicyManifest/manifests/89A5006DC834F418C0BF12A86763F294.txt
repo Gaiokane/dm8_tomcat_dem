@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IRestore2Service
+path: 14B790BC160C205DAF6C55224D648FBD.gwt.rpc

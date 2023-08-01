@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ISqlDebugService
+path: 9094B955C7B156304AE0042A06783BE7.gwt.rpc

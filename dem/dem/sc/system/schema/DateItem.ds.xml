@@ -1,0 +1,27 @@
+<DataSource	ID="DateItem" inheritsFrom="ContainerItem" Constructor="DateItem">
+	<fields>
+		<field name="required" 			type="boolean"  title="Required" inapplicable="true"/>    
+		<field name="defaultValue"      type="date"   useTextField="true" 
+               title="Default Value"/> 
+		<field name="useTextField"      type="boolean"  title="Use Text Field" basic="true" />
+        <field name="invalidDateStringMessage"  type="string"/>
+		<field name="centuryThreshold"  type="positiveInteger"  title="Century Threshold"/>    
+        <field name="inputFormat" type="string"/>
+        <field name="displayFormat" type="string"/>
+        <field name="selectorFormat" type="string"/>
+        <field name="showChooserFiscalYearPicker" type="boolean"/>
+        <field name="showChooserWeekPicker" type="boolean"/>
+        <field name="showPickerTimeItem" type="boolean"/>
+        <field name="use24HourTime" type="boolean"/>
+   		<field name="startDate"		type="date" useTextField="true" title="Start Date"
+               prompt="First available date in date-range"/>
+		<field name="endDate"		type="date" useTextField="true" title="End Date"
+               prompt="Last available date in date-range"/>
+        <!-- can't really take pluggable items -->
+		<field name="items"		type="FormItem"	multiple="true"	inapplicable="true"/>		
+        <field name="type" inapplicable="true"/>
+    </fields>
+    <methods>
+        <method action="event" name="changed" basic="true" whenRuleTip="true" />
+    </methods>
+</DataSource>

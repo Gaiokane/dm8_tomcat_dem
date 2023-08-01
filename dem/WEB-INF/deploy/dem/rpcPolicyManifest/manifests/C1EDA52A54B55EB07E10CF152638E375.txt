@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IImpExpService
+path: EA1E336406DDE7317BB8B19594033045.gwt.rpc

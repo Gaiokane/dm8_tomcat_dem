@@ -1,0 +1,5 @@
+<DataSource ID="Header" inheritsFrom="ToolStrip" Constructor="Header">
+    <fields>
+        <field name="title" type="string" basic="true"/>
+    </fields>
+</DataSource>

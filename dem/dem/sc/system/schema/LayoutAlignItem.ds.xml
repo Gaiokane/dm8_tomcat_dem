@@ -1,0 +1,4 @@
+<DataSource ID="LayoutAlignItem" inheritsFrom="SelectItem" Constructor="LayoutAlignItem" >
+    <fields>
+    </fields>
+</DataSource>

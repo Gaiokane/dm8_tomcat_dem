@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.admin.ISYSConfigService
+path: E35466DE38B75410753753F0129CF34C.gwt.rpc

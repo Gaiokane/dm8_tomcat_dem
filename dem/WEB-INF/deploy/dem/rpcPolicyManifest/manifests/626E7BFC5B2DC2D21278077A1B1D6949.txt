@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.admin.IRoleService
+path: 8A3297EDBE26A38C3924A1662FCB0BB9.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IDatabaseService
+path: B595542F4F8B3737F8419542F269A636.gwt.rpc

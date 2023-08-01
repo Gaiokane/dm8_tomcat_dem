@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>会话分析</title>
+</head>
+
+<body>
+	<h2>会话分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>会话分析</b>可以打开会话分析面板，该页面用于查看最近一段时间内数据库实例会话数变化情况。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_session_panel.png" alt="" />
+	</p>
+
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的会话数变化情况。</p>
+	<p>
+		<strong>会话数图表</strong>
+	</p>
+	<p>&emsp;&emsp;图表中显示的是总会话数和活动会话数变化曲线图。横坐标是时间，纵坐标是会话数。鼠标放到曲线图的某一点上可以查看该时刻的详细信息。如下图所示：</p>
+	<p>
+		<img src="images/database_session_panel_point.png" alt="" />
+	</p>
+	<p>当图表跨时间段较长不好定位到具体的时间点时，可以拖动图表下方的标尺，临时放大指定区间的曲线图，如下图所示：</p>
+	<p>
+		<img src="images/database_session_panel_region.png" alt="" />
+	</p>
+	<p>
+		<strong>会话信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;列表中为当前所选时间段内的会话信息。列表中的记录按时间降序排列，且按日期分组显示。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>会话ID</td>
+				<td>会话ID。</td>
+			</tr>
+			<tr>
+				<td>SQL语句</td>
+				<td>会话执行的sql语句。</td>
+			</tr>
+			<tr>
+				<td>用户</td>
+				<td>创建会话的用户。</td>
+			</tr>
+			<tr>
+				<td>应用名称</td>
+				<td>创建会话的应用程序名称。</td>
+			</tr>
+			<tr>
+				<td>客户端IP</td>
+				<td>创建会话的客户端IP地址。</td>
+			</tr>
+			<tr>
+				<td>会话响应间隔</td>
+				<td>会话响应时间间隔，单位秒。</td>
+			</tr>
+			<tr>
+				<td>创建时间</td>
+				<td>会话创建时间。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

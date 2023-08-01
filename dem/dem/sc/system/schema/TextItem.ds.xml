@@ -1,0 +1,11 @@
+<DataSource ID="TextItem" inheritsFrom="FormItem" Constructor="TextItem">
+	<fields>
+		<field name="length" type="positiveInteger" title="Length"/>
+	</fields>
+	
+    <substituteClasses>BlurbItem, StaticTextItem, TextAreaItem</substituteClasses>
+
+    <methods>
+        <method action="event" name="changed" basic="true" whenRuleTip="true" />
+    </methods>
+</DataSource>

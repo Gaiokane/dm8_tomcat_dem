@@ -1,0 +1,3 @@
+<DataSource	ID="FlexSpacer" inheritsFrom="LayoutSpacer" Constructor="FlexSpacer"
+            showSuperClassEvents="false">
+</DataSource>

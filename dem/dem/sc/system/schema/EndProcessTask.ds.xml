@@ -1,0 +1,3 @@
+<DataSource ID="EndProcessTask" inheritsFrom="ProcessElement" Constructor="EndProcessTask">
+</DataSource>
+

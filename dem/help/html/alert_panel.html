@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>告警</title>
+</head>
+
+<body>
+	<h2>告警</h2>
+	<p>
+		&emsp;&emsp;对于一些严重异常情况用户可以添加告警配置，当发生异常时可以及时以邮件或短信方式通知用户。系统内置了一些常用的告警类型，此外用户也可以自定义sql语句进行告警，详见<a
+			href="database_ud_sql_dialog.html">自定义SQL监控管理</a>。双击主页左侧导航树的告警配置节点可以打开告警配置面板，如下图所示:
+	</p>
+	<p>
+		<img src="images/alert_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新告警配置列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/add.png" alt="" />添加</td>
+				<td>添加告警配置。点击打开<a href="alert_config_dialog.html">告警配置编辑对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/edit.png" alt="" />编辑</td>
+				<td>编辑告警配置。选中一个告警配置，点击按钮打开<a href="alert_config_dialog.html">告警配置编辑对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>选中一个或多个要删除的告警配置点击按钮可以删除选中的告警配置。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search_item.png" alt="" />
+				</td>
+				<td>对告警配置列表进行名称或描述的过滤。搜索输入框中输入内容，敲下<b>回车</b>或者点击<img
+					src="images/search.png" />。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>告警配置列表</strong>
+	</p>
+	<p>&emsp;&emsp;表中为所有告警配置的信息列表。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>告警配置名称。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>告警配置是否被禁用。<img src="images/css_start_using.png" alt="" />表示正常启用，<img
+					src="images/css_forbidden.png" alt="" />表示被禁用。</td>
+			</tr>
+			<tr>
+				<td>描述</td>
+				<td>告警配置描述。</td>
+			</tr>
+			<tr>
+				<td>创建者</td>
+				<td>告警配置创建用户。</td>
+			</tr>
+			<tr>
+				<td>创建时间</td>
+				<td>告警配置创建时间。</td>
+			</tr>
+			<tr>
+				<td>邮件通知</td>
+				<td>是否通过邮件通知用户。</td>
+			</tr>
+			<tr>
+				<td>手机通知</td>
+				<td>是否通过手机短信通知用户。</td>
+			</tr>
+			<tr>
+				<td>操作</td>
+				<td>点击<img src="images/arrow_down.gif" />将弹出操作菜单，如下图所示：<br />
+					<br /> <img src="images/alert_panel_menu.png" alt="" /><br /> <br />详细介绍请参见<a
+					href="#action_menu">告警配置操作菜单列表</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong id="action_menu">告警配置操作菜单列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>菜单</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/alert.png" alt="" />告警历史</td>
+				<td>由该告警配置产生的告警信息历史记录。 点击打开<a href="alert_history_dialog.html">告警历史面板</a>。
+
+				</td>
+			</tr>
+			<tr>
+				<td><img src="images/edit.png" alt="" />编辑</td>
+				<td>编辑告警配置。选中一个告警配置，点击按钮打开<a href="alert_config_dialog.html">告警配置编辑对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>选中一个或多个要删除的告警配置点击按钮可以删除选中的告警配置。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

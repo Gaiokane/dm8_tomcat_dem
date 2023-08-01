@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.ICurrentUserService
+path: 4C615A0E38785B25E0C82B7BA161D193.gwt.rpc

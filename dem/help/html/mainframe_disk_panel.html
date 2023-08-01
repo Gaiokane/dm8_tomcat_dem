@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>磁盘分析</title>
+</head>
+
+<body>
+	<h2>磁盘分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="mainframe_panel.html">主机监控面板</a>的主机列表的操作下拉菜单中点击<b>磁盘分析</b>可以打开主机磁盘分析面板，该页面用于查看主机磁盘的使用情况。如下图所示:
+	</p>
+	<p>
+		<img src="images/mainframe_disk_panel.png" alt="" />
+	</p>
+
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的主机磁盘使用情况。</p>
+	<p>
+		<strong>主机磁盘信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;列表中为当前收集到的最新的磁盘监控信息。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>磁盘名称或路径。</td>
+			</tr>
+			<tr>
+				<td>大小</td>
+				<td>磁盘总空间大小。</td>
+			</tr>
+			<tr>
+				<td>空闲空间</td>
+				<td>磁盘空闲的空间大小。</td>
+			</tr>
+			<tr>
+				<td>使用率</td>
+				<td>磁盘的使用率。使用率以进度条形式展现，并用了不同颜色来标识不同范围的使用率。<br /> <br />红色：80%以上；橘色：50%以上；绿色：50%以下;
+				</td>
+			</tr>
+			<tr>
+				<td>读</td>
+				<td>磁盘读取速率。</td>
+			</tr>
+			<tr>
+				<td>写</td>
+				<td>磁盘写入速率。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>主机磁盘使用率图表</strong>
+	</p>
+	<p>&emsp;&emsp;图表反映了最近一段时间内各个磁盘使用情况。每条曲线代表一个磁盘的使用率。横坐标是时间，纵坐标是磁盘使用率。</p>
+</body>
+</html>

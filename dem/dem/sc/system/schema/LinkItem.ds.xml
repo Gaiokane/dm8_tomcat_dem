@@ -1,0 +1,17 @@
+<DataSource	ID="LinkItem" inheritsFrom="StaticTextItem" Constructor="LinkItem">
+    <fields>
+        <field name="defaultValue" xmlAttribute="true" type="string" title="URL" group="basics" basic="true"/>
+        <field name="linkTitle" type="string" title="Link Text" group="basics" basic="true"/>
+        <field name="target" type="string" title="Open in (target)" group="basics">
+            <valueMap>
+                <value ID="">Current Window</value>
+                <value ID="_blank">New Tab</value>
+                <value ID="javascript">JavaScript Handler</value>
+            </valueMap>
+        </field>
+    </fields>
+
+    <methods>
+        <method name="click" basic="true" />
+    </methods>
+</DataSource>

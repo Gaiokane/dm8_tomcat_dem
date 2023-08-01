@@ -1,0 +1,3 @@
+<DataSource ID="LogOutTask" inheritsFrom="ProcessElement" Constructor="LogOutTask">
+</DataSource>
+

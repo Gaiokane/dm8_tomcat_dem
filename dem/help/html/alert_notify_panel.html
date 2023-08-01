@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>告警通知</title>
+</head>
+
+<body>
+	<h2>告警通知</h2>
+	<p>
+		&emsp;&emsp;告警信息还可以指定通知到具体的用户，用户可以点击主页顶部的<b>告警通知</b>按钮打开告警通知面板，查看分发给自己处理的告警信息。如下图所示:
+	</p>
+	<p>
+		<img src="images/alert_notify_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/mark.png" alt="" />标记已读</td>
+				<td>将选中的告警通知标记为已读。</td>
+			</tr>
+			<tr>
+				<td><img src="images/mark_all.png" alt="" />全部标记已读</td>
+				<td>将全部告警通知标记为已读。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" alt="" />删除</td>
+				<td>删除选中的告警通知。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete_all.png" alt="" />全部删除</td>
+				<td>删除全部告警通知。</td>
+			</tr>
+			<tr>
+				<td><img src="images/all.png" alt="" />所有</td>
+				<td>列表过滤按钮，点击显示全部告警信息。</td>
+			</tr>
+			<tr>
+				<td><img src="images/mail.png" alt="" />未读</td>
+				<td>列表过滤按钮，点击显示未处理的告警信息。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search_item.png" alt="" />
+				</td>
+				<td>对告警信息列表进行目标或消息的过滤。搜索输入框中输入内容，敲下<b>回车</b>或者点击<img
+					src="images/search.png" />。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>告警信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;告警信息按时间先后降序排列，且按日期分组显示。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>目标</td>
+				<td>告警信息来源。</td>
+			</tr>
+			<tr>
+				<td>消息</td>
+				<td>告警信息内容。</td>
+			</tr>
+			<tr>
+				<td>时间</td>
+				<td>告警信息产生时间。</td>
+			</tr>
+			<tr>
+				<td>发送邮件</td>
+				<td>告警信息是否已发送邮件通知用户。<img src="images/css_yes.png" alt="" />表示已发送，<img
+					src="images/css_no.png" alt="" />表示未发送。</td>
+			</tr>
+			<tr>
+				<td>发送短信</td>
+				<td>告警信息是否已发送短信通知用户。<img src="images/css_yes.png" alt="" />表示已发送，<img
+					src="images/css_no.png" alt="" />表示未发送。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>&emsp;&emsp;组标题后面统计了记录数，点击记录数可以快速选中该组的所有记录，如下图所示：</p>
+	<p>
+		<img src="images/alert_notify_panel_fast_select.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;双击告警记录可以打开详细信息对话框查看详细的告警原因，如下图所示：</p>
+	<p>
+		<img src="images/alert_detail_dialog.png" alt="" />
+	</p>
+</body>
+</html>

@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IContextService
+path: 310D470428F4529C736C5AC174BA71A0.gwt.rpc

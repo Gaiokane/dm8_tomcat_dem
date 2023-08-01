@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ISqlExecutorService
+path: 1E4CE3EDBF8251534304A70BF88D8157.gwt.rpc

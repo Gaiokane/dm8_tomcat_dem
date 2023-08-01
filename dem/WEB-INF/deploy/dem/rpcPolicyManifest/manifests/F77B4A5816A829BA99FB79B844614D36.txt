@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IProcessService
+path: 890865C5BEC3D3B0C26161C8B76B898D.gwt.rpc

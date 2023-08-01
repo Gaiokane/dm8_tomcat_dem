@@ -1,0 +1,181 @@
+/** Add css rules here for your application. */
+.bold {
+	font-weight: bold;
+}
+
+.border {
+	border-left: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+}
+
+.borderRadius {
+	border-left: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+	border-radius: 8px
+}
+
+.borderRadiusOnly {
+	border-radius: 8px
+}
+
+.border_null {
+	border-left: 0px solid #ababab;
+	border-right: 0px solid #ababab;
+	border-top: 0px solid #ababab;
+	border-bottom: 0px solid #ababab;
+}
+
+.borderLeft {
+	border-left: 1px solid #ababab;
+}
+
+.borderRight {
+	border-right: 1px solid #ababab;
+}
+
+.borderLeftAndRight {
+	border-left: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+}
+
+.borderTop {
+	border-top: 1px solid #ababab;
+}
+
+.borderBottom {
+	border-bottom: 1px solid #ababab;
+}
+
+.borderBottom2 {
+	border-bottom: 2px solid #F0F1F4;
+}
+
+.borderTopAndBottom {
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+}
+
+.borderTopAndLeft {
+	border-left: 1px solid #ababab;
+	border-top: 1px solid #ababab;
+}
+
+.borderBottomAndLeft {
+	border-left: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+}
+
+.borderTopAndRight {
+	border-top: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+}
+
+.borderBottomAndRight {
+	border-right: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+}
+
+.unBorderTop {
+	border-left: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+}
+
+.unBorderBottom {
+	border-left: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+	border-top: 1px solid #ababab;
+}
+
+.unBorderLeft {
+	border-right: 1px solid #ababab;
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+}
+
+.unBorderRight {
+	border-left: 1px solid #ababab;
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid #ababab;
+}
+
+.searchTextItem,.searchTextItemFocused,.searchTextItemDisabled,.searchTextItemDisabledHint,.searchTextItemError,.searchTextItemHint,.searchSelectItem,.searchSelectItemError,.searchSelectItemDisabled,.searchSelectItemFocused
+	{
+	color: black;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.searchTextItem,.searchTextItemFocused,.searchTextItemDisabled,.searchTextItemDisabledHint,.searchTextItemError,.searchTextItemHint,.searchSelectItem,.searchSelectItemError,.searchSelectItemFocused,.searchSelectItemDisabled,.searchSelectItemHint
+	{
+	background: white;
+	border: 1px solid #ababab;
+	color: black;
+	padding: 4px 2px 4px 2px;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.searchTextItem,.searchTextItemHint,.searchTextItemFocused {
+	border-bottom: 1px solid #dedede;
+	border-left: 1px solid #dedede;
+	border-right: 0px solid #dedede;
+	border-top: 1px solid #ababab;
+}
+
+.searchSelectItem,.searchSelectItemError,.searchSelectItemFocused,.searchSelectItemDisabled,.searchSelectItemHint
+	{
+	border-right: 0;
+	border-left: 1px solid #dedede;
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid #dedede;
+}
+
+.searchTextItemDisabled,.searchTextItemDisabledHint,.searchSelectItemDisabled
+	{
+	background-color: white;
+	border: 1px solid #ababab;
+	color: #ababab;
+}
+
+.searchTextItemHint,.searchSelectItemHint {
+	color: #204269;
+}
+
+.searchSelectItem,.searchSelectItemError,.searchSelectItemFocused,.searchSelectItemDisabled
+	{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-right: 0;
+	background: url("../images/arrwd.gif") no-repeat scroll 100% 50%
+		transparent;
+	cursor: pointer;
+	padding-right: 16px;
+	white-space: nowrap;
+	background-color: white;
+	color: #B5B5B5
+}
+
+.dropFilesLabel {
+	margin-top: 6px;
+	/* padding-top: 28px;
+    padding-bottom: 28px; */
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+	color: #2d4b6d;
+	text-align: center;
+	display: block;
+	border: 2px dashed #888888;
+	border-radius: 7px;
+}
+
+.dropFilesLabelHover {
+	border: 2px solid #444444;
+	color: #7c9647;
+}

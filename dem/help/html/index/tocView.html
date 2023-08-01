@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+<title>Contents</title>
+
+<style type="text/css">
+/*******************************************************************************
+ * Copyright (c) 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
+BODY {
+	font: icon;
+	margin-top: 2px;
+	margin-left: 5px;
+	padding: 0;
+	border: 0;
+}
+
+#root {
+	margin-top: 0px;
+	margin-left: 0px;
+}
+
+DIV.root {
+	font-weight: bold;
+}
+
+DIV.visible,DIV.unopened {
+	border-width: 0;
+	margin-left: 1.5em;
+	font-weight: normal;
+}
+
+DIV.group {
+	border-width: 0;
+	margin-left: 0;
+}
+
+DIV.hidden {
+	display: none;
+}
+
+DIV.visible,DIV.root {
+	margin-top: 1px;
+}
+
+SPAN.item {
+	white-space: nowrap;
+}
+
+IMG {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	margin-right: 4px;
+}
+
+IMG.expander,IMG.h {
+	margin-top: 4px;
+	margin-bottom: 2px;
+}
+
+A {
+	text-decoration: none;
+	color: WindowText;
+	padding-right: 2px;
+	/* this works in ie5.5, but not in ie5.0  */
+	white-space: nowrap;
+}
+
+A:hover {
+	text-decoration: underline;
+}
+
+A.active {
+	color: HighlightText;
+	background: Highlight;
+	width: 100%;
+}
+
+A.active:hover {
+	text-decoration: underline;
+}
+
+A.nolink {
+	text-decoration: none;
+}
+
+A.nolink:link,A.nolink:visited {
+	color: WindowText;
+}
+
+A.nolink:hover {
+	text-decoration: none;
+}
+
+.h {
+	visibility: hidden;
+}
+</style>
+
+<base target="ContentViewFrame" />
+<script language="JavaScript" src="helptree.js"></script>
+<script language="JavaScript" src="helptreechildren.js"></script>
+<script language="JavaScript" src="xmlajax.js"></script>
+<script language="JavaScript" src="utils.js"></script>
+<script language="JavaScript" src="tocTree.js"></script>
+
+<script language="JavaScript">
+	// Preload images
+	var imagesDirectory = "images";
+	minus = new Image();
+	minus.src = imagesDirectory + "/minus.gif";
+	plus = new Image();
+	plus.src = imagesDirectory + "/plus.gif";
+	toc_open_img = new Image();
+	toc_open_img.src = imagesDirectory + "/toc_open.gif";
+	toc_closed_img = new Image();
+	toc_closed_img.src = imagesDirectory + "/toc_closed.gif";
+	folder_img = new Image();
+	folder_img.src = imagesDirectory + "/container_obj.gif";
+	folder_topic = new Image();
+	folder_topic.src = imagesDirectory + "/container_topic.gif";
+	topic_img = new Image();
+	topic_img.src = imagesDirectory + "/topic.gif";
+
+	var altTopic = "topic";
+	var altContainer = "container";
+	var altContainerTopic = "container\u0020topic";
+	var altBookClosed = "Book\u0020closed";
+	var altBookOpen = "Book\u0020open";
+	var altPlus = "Expand\u0020topics";
+	var altMinus = "Collapse\u0020topics";
+	var loadingMessage = "Loading\u002E\u002E\u002E\u0020please\u0020wait";
+	var cookiesRequired = "This\u0020feature\u0020requires\u0020cookies\u0020to\u0020be\u0020enabled\u0020in\u0020your\u0020browser\u002E";
+
+	var isIE = navigator.userAgent.indexOf('MSIE') != -1;
+	var isRTL = false;
+
+	var tocTitle = "";
+	var tocId = "";
+
+	function onloadHandler() {
+		setRootAccessibility();
+		//loadChildren(null);
+
+		// Set prefix for AJAX calls by removing tocView.jsp from location
+		var locationHref = window.location.href;
+		var slashAdvanced = locationHref.lastIndexOf('/tocView.jsp');
+		if (slashAdvanced > 0) {
+			setAjaxPrefix(locationHref.substr(0, slashAdvanced));
+		}
+
+		if (isAutosynchEnabled()) {
+			selectTopic("/com.dameng.help/home.html", true);
+		}
+
+	}
+
+	function onunloadHandler() {
+
+	}
+</script>
+
+</head>
+<body onunload="onunloadHandler()" onload="onloadHandler()" dir="ltr">
+	<div id="wai_application" class="group" role="application">
+		<div id="tree_root" class="root" role="tree">
+			<!-- 示例
+			<div class="root">
+				<span class="item"><img class="expander"
+					src="images/plus.gif" /><a href="../home_page.html" title="根目录"><img
+						src="images/toc_closed.gif" />根目录</a> </span>
+				<div class="group">
+					<div class="hidden">
+						<span class="item"><img class="expander"
+							src="images/plus.gif" /><a href="" title="第二级目录"><img
+								src="images/container_obj.gif" />第二级目录</a> </span>
+						<div class="group">
+							<div class="hidden">
+								<span class="item"><img class="expander"
+									src="images/plus.gif" /><a href="" title="第三级目录"><img
+										src="images/container_obj.gif" />第三级目录</a> </span>
+								<div class="group">
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="" title="单一页面"><img src="images/topic.gif" />单一页面</a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="" title="单一页面"><img src="images/topic.gif" />单一页面</a> </span>
+							</div>
+						</div>
+						<div class="hidden">
+							<span class="item"><img class="h" src="images/plus.gif" /><a
+								href="" title="单一页面"><img src="images/topic.gif" />单一页面</a> </span>
+						</div>
+					</div>
+
+					<div class="hidden">
+						<span class="item"><img class="expander"
+							src="images/plus.gif" /><a href="" title="DM 控制台工具"><img
+								src="images/container_obj.gif" />第二级目录</a> </span>
+						<div class="group">
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="" title="单一页面"><img src="images/topic.gif" />单一页面</a> </span>
+							</div>
+						</div>
+					</div>
+					<div class="hidden">
+						<span class="item"><img class="h" src="images/plus.gif" /><a
+							href="" title="单一页面"><img src="images/topic.gif" />单一页面</a> </span>
+					</div>
+				</div>
+			</div>
+			-->
+
+			<div class="root">
+				<span class="item"><img class="expander"
+					src="images/plus.gif" /><a href="../home_page.html"
+					title="DEM联机帮助"><img src="images/toc_closed.gif" />DEM联机帮助</a> </span>
+				<div class="group">
+					<div class="hidden">
+						<span class="item"><img class="expander"
+							src="images/plus.gif" /><a href="../mainframe_panel.html"
+							title="第二级目录"><img src="images/container_obj.gif" />主机监控</a> </span>
+						<div class="group">
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../mainframe_network_config_dialog.html" title="单一页面"><img
+										src="images/topic.gif" />配置网络</a> </span>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../mainframe_dmagent_update_dialog.html" title="单一页面"><img
+										src="images/topic.gif" />升级代理</a> </span>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../mainframe_history_panel.html" title="单一页面"><img
+										src="images/topic.gif" />负载分析</a> </span>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../mainframe_disk_panel.html" title="单一页面"><img
+										src="images/topic.gif" />磁盘分析</a> </span>
+							</div>
+						</div>
+					</div>
+					<div class="hidden">
+						<span class="item"><img class="expander"
+							src="images/plus.gif" /><a href="../database_panel.html"
+							title="第二级目录"><img src="images/container_obj.gif" />数据库监控</a> </span>
+						<div class="group">
+							<div class="hidden">
+								<span class="item"><img class="expander"
+									src="images/plus.gif" /><a
+									href="../database_single_dialog.html" title="第三级目录"><img
+										src="images/container_obj.gif" />单机监控</a> </span>
+								<div class="group">
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_awr_panel.html" title="单一页面"><img
+												src="images/topic.gif" />AWR报告</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_tablespace_panel.html" title="单一页面"><img
+												src="images/topic.gif" />表空间分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_sql_panel.html" title="单一页面"><img
+												src="images/topic.gif" />SQL分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_loginlock_panel.html" title="单一页面"><img
+												src="images/topic.gif" />登录锁定</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_deadlock_panel.html" title="单一页面"><img
+												src="images/topic.gif" />死锁分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_session_panel.html" title="单一页面"><img
+												src="images/topic.gif" />会话分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_event_panel.html" title="单一页面"><img
+												src="images/topic.gif" />事件分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_ud_sql_panel.html" title="单一页面"><img
+												src="images/topic.gif" />自定义SQL分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_table_panel.html" title="单一页面"><img
+												src="images/topic.gif" />表数据分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_dmini_panel.html" title="单一页面"><img
+												src="images/topic.gif" />查看DM.INI</a> </span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="expander"
+									src="images/plus.gif" /><a
+									href="../database_group_dialog.html" title="第三级目录"><img
+										src="images/container_obj.gif" />集群监控</a> </span>
+								<div class="group">
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_group_awr_panel.html" title="单一页面"><img
+												src="images/topic.gif" />集群分析</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_group_dmmonitor_panel.html" title="单一页面"><img
+												src="images/topic.gif" />集群监视器</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_group_dmasm_panel.html" title="单一页面"><img
+												src="images/topic.gif" />ASM文件管理</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_group_startAndStop_dialog.html" title="单一页面"><img
+												src="images/topic.gif" />启动/停止集群</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_ud_sql_dialog.html" title="单一页面"><img
+												src="images/topic.gif" />自定义SQL监控管理</a> </span>
+									</div>
+									<div class="hidden">
+										<span class="item"><img class="h" src="images/plus.gif" /><a
+											href="../database_table_dialog.html" title="单一页面"><img
+												src="images/topic.gif" />表监控管理</a> </span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../multi_conn_sql_template_panel.html" title="单一页面"><img
+										src="images/topic.gif" />多连接查询</a> </span>
+							</div>
+						</div>
+					</div>
+					<div class="hidden">
+						<span class="item"><img class="expander"
+							src="images/plus.gif" /><a href="../alert_panel.html"
+							title="第二级目录"><img src="images/container_obj.gif" />告警</a> </span>
+						<div class="group">
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../alert_config_dialog.html" title="单一页面"><img
+										src="images/topic.gif" />告警配置</a> </span>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../alert_history_dialog.html" title="单一页面"><img
+										src="images/topic.gif" />告警历史</a> </span>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../alert_notify_panel.html" title="单一页面"><img
+										src="images/topic.gif" />告警通知</a> </span>
+							</div>
+						</div>
+					</div>
+					<div class="hidden">
+						<span class="item"><img class="h" src="images/plus.gif" /><a
+							href="../user_panel.html" title="单一页面"><img
+								src="images/topic.gif" />用户管理</a> </span>
+					</div>
+					<!--<div class="hidden">
+						<span class="item"><img class="expander"
+							src="images/plus.gif" /><a href="../user_panel.html"
+							title="第二级目录"><img src="images/container_obj.gif" />用户管理</a> </span>
+						<div class="group">
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../user_add_dialog.html" title="单一页面"><img
+										src="images/topic.gif" />用户添加</a> </span>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../user_edit_dialog.html" title="单一页面"><img
+										src="images/topic.gif" />用户编辑</a> </span>
+							</div>
+							<div class="hidden">
+								<span class="item"><img class="h" src="images/plus.gif" /><a
+									href="../user_info_dialog.html" title="单一页面"><img
+										src="images/topic.gif" />用户修改</a> </span>
+							</div>
+						</div>
+					</div>-->
+					<div class="hidden">
+						<span class="item"><img class="h" src="images/plus.gif" /><a
+							href="../role_panel.html" title="单一页面"><img
+								src="images/topic.gif" />角色管理</a> </span>
+					</div>
+					<div class="hidden">
+						<span class="item"><img class="h" src="images/plus.gif" /><a
+							href="../sys_config_panel.html" title="单一页面"><img
+								src="images/topic.gif" />系统配置</a> </span>
+					</div>
+					<div class="hidden">
+						<span class="item"><img class="h" src="images/plus.gif" /><a
+							href="../dmagent.html" title="单一页面"><img
+								src="images/topic.gif" />数据库代理</a> </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>达梦数据库代理</title>
+</head>
+
+<body>
+	<h2>达梦数据库代理</h2>
+	<p>&emsp;&emsp;达梦数据库代理（以下简称dmagent）是DM部署工具和DM Web版管理工具DEM部署在远程主机上的代理。通过dmagent可以监控远程主机的相关信息，也可以在远程主机部署MPP、RW、DW,DMDSC等集群系统。</p>
+	<p>&emsp;&emsp;dmagent存在3种运行模式：1:DEM Agent 2:Deploy Agent  3:DEM&amp;Deploy Agent。不同模式对应不同的功能。运行模式1，dmagent作为DEM Agent将负责远程主机的信息收集工作。运行模式2，dmagent作为Deploy Agent将负责在远程主机进行数据库节点搭建的工作。运行模式3，dmagent将同时开启运行模式1和运行模式2。</p>
+<p>&emsp;&emsp;dmagent目录结构：</p>
+<p><img src="images/dmagent_dir.png" /></p>
+<p>&emsp;&emsp;dmagent目录在安装目录下的tool/dmagent。</p>
+<p>&emsp;&emsp;data目录:用于存放DEM Agent模式代理产生的临时数据。</p>
+<p>&emsp;&emsp;lib目录:存放dmagent运行所需要的jar包。</p>
+<p>&emsp;&emsp;log目录：保存dmagent生成的日志文件。</p>
+<p>&emsp;&emsp;wrapper目录：dmagent生成系统服务依赖文件。</p>
+<p>&emsp;&emsp;log4j.xml：日志配置文件。</p>
+<p>&emsp;&emsp;readme.pdf：dmagent使用说明文档。</p>
+<p>&emsp;&emsp;config.properties：dmagent配置文件。配置信息如下：</p>
+
+<blockquote>
+  <div>
+    <p>#[General]<br />
+      #1:DEM Agent 2:Deploy Agent  3:DEM&amp;Deploy Agent<br />
+      #设置dmagent的运行模式 <br />
+      run_mode=3<br />
+      #dmagent的RMI端口号 <br />
+      rmi_port=6364  </p>
+  </div>
+<div>#[DEM]<br />
+  #DEM Agent运行模式所需参数 <br />
+  #DEM系统所在主机连接信息 <br />
+  center.url=http://192.168.0.104:8080/dem<br />
+  center.agent_servlet=dem/dma_agent</div>
+</blockquote>
+<p>&emsp;&emsp;(以下内容以windows平台为例，Linux平台请运行同名的sh脚本)</p>
+  <p>&emsp;&emsp;DMAgentRunner.bat：dmagent命令行模式运行脚本。用户如果以命令行模式运行dmagent，请直接运行DMAgentRunner.bat。</p>
+  <p>&emsp;&emsp;DMAgentService.bat：dmagent服务模式运行脚本。dmagent默认服务名为DMAgentService。DMAgentService.bat支持功能如下：</p>
+  <blockquote>
+    <div>
+      <p>#服务方式启动dmagent<br />
+        #windows下需先注册服务，才能启动。 <br />
+        #linux下虽然可直接启动，但是并非通过服务启动dmagent。如果需要通过服务启动dmagent，请先注册服务。 <br />
+        DMAgentService.bat start</p>
+    </div>
+<div>
+  <p>#停止dmagent服务 <br />
+    DMAgentService.batstop</p>
+</div>
+<div>
+  <p>#重启dmagent服务 <br />
+    DMAgentService.batrestart</p>
+</div>
+<div>
+  <p>#注册dmagent服务 <br />
+    #默认服务为自动启动 <br />
+    DMAgentService.batinstall</p>
+</div>
+<div>
+  <p>#删除dmagent服务 <br />
+    DMAgentService.batremove</p>
+</div>
+<div>#查看dmagent服务运行状态 <br />
+  DMAgentService.batstatus<br /></div></blockquote>
+  <p>&emsp;&emsp;在远程主机使用dmagent，需首先手动将dmagent拷贝到远程主机。然后通过DMAgentService(服务方式)或DMAgentRunner(命令行模式)运行dmagent。在Linux下建议以非root用户运行dmagent。</p>
+  <p>&emsp;&emsp;注意：dmagent未自带JRE运行时环境，所以运行dmagent需要用户设置JRE_HOME的环境变量。Windows请在系统属性中设置环境变量。 Linux下在系统配置文件/etc/profile中设置JRE_HOME环境变量。</p>
+</body>
+</html>

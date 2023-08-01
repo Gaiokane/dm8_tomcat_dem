@@ -1,0 +1,7 @@
+<DataSource ID="FormSetFieldValueTask" inheritsFrom="ComponentTask" Constructor="FormSetFieldValueTask">
+    <fields>
+        <field name="targetField" type="string" xmlAttribute="true" />
+        <field name="value" type="any" xmlExplicitTypes="true" xmlAttributeInRuleCriteria="true"/>
+    </fields>
+</DataSource>
+

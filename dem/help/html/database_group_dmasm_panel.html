@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>ASM文件管理</title>
+</head>
+
+<body>
+	<h2>ASM文件管理</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中DMDSC集群的集群分组的操作下拉菜单中点击<b>ASM文件管理</b>,弹出登陆ASM文件系统的对话框,如下图所示：
+	</p>
+	<p>
+		<img src="images/database_group_asmlogin.dialog.png" alt="" />
+	</p>
+	<p>
+		&emsp;&emsp;输入ASM文件系统登陆信息，点击<b>确定</b>,
+		打开ASM文件系统管理面板，该页面用于浏览和管理ASM文件。界面显示如下图所示：
+	</p>
+	<p>
+		<img src="images/database_group_dmasm_panel.png" alt="" />
+	</p>
+
+	<strong>ASM文件系统管理的功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/asmAddress.png" /></td>
+				<td>显示ASM文件的定位。</td>
+			</tr>
+			<tr>
+				<td><img src="images/home.png" />磁盘组</td>
+				<td>快速定位到磁盘组列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/folder_up.png" />上级目录</td>
+				<td>快速定位到当前目录的上级目录。</td>
+			</tr>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新当前目录信息。</td>
+			</tr>
+				<tr>
+				<td><img src="images/add.png" />添加</td>
+				<td>创建磁盘组或ASM文件/目录。打开<a href="asmDiskGroupCreate_dialog.html">创建磁盘组对话框</a>创建磁盘组,或者打开<a href="asmCreateFile_dialog.html">创建ASM文件/目录对话框</a>创建ASM文件/目录</td>
+			</tr>
+				<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>删除选中的磁盘组或ASM文件/目录。打开<a href="asmObjDelete_dialog.html">刪除ASM对象对话框</a>确认删除ASM对象。</td>
+			</tr>
+				<tr>
+				<td><img src="images/file_upload.gif" />上传</td>
+				<td>上传本地文件系统的文件到ASM文件系统的当前磁盘组或ASM目录。打开<a href="asmUploadFile_dialog.html">上传文件对话框</a>上传文件到ASM文件系统。</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<strong>ASM文件系统管理的右键功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/folder_open.png" />打开</td>
+				<td>浏览选中的磁盘组或ASM目录。</td>
+			</tr>
+			<tr>
+				<td><img src="images/down.png" />下载</td>
+				<td>下载选中的磁盘组或ASM文件/目录到本地文件系统。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>删除选中的磁盘组或ASM文件/目录。打开<a href="asmObjDelete_dialog.html">刪除ASM对象对话框</a>确认删除ASM对象。</td>
+			</tr>
+			<tr>
+				<td><img src="images/folder_add.png" />扩展</td>
+				<td>扩展磁盘组或ASM文件。打开<a href="asmDiskGroupExtent_dialog.html">扩展磁盘组对话框</a>扩展磁盘组,或打开<a href="asmExtentFile_dialog.html">扩展ASM文件对话框</a>扩展ASM文件。</td>
+			</tr>
+				<tr>
+				<td><img src="images/node_truncate.png" />截断文件</td>
+				<td>截断ASM文件。打开<a href="asmTruncFile_dialog.html">截断ASM文件对话框</a>截断ASM文件。</td>
+			</tr>
+			<tr>
+				<td><img src="images/property.png" />属性</td>
+				<td>查看磁盘组或ASM文件/目录的详细信息。打开<a href="asmDiskProperty_dialog.html">磁盘组属性对话框</a>查看磁盘组属性信息，或者打开<a href="asmFileProperty_dialog.html">属性对话框</a>查看磁盘文件/目录属性信息。</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<p>
+		<strong>ASM文件系统磁盘组信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>ASM磁盘组名称</td>
+			</tr>
+			<tr>
+				<td>类型</td>
+				<td>类型为"磁盘组"</td>
+			</tr>
+			<tr>
+				<td>总大小</td>
+				<td>磁盘组总空间大小</td>
+			</tr>
+			<tr>
+				<td>可用空间</td>
+				<td>磁盘组可用空间大小</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<p>
+		<strong>ASM文件系统ASM文件/目录信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>ASM文件/目录名称</td>
+			</tr>
+			<tr>
+				<td>类型</td>
+				<td>类型为"目录"或者"文件"</td>
+			</tr>
+			<tr>
+				<td>大小</td>
+				<td>ASM文件大小</td>
+			</tr>
+			<tr>
+				<td>修改时间</td>
+				<td>ASM文件/目录最近修改时间</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

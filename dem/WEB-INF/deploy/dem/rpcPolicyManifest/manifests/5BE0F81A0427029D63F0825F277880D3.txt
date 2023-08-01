@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ISqlHyperlinkService
+path: FE4EAC6A205B0A137BDC8DC25E1BDBA2.gwt.rpc

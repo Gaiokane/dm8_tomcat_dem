@@ -1,0 +1,6 @@
+<DataSource ID="ShowNextToComponentTask" inheritsFrom="ComponentTask" Constructor="ShowNextToComponentTask">
+    <fields>
+        <field name="nextToComponentId" type="string" xmlAttribute="true" />
+    </fields>
+</DataSource>
+

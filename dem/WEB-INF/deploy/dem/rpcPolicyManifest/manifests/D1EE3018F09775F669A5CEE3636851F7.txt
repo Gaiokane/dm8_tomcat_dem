@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ISqlAssistantService
+path: A5B0876D354A76CFBF846441D3EFE327.gwt.rpc

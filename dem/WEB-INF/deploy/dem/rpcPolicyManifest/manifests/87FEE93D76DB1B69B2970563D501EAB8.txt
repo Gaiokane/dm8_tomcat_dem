@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IInspectService
+path: A2962AA98FB0EBD5B3E63FC74F67B80E.gwt.rpc

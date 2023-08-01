@@ -1,0 +1,26 @@
+:root {
+	--theme_border_color_default: rgba(140, 140, 140, 0.15);
+	--theme_border_color_default_rgb: #EEEEEE;
+	--theme_border_color_item: rgba(140, 140, 140, 0.25);
+	--theme_color_default: #444444;
+	--theme_color_highlight: black;
+	--theme_color_disabled: #bbbbbb;
+	--theme_color_error: #B85450;
+	--theme_color_warn: #FBBC05;
+	--theme_color_success: #22ac38;
+	--theme_color_link_visited:rgb(200,100,100);
+	--theme_color_selected:#3088D8;
+	--theme_color_over:#5E94D3;
+	--theme_color_watermark: #F8F8F8;
+	--theme_bgcolor_0: #ffffff;
+	--theme_bgcolor_1_rgb: #F0F0F0;
+	--theme_bgcolor_1:rgba(120,120,120,0.1);  
+	--theme_bgcolor_tab_selected:#ffffff;
+	--theme_bgcolor_scrollbar:rgba(120,120,120,0.2);
+	--theme_bgcolor_scrollbar_over:rgba(120,120,120,0.25);
+    --theme_bgcolor_selected: rgba(120,120,120,0.08);
+    --theme_bgcolor_over:rgba(120,120,120,0.15);
+	--theme_bgcolor_disabled: rgba(120,120,120,0.1);  
+	--theme_font_size: 13px;
+	--theme_font_family: Tahoma, Helvetica, Arial, Consolas,"Microsoft YaHei", "SimSun", "Lucida Grande", Verdana, sans-serif;
+}

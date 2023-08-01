@@ -1,0 +1,4 @@
+<DataSource ID="WindowCloseButton" inheritsFrom="ImgButton" Constructor="WindowCloseButton"
+            showLocalFieldsOnly="true" showSuperClassEvents="false">
+    <addGlobalId>false</addGlobalId>
+</DataSource>

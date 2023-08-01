@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConnectPool>
+	<Server>{{DM_SERVER_IP}}</Server>
+	<Port>{{DM_SERVER_PORT}}</Port>
+	<User>{{DM_SERVER_USER}}</User>
+	<Password>{{DM_SERVER_PWD}}</Password>
+	<InitPoolSize>5</InitPoolSize>
+	<CorePoolSize>10</CorePoolSize>
+	<MaxPoolSize>500</MaxPoolSize>
+	<KeepAliveTime>60</KeepAliveTime>
+	<DbDriver></DbDriver>
+	<DbTestStatement>select 1</DbTestStatement>
+	<SSLDir>../sslDir/client_ssl/SYSDBA</SSLDir>
+	<SSLPassword></SSLPassword>
+</ConnectPool>

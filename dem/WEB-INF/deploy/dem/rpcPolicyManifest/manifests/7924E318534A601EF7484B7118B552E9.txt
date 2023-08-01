@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IResourceService
+path: D6485381CC95397C67EE298ED8BF1F9E.gwt.rpc

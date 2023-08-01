@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>集群分析</title>
+</head>
+
+<body>
+	<h2>集群分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的集群分组的操作下拉菜单中点击<b>集群分析</b>可以打开集群分析面板，该页面用于查看集群的实时监控信息。报告中包括以下几个部分：
+	</p>
+	<ul>
+		<li><a href="#tabs-1">概述</a>
+		</li>
+		<li><a href="#tabs-2">会话</a>
+		</li>
+		<li><a href="#tabs-3">表空间</a>
+		</li>
+		<li><a href="#tabs-4">表监控</a>
+		</li>
+		<li><a href="#tabs-5">表锁</a>
+		</li>
+		<li><a href="#tabs-6">死锁</a>
+		</li>
+	</ul>
+	<p>&emsp;&emsp;页面如下图所示:</p>
+	<p>
+		<img src="images/database_group_awr_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" alt="" />刷新</td>
+				<td>刷新监控信息。</td>
+			</tr>
+			<tr>
+				<td><img
+					src="images/database_group_awr_panel_module_button.png" alt="" />
+				</td>
+				<td>当前页面的模块定位按钮。点击每个按钮可以快速滚动到相应的模块。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-1">概述</h3>
+	<p>&emsp;&emsp;集群站点基本信息，如下图所示：</p>
+	<p>
+		<img src="images/database_group_awr_panel_summary.png" alt="" />
+	</p>
+	<p>
+		<strong>集群站点列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>实例</td>
+				<td>刷新监控信息。<img src="images/css_primary.png" alt="" />表示实例为主机，<img
+					src="images/css_standby.png" alt="" />表示实例为备机。</td>
+			</tr>
+			<tr>
+				<td>连接</td>
+				<td>连接实例是否成功。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>实例状态。</td>
+			</tr>
+			<tr>
+				<td>归档</td>
+				<td>实例的归档类型及状态。</td>
+			</tr>
+			<tr>
+				<td>服务器版本</td>
+				<td>实例的服务器版本。</td>
+			</tr>
+			<tr>
+				<td>数据库版本</td>
+				<td>实例的数据库版本。</td>
+			</tr>
+			<tr>
+				<td>启动时间</td>
+				<td>实例启动时间。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-2">会话</h3>
+	<p>&emsp;&emsp;集群各站点的会话分布情况。柱形图的横坐标是站点，纵坐标是会话数。如下图所示：</p>
+	<p>
+		<img src="images/database_group_awr_panel_session.png" alt="" />
+	</p>
+
+	<h3 id="tabs-3">表空间</h3>
+	<p>
+		&emsp;&emsp;集群各站点表空间使用情况，在图表上方的选择框中选择一个表空间进行查看。柱形图的横坐标是站点，纵坐标是表空间使用率。如下图所示：<img
+			src="images/database_group_awr_panel_tablespace.png" alt="" />
+	</p>
+	<p>
+		<strong>表空间信息列表</strong><br />&emsp;&emsp;列表中的主节点是各个站点上的表空间，子节点是表空间的数据文件。
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>表空间名称。</td>
+			</tr>
+			<tr>
+				<td>大小</td>
+				<td>表空间大小。</td>
+			</tr>
+			<tr>
+				<td>空闲空间</td>
+				<td>表空间空闲空间大小。</td>
+			</tr>
+			<tr>
+				<td>使用率</td>
+				<td>表空间使用率。</td>
+			</tr>
+			<tr>
+				<td>文件数</td>
+				<td>表空间文件个数。</td>
+			</tr>
+			<tr>
+				<td>自动扩展</td>
+				<td>是否可以自动扩容。</td>
+			</tr>
+			<tr>
+				<td>最大大小</td>
+				<td>表空间限制最大大小。</td>
+			</tr>
+			<tr>
+				<td>类型</td>
+				<td>表空间类型。（永久、临时）</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>表空间状态。（联机、脱机）</td>
+			</tr>
+			<tr>
+				<td>完整路径</td>
+				<td>表空间文件完整路径。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-4">表监控</h3>
+	<p>&emsp;&emsp;集群表的数据在各个站点的分布情况，在表格上方的选择框中选择一个表进行查看。柱形图的横坐标是站点，纵坐标是表数据行数。如下图所示：</p>
+	<p>
+		<img src="images/database_group_awr_panel_table.png" alt="" />
+	</p>
+	<h3 id="tabs-5">表锁</h3>
+	<p>&emsp;&emsp;集群表锁信息，在表格上方的选择框中选择一个表进行查看，如下图所示：</p>
+	<p>
+		<img src="images/database_group_awr_panel_tablelock.png" alt="" />
+	</p>
+
+	<p>
+		<strong>模式名</strong><br />表的模式名。
+	</p>
+	<p>
+		<strong>表名</strong><br />表的名称。
+	</p>
+	<p>
+		<strong>表锁信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>实例</td>
+				<td>数据库实例。</td>
+			</tr>
+			<tr>
+				<td>客户端IP</td>
+				<td>客户端的IP地址。</td>
+			</tr>
+			<tr>
+				<td>客户端主机名</td>
+				<td>客户端的主机名称。</td>
+			</tr>
+			<tr>
+				<td>应用名称</td>
+				<td>应用程序名称。</td>
+			</tr>
+			<tr>
+				<td>表名</td>
+				<td>表名。</td>
+			</tr>
+			<tr>
+				<td>会话ID</td>
+				<td>会话ID。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="tabs-6">死锁</h3>
+	<p>&emsp;&emsp;集群各站点最近发生的20次死锁信息。如下图所示：</p>
+	<p>
+		<img src="images/database_group_awr_panel_deadlock.png" alt="" />
+	</p>
+	<p>
+		<strong>死锁信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>SQL语句</td>
+				<td>导致死锁的sql语句。</td>
+			</tr>
+			<tr>
+				<td>执行时间</td>
+				<td>死锁发生时间。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

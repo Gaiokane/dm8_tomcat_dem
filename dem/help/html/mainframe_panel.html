@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>主机监控</title>
+</head>
+
+<body>
+	<h2>主机监控</h2>
+	<p>
+		&emsp;&emsp;双击主页左侧导航树的主机节点可以打开主机监控面板。该页面用于管理和查看所有监控的主机。主机的监控无需在页面上手动添加，只需在主机上配置并启动<a
+			href="dmagent.html">数据库代理</a>，就可以自动添加到该系统中。页面每隔一定时间会自动刷新主机监控信息。如下图所示:
+	</p>
+	<p>
+		<img src="images/mainframe_panel.png" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新主机列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>选中一个或多个要删除的主机点击按钮可以删除选中的主机。由于主机由系统自动扫描添加的，所以只有连接失败的主机才能删除成功。</td>
+			</tr>
+			<tr>
+				<td>更多>></td>
+				<td>点击按钮可以使用更多功能。弹出菜单如下图所示:<br /> <br /> <img
+					src="images/mainframe_panel_more_button.png" />
+				</td>
+			</tr>
+			<tr>
+				<td><img src="images/net_config.png" />配置网络</td>
+				<td>对于多网卡的主机需要用户配置网络环境。点击按钮，弹出<a
+					href="mainframe_network_config_dialog.html">配置网络对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/upgrade.png" alt="" />升级代理</td>
+				<td>升级主机上的数据库代理。点击按钮，弹出<a
+					href="mainframe_dmagent_update_dialog.html">升级代理对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/mark_all.png" alt="" />忽略全部警告</td>
+				<td>忽略所有主机上的全部警告信息。点击按钮，弹出如下对话框：<br /> <br /> <img
+					src="images/mainframe_panel_ignore_all_alert.png" alt="" /> <br />
+					<br /> 点击<b>是</b>按钮忽略所有主机上的警告信息。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search_item.png" alt="" />
+				</td>
+				<td>对主机列表进行主机地址的过滤。搜索输入框中输入内容，敲下<b>回车</b>或者点击<img
+					src="images/search.png" />。</td>
+			</tr>
+			<tr>
+				<td><img src="images/time_item.png" alt="" />
+				</td>
+				<td>显示最近一次获取主机信息的时间，通过点击<img src="images/css_time_button.png" />按钮可以关闭页面的自动刷新。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>主机监控信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;表中为当前收集到的各主机最新的监控信息。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>主机</td>
+				<td>显示主机地址和主机的状态。 <br /> 鼠标停留在主机列，可以显示主机的其他一些信息，如下图所示:<br />
+					<br /> <img src="images/mainframe_panel_host_hint.png" /><br />
+
+					<br /> 当主机名前出现<img src="images/table_warn.png" alt="" />图标时，表示主机可能存在以下异常情况：
+					<br /> <br />1.主机未进行网络配置；<br /> <br /> 2.主机上的数据库代理版本过低；</td>
+			</tr>
+			<tr>
+				<td>连接</td>
+				<td>连接是否正常， <img src="images/css_success.png" alt="" />表示连接正常，<img
+					src="images/css_failed.png" alt="" />表示连接失败；</td>
+			</tr>
+			<tr>
+				<td>CPU</td>
+				<td>cpu使用率。</td>
+			</tr>
+			<tr>
+				<td>CPU等待</td>
+				<td>cpu等待时间占比。</td>
+			</tr>
+			<tr>
+				<td>内存</td>
+				<td>内存使用率。</td>
+			</tr>
+			<tr>
+				<td>交换区</td>
+				<td>交换区使用率。</td>
+			</tr>
+			<tr>
+				<td>磁盘读</td>
+				<td>磁盘读取速率。</td>
+			</tr>
+			<tr>
+				<td>磁盘写</td>
+				<td>磁盘写入速率。</td>
+			</tr>
+			<tr>
+				<td>网络读</td>
+				<td>网络接收速率。</td>
+			</tr>
+			<tr>
+				<td>网络写</td>
+				<td>网络发送速率。</td>
+			</tr>
+			<tr>
+				<td>警告</td>
+				<td>警告通知数量。点击打开<a href="alert_history_dialog.html">告警历史面板</a>。</td>
+			</tr>
+			<tr>
+				<td>操作</td>
+				<td>点击<img src="images/arrow_down.gif" />将弹出操作菜单，如下图所示：<br />
+					<br /> <img src="images/mainframe_panel_action_menu.png" /><br />
+					<br /> 详细介绍请参见<a href="#action_menu">主机操作菜单列表</a>。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<strong id="action_menu">主机操作菜单列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>菜单</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/chart_line.png" />负载分析</td>
+				<td>主机负载详细信息。点击打开<a href="mainframe_history_panel.html">负载分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/disk.png" alt="" />磁盘分析</td>
+				<td>主机磁盘使用情况详细信息。点击打开<a href="mainframe_disk_panel.html">磁盘分析面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/net_config.png" alt="" />配置网络</td>
+				<td>给主机配置网络环境，用于多网卡主机。点击打开<a
+					href="mainframe_network_config_dialog.html">配置网络对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/upgrade.png" alt="" />升级代理</td>
+				<td>升级主机上的数据库代理。点击打开<a
+					href="mainframe_dmagent_update_dialog.html">升级代理对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" alt="" />删除</td>
+				<td>删除主机。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

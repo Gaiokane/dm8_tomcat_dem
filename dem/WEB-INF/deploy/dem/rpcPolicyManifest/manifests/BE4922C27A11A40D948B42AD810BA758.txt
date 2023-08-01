@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IAliasService
+path: 9A4981457D1D848D765E219BE1DB56B8.gwt.rpc

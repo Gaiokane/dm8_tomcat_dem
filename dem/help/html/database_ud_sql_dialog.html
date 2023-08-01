@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>自定义SQL监控管理</title>
+</head>
+
+<body>
+	<h2>自定义SQL监控管理</h2>
+	<p>
+		&emsp;&emsp;若已有的监控项无法满足需求，用户可以自定义sql语句进行监控。但是若想用曲线图显示监控历史信息或者想对自定义sql添加告警则要求sql语句是查询语句且查询结果为数值类型。单实例的自定义SQL监控管理入口在<a
+			href="database_ud_sql_panel.html">自定义SQL监控面板</a>的功能按钮<b>添加/删除</b>，而集群的自定义SQL监控管理入口在<a
+			href="database_panel.html">数据库监控面板</a>中的集群分组的操作下拉菜单中的<b>自定义SQL监控管理</b>。对于集群的自定义SQL监控添加，会同时在集群的所有站点上添加；同样的删除时也会删除所有站点上的自定义SQL监控。管理对话框如下图所示:
+	</p>
+	<p>
+		<img src="images/database_ud_sql_dialog.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/refresh.png" alt="" />刷新</td>
+				<td>刷新自定义SQL列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/add.png" alt="" />添加</td>
+				<td>添加监控表。点击打开<a href="#add_ud_sql_dialog">自定义SQL监控添加对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" alt="" />删除</td>
+				<td>删除自定义SQL。</td>
+			</tr>
+			<tr>
+				<td>过滤</td>
+				<td>自定义SQL列表的sql内容过滤。输入框中输入内容按<b>回车</b>。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>监控表列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>自定义SQL</td>
+				<td>自定义SQL语句。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="add_ud_sql_dialog">自定义SQL添加对话框</h3>
+	<p>
+		<img src="images/database_ud_sql_add_dialog.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;编辑框中输入自定义SQL语句。</p>
+</body>
+</html>

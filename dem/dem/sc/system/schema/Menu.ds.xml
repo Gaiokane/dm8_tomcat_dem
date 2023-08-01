@@ -1,0 +1,212 @@
+<DataSource	ID="Menu" Constructor="Menu" inheritsFrom="ListGrid" showSuperClassActions="false">
+	<fields>
+		<field name="data"	type="MenuItem"	multiple="true"/>
+		<!-- items must come after data so that VB will place MenuItems under the preferred property -->
+		<field name="items"	type="MenuItem" multiple="true"/>
+		<field name="useKeys"			type="boolean"	/>
+		<field name="showKeys"			type="boolean"	basic="true" title="Show Shortcut Key Column"/>
+		<field name="showIcons"			type="boolean"	basic="true" title="Show Icon Column"/>
+		<field name="showSubmenus"		type="boolean"	advanced="true" title="Show Submenu Arrows"/>
+        <field name="canSelectParentItems" type="boolean" />
+		<field name="showEmptyMessage"	type="boolean"	/>
+		<field name="cellSpacing"		type="positiveInteger" visibility="internal"/>
+		<field name="cellPadding"		type="positiveInteger" visibility="internal"/>
+		<field name="iconWidth"			type="positiveInteger" advanced="true"/>
+		<field name="iconHeight"		type="positiveInteger" advanced="true"/>
+        <field name="defaultWidth"      type="measure" title="Default Width" basic="true"/>
+        <field name="showAnimationEffect"   type="string"   visibility="animation"/>
+		<field name="autoSetDynamicItems"	type="boolean" visibility="internal"/>
+		<field name="submenuImage"		type="imageProperty"/>
+		<field name="submenuDisabledImage"	type="imageProperty"/>
+		<field name="checkmarkImage"	type="imageProperty"/>
+		<field name="checkmarkDisabledImage"	type="imageProperty"/>
+        <field name="autoDismiss" type="boolean" advanced="true"/>
+        
+        <field name="initialCriteria" type="AdvancedCriteria" advanced="true"/>
+        <field name="dataSource"		type="DataSource" hidden="false" idAllowed="true" advanced="true"/>
+        <field name="baseStyle" type="cssClass" advanced="true"/>
+        <field name="bodyStyleName" type="cssClass" advanced="true"/>
+        <field name="cellHeight" type="positiveInteger" advanced="true"/>
+        
+        <!-- prevent ListGrid properties from appearing as basics -->
+		<field name="canEdit" type="boolean" basic="false"/>
+		<field name="editByCell" type="boolean" basic="false"/>
+		<field name="saveByCell" type="boolean" basic="false"/>
+		<field name="showFilterEditor" type="boolean" basic="false"/>
+		<field name="editEvent" basic="false"/>
+		<field name="selectionType" basic="false"/>
+		<field name="emptyMessage" type="HTMLString" basic="false"/>
+		<field name="loadingDataMessage" type="HTMLString" basic="false"/>
+		<field name="canSort" type="boolean" basic="false"/>
+		<field name="canDragRecordsOut" type="boolean" basic="false"/>
+		<field name="canAcceptDroppedRecords" type="boolean" basic="false"/>
+		<field name="canReorderRecords" type="boolean" basic="false"/>
+		<field name="dragDataAction" type="enum" basic="false"/>
+        <field name="canGroupBy" type="boolean" basic="false"/>
+        <field name="autoFitData" type="string" basic="false"/>
+        <field name="autoFitMaxRecords" type="integer" basic="false"/>
+		<field name="autoFetchData"	type="boolean" basic="false"/>	
+        <field name="canRemoveRecords" type="boolean" basic="false"/>
+        
+        <!-- mark superclass fields as not relevant -->
+        <field name="dataProperties" inapplicable="true"/>
+        <field name="dataPageSize" inapplicable="true"/>
+        <field name="fields" inapplicable="true"/>
+        <field name="defaultFields" inapplicable="true" />
+        <field name="emptyCellValue" inapplicable="true"/>
+        <field name="minHeight" inapplicable="true"/>
+        <field name="fixedFieldWidths" inapplicable="true"/>
+        <field name="fastCellUpdates" inapplicable="true"/>
+        <field name="showDetailFields" inapplicable="true"/>
+        <field name="drawAheadRatio" inapplicable="true"/>
+        <field name="fixedRecordHeights" inapplicable="true"/>
+        <field name="canHover" inapplicable="true"/>
+        <field name="showHover" inapplicable="true"/>
+        <field name="autoSaveEdits" inapplicable="true"/>
+        <field name="modalEditing" inapplicable="true"/>
+        <field name="stopOnErrors" inapplicable="true"/>
+        <field name="waitForSave" inapplicable="true"/>
+        <field name="leaveScrollbarGap" inapplicable="true"/>
+        <field name="titleField" inapplicable="true"/>        
+        <field name="minFieldWidth" inapplicable="true"/>        
+        <field name="addNewBeforeEditing" inapplicable="true"/>
+        <field name="rowEndEditAction" inapplicable="true"/>
+        <field name="listEndEditAction" inapplicable="true"/>
+        <field name="enterKeyEditAction" inapplicable="true"/>
+        <field name="escapeKeyEditAction" inapplicable="true"/>
+        <field name="generateClickOnSpace" inapplicable="true"/>
+        <field name="generateClickOnEnter" inapplicable="true"/>
+        <field name="generateDoubleClickOnSpace" inapplicable="true"/>
+        <field name="generateDoubleClickOnEnter" inapplicable="true"/>
+        <field name="wrapCells" inapplicable="true"/>
+        <field name="showAllRecords" inapplicable="true"/>
+        <field name="filterEditorHeight" inapplicable="true"/>
+        <field name="filterByCell" inapplicable="true"/>
+        <field name="filterOnKeypress" inapplicable="true"/>        
+        <field name="listEndEditAction" inapplicable="true"/>
+        <field name="rowEndEditAction" inapplicable="true"/>
+        <field name="enterKeyEditAction" inapplicable="true"/>
+        <field name="escapeKeyEditAction" inapplicable="true"/>
+        <field name="confirmCancelEditing" inapplicable="true"/>
+        <field name="cancelEditingConfirmationMessage" inapplicable="true"/>
+        <field name="validateOnChange" inapplicable="true"/>
+        <field name="validateByCell" inapplicable="true"/>
+        <field name="neverValidate" inapplicable="true"/>        
+        <field name="canDragSelect" inapplicable="true"/>
+        <field name="selectOnEdit" inapplicable="true"/>
+        <field name="recordEditProperty" inapplicable="true"/>
+        <field name="headerButtonConstructor" inapplicable="true"/>
+        <field name="sorterConstructor" inapplicable="true"/>
+        <field name="headerHeight" inapplicable="true"/>
+        <field name="showHeader" inapplicable="true"/>
+        <field name="showHeaderContextMenu" inapplicable="true"/>
+        <field name="headerBackgroundColor" inapplicable="true"/>
+        <field name="headerBarStyle" inapplicable="true"/>
+        <field name="headerBaseStyle" inapplicable="true"/>
+        <field name="headerSpans" inapplicable="true"/>
+        <field name="headerSpanHeight" inapplicable="true"/>
+        <field name="headerTitleStyle" inapplicable="true"/>
+        <field name="bodyBackgroundColor" inapplicable="true"/>
+        <field name="recordBaseStyleProperty" inapplicable="true"/>
+        <field name="recordCustomStyleProperty" inapplicable="true"/>
+        <field name="alternateRecordStyles" inapplicable="true"/>
+        <field name="alternateRecordFrequency" inapplicable="true"/>
+        <field name="headerDefaults" inapplicable="true"/>
+        <field name="headerButtonDefaults" inapplicable="true"/>
+        <field name="headerButtonProperties" inapplicable="true"/>
+        <field name="sorterDefaults"  inapplicable="true"/>
+        <field name="sorterProperties" inapplicable="true"/>
+        <field name="printHeaderStyle" inapplicable="true"/>
+        <field name="printCellStyle" inapplicable="true"/>
+        <field name="showRollOver" inapplicable="true"/>
+        <field name="hoverByCell" inapplicable="true"/>
+        <field name="showHiliteInCells" inapplicable="true"/>
+        <field name="selectionAppearance" inapplicable="true"/>
+        <field name="emptyMessageStyle" inapplicable="true"/>        
+        <field name="singleCellValueProperty" inapplicable="true"/>
+        <field name="isSeparatorProperty" inapplicable="true"/>
+        <field name="arrowKeyAction" inapplicable="true"/>
+        <field name="loadingMessage" inapplicable="true"/>
+        <field name="loadingDataMessageStyle" type="cssClass" inapplicable="true"/>
+        <field name="sortField" inapplicable="true"/>
+        <field name="sortFieldNum" inapplicable="true"/>
+        <field name="sortDirection" inapplicable="true"/>
+        <field name="showSortArrow" inapplicable="true"/>
+        <field name="showSortNumerals" inapplicable="true"/>
+        <field name="dragTrackerMode" inapplicable="true"/>
+        <field name="canReorderFields" inapplicable="true"/>
+        <field name="canResizeFields" inapplicable="true"/>
+        <field name="resizeFieldsInRealTime" inapplicable="true"/>
+        <field name="canFreezeFields" inapplicable="true"/>
+        <field name="freezeFieldText" inapplicable="true"/>
+        <field name="unfreezeFieldText" inapplicable="true"/>
+        <field name="groupByText" inapplicable="true"/>
+        <field name="groupIconSize" inapplicable="true"/>
+        <field name="groupIndentSize" inapplicable="true"/>
+        <field name="groupByMaxRecords" inapplicable="true"/>
+        <field name="sortAscendingImage"	inapplicable="true"/>
+        <field name="sortDescendingImage"	inapplicable="true"/>
+        <field name="trackerImage" 			inapplicable="true"/>		
+        <field name="selectionProperty" inapplicable="true"/>
+        <field name="fieldIdProperty" inapplicable="true"/>
+        <field name="longTextEditorThreshold" inapplicable="true"/>
+        <field name="longTextEditorType"      inapplicable="true"/>        
+        <field name="timeFormatter" inapplicable="true"/>
+        <field name="dateFormatter" inapplicable="true"/>
+        <field name="dateInputFormat" inapplicable="true"/>        
+        <field name="bodyOverflow" inapplicable="true"/>        
+        <field name="autoFitMaxHeight" inapplicable="true"/>
+        <field name="autoFitMaxColumns" inapplicable="true"/>
+        <field name="autoFitMaxWidth" inapplicable="true"/>        
+        <field name="autoFitFieldWidths" inapplicable="true"/>
+        <field name="autoFitWidthApproach" inapplicable="true"/>
+        <field name="editFailedBaseStyle" inapplicable="true"/>
+        <field name="editFailedCSSText" inapplicable="true"/>
+        <field name="editPendingCSSText" inapplicable="true"/>
+        <field name="editOnFocus"        inapplicable="true"/>
+        <field name="confirmDiscardEdits" inapplicable="true"/>
+        <field name="discardEditsSaveButtonTitle" inapplicable="true"/>
+        <field name="confirmDiscardEditsMessage" inapplicable="true"/>
+        <field name="imageSize" inapplicable="true"/>
+        <field name="valueIconWidth" inapplicable="true"/>
+        <field name="valueIconHeight" inapplicable="true"/>
+        <field name="valueIconSize" inapplicable="true"/>
+        <field name="valueIconLeftPadding" inapplicable="true"/>
+        <field name="valueIconRightPadding" inapplicable="true"/>
+        <field name="booleanTrueImage"  inapplicable="true"/>
+        <field name="booleanFalseImage"  inapplicable="true"/>
+        <field name="booleanImageWidth" inapplicable="true"/>
+        <field name="booleanImageHeight" inapplicable="true"/>       
+        <field name="hilites" inapplicable="true"/>
+        <field name="hiliteIcons" inapplicable="true"/>
+        <field name="hiliteIconSize" inapplicable="true"/>
+        <field name="hiliteIconWidth" inapplicable="true"/>
+        <field name="hiliteIconHeight" inapplicable="true"/>
+        <field name="hiliteIconLeftPadding" inapplicable="true"/>
+        <field name="hiliteIconRightPadding" inapplicable="true"/>
+        <field name="hiliteIconPosition" inapplicable="true"/>
+        <field name="children" inapplicable="true" />
+        <field name="peers" inapplicable="true" />
+        <field name="autoFetchDisplayMap" inapplicable="true"/>
+        <field name="fetchDelay" inapplicable="true"/>
+        <field name="scrollRedrawDelay" inapplicable="true"/>
+        <field name="saveLocally" inapplicable="true"/>
+        <field name="showTreeColumnPicker" inapplicable="true"/>
+        <field name="shrinkForFreeze" inapplicable="true"/>
+        <field name="animateRemoveRecord" inapplicable="true"/>
+        <field name="canPickFields" inapplicable="true"/>
+        <field name="canAddFormulaFields" inapplicable="true"/>
+        <field name="canAddSummaryFields" inapplicable="true"/>
+        <field name="showHeaderMenuButton" inapplicable="true"/>
+        <field name="canExpandRecords" inapplicable="true"/>        
+        <field name="animateRemoveTime" inapplicable="true"/>
+        <field name="animateRemoveSpeed" inapplicable="true"/>
+        <field name="headerMenuButtonIconWidth" inapplicable="true"/>
+        <field name="headerMenuButtonIconHeight" inapplicable="true"/>
+        <field name="headerMenuButtonWidth" inapplicable="true"/>
+        <field name="headerMenuButtonHeight" inapplicable="true"/>
+        <field name="checkboxFieldImageWidth" inapplicable="true"/>
+        <field name="checkboxFieldImageHeight" inapplicable="true"/>
+        
+    </fields>
+</DataSource>

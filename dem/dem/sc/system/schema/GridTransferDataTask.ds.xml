@@ -1,0 +1,6 @@
+<DataSource ID="GridTransferDataTask" inheritsFrom="ComponentTask" Constructor="GridTransferDataTask">
+    <fields>
+        <field name="sourceComponent" type="string" xmlAttribute="true" />
+    </fields>
+</DataSource>
+

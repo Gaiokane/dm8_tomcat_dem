@@ -1,0 +1,23 @@
+<DataSource ID="SliderItem" inheritsFrom="CanvasItem" Constructor="SliderItem">
+    <fields>
+        <field name="vertical"  type="boolean" basic="true"/>
+        <field name="minValue"  type="float" basic="true"/>
+        <field name="maxValue"  type="float" basic="true"/>
+        <field name="numValues" type="number" basic="true"/>
+        <field name="defaultValue" type="float" basic="true"/>
+
+        <field name="changeOnDrag" type="boolean"/>
+        <field name="roundValues" type="boolean"/>
+        <field name="roundPrecision" type="number"/>
+
+        <field name="sliderProperties" type="Slider"    propertiesOnly="true"/>
+        <field name="sliderDefaults" type="Slider"      propertiesOnly="true"/>
+
+		<field name="canvas" inapplicable="true"/>
+		<field name="canvasConstructor" inapplicable="true"/>
+		<field name="canvasProperties" inapplicable="true"/>
+    </fields>
+    <methods>
+        <method action="event" name="changed" basic="true" whenRuleTip="true" />
+    </methods>
+</DataSource>

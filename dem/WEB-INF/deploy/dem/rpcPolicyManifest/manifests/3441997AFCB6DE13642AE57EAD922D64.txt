@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IProcedureService
+path: 891E97C8BDD06098826512A34B5588E8.gwt.rpc

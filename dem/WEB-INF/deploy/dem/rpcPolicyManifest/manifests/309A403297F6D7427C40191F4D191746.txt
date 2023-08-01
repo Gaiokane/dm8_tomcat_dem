@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.monitor.IPerformanceTuningService
+path: 29ACFB968A9A6D37E94E7075C8A24E74.gwt.rpc

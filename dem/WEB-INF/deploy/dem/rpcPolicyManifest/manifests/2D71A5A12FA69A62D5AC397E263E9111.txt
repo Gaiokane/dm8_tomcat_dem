@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.deploy2.IDeployService
+path: 348C585FC34656E1F2C6CD9E8D09E313.gwt.rpc

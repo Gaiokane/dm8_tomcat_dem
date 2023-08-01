@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ITimerService
+path: 93A5B0B0A860B36E2C5DB1FDD6749590.gwt.rpc

@@ -1,0 +1,10 @@
+<DataSource ID="Action">
+    <fields>
+        <field name="target" type="string" xmlAttribute="true"/>
+        <field name="type" type="string" xmlAttribute="true"/>
+        <field name="name" type="string" xmlAttribute="true"/>
+        <field name="title" type="string" xmlAttribute="true"/>
+        <field name="mapping" type="string" multiple="true"
+               xmlAttribute="true" commaSeparated="true"/>
+    </fields>
+</DataSource>

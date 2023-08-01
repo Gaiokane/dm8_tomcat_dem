@@ -1,0 +1,8 @@
+<DataSource ID="StateTask" inheritsFrom="Task" Constructor="StateTask">
+    <fields>
+        <field name="type" type="string" xmlAttribute="true" />
+        <field name="value" xmlAttribute="true" />
+        <field name="failureElement" type="string" xmlAttribute="true" />
+        <field name="outputExpression" inapplicable="true" />
+    </fields>
+</DataSource>

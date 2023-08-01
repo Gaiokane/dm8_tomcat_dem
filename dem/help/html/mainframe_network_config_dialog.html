@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>配置网络</title>
+</head>
+
+<body>
+	<h2>配置网络</h2>
+	<p>
+		&emsp;&emsp;若主机有多个网卡，需要用户手动配置网络环境。所谓的网络环境是指数据库代理连接数据库收集监控信息的ip地址（内网IP），以及dem中心与数据库代理进行通信的ip地址（外网IP）。在<a
+			href="mainframe_panel.html">主机监控面板</a>上点击<b>配置网络</b>按钮可以打开配置对话框，如下图所示:
+	</p>
+	<p>
+		<img src="images/network_config_dialog.png" alt="" />
+	</p>
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/save.png" alt="" />保存</td>
+				<td>保存修改的网络配置。</td>
+			</tr>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新主机列表。</td>
+			</tr>
+			<tr>
+				<td><img src="images/network_config_dialog_selectItem.png"
+					alt="" />
+				</td>
+				<td>根据所选的条件进行主机列表过滤。<br /> <br />
+				</td>
+			</tr>
+			<tr>
+				<td><img src="images/network_config_dialog_filter.png" alt="" />
+				</td>
+				<td>对主机列表进行ip地址或主机名的过滤。搜索输入框中输入内容，敲下<b>回车</b> />。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>主机网络环境列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>名称</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>主机名称</td>
+				<td>主机的ip地址或名称。</td>
+			</tr>
+			<tr>
+				<td>IP列表</td>
+				<td>主机上所有网卡的地址列表。</td>
+			</tr>
+			<tr>
+				<td>内网IP</td>
+				<td>数据库代理连接数据库收集监控信息的ip地址。<br /> <br />双击该列可以进行编辑。</td>
+			</tr>
+			<tr>
+				<td>外网IP</td>
+				<td>dem中心与数据库代理进行通信的ip地址。<br /> <br />双击该列可以进行编辑。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<DataSource ID="ComponentTask" inheritsFrom="ProcessElement" Constructor="ComponentTask">
+    <fields>
+        <field name="componentId" type="string" xmlAttribute="true" />
+    </fields>
+</DataSource>

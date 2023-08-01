@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>登录锁定</title>
+</head>
+
+<body>
+	<h2>登录锁定</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>登录锁定</b>可以打开登录锁定面板，该页面用于查看最近一段时间内数据库用户登录被锁定的历史记录。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_loginlock_panel.png" alt="" />
+	</p>
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的用户登录被锁定记录。</p>
+	<p>
+		<strong>登录锁定信息列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>用户ID</td>
+				<td>用户ID。</td>
+			</tr>
+			<tr>
+				<td>用户名</td>
+				<td>用户名称。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>用户状态，是否被锁定。</td>
+			</tr>
+			<tr>
+				<td>最后锁定时间</td>
+				<td>最近一次被锁定的时间。</td>
+			</tr>
+			<tr>
+				<td>锁定时长</td>
+				<td>被锁定多长时间，单位分钟。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

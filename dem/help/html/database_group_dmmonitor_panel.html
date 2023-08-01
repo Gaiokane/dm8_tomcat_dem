@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>集群监视器</title>
+</head>
+
+<body>
+	<h2>集群监视器</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的集群分组的操作下拉菜单中点击<b>集群监视器</b>,弹出监视器ini信息,数据守护和读写分离集群的监视器的ini为dmmonitor.ini(dmdsc集群的监视器ini为dmcssm.ini),如下图所示：
+	</p>
+	<p>
+		<img src="images/database_group_dmmonitor_ini.dialog.png" alt="" />
+	</p>
+	<blockquote>
+		<div>该ini由系统根据收集的信息自动生成，但有可能因为信息收集不全，导致ini生成失败或有误，这时需要用户自己手动编辑。</br>(建议每次打开监视器时确认ini是否准确)</div>
+	</blockquote>
+	<p>
+		&emsp;&emsp;确认监视器ini信息后，点击<b>确定</b>,可以打开集群监视器面板，该页面用于维护和管理集群。
+		数据守护和读写分离集群的监视器功能同数据守护监视器(dmmonitor),dmdsc集群的监视器功能同DMCSSM监视器,界面显示如下图所示：
+	</p>
+	<p>
+		<img src="images/database_group_dwmon_panel.png" alt="" />
+	</p>
+
+   <p>&emsp;&emsp;集群管理询面板主要由以下几个部分组成。</p>
+	<ul>
+		<li><a href="#tabs-1">消息回显面板</a></li>
+		<li><a href="#tabs-2">命令输入面板</a></li>
+		<li><a href="#tabs-3">历史命令面板</a></li>
+	</ul>
+	<br />
+	
+	<h3 id="tabs-1">消息回显面板</h3>
+	<p>&emsp;&emsp;消息回显面板面板主要用于显示执行的命令和命令执行的结果信息，如下图所示:</p>
+	<p>
+		<img src="images/database_group_dwmon_panel_part1.png" />
+	</p>
+	
+	<h3 id="tabs-2">命令输入面板</h3>
+	<p>&emsp;&emsp;命令输入面板主要用于输入命令，如下图所示:</p>
+	<p>
+		<img src="images/database_group_dwmon_panel_part2.png" />
+	</p>
+	
+	<strong>功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/export.png" /></td>
+				<td>下载监视器日志。打开<a href="dmMonitorLogDown_dialog.html">监视器日志文件对话框</a>选择监视器日志文件下载</td>
+			</tr>
+			<tr>
+				<td><img src="images/waiting.png" /></td>
+				<td>查看命令等待队列。打开<a href="dmMonitorCmdList_dialog.html">命令队列对话框</a>查看监视器命令队列信息</td>
+			</tr>
+			<tr>
+				<td><img src="images/view_content.png" /></td>
+				<td>查看监视器ini内容。打开<a href="dmMonitorIni_view_dialog.html">监视器ini对话框</a>查看监视器ini(dmcssm.ini/dmmonitor.ini)信息</td>
+			</tr>
+		</tbody>
+	</table>
+	<blockquote>
+		<div>具体包含的命令以及命令的使用方式与DM数据守护监视器命令一致，使用时可以输入help查看，数据守护和读写分离集群的监视器详细信息可以查看DM7数据守护相关手册，dmdsc集群的监视器详细信息可以查看DM7共享存储集群相关手册。</div>
+	</blockquote>
+	
+	<h3 id="tabs-3">历史命令面板</h3>
+	<p>&emsp;&emsp;历史命令面板主要用于现在最近执行的10条命令，如下图所示:</p>
+	<p>
+		<img src="images/database_group_dwmon_panel_part3.png" />
+	</p>
+	
+</body>
+</html>

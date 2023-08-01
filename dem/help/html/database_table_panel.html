@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>表数据分析</title>
+</head>
+
+<body>
+	<h2>表数据分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>表数据分析</b>可以打开表数据分析面板，该页面用于查看数据库的表数据监控信息。注意想要查看表数据变化情况必须先添加表监控，监控信息从添加后的一个收集频率后开始收集。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_table_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/config.png" alt="" />添加/删除</td>
+				<td>添加或删除表数据监控。点击打开<a href="./database_table_dialog.html">表监控管理对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database_table_panel_table_item.png"
+					alt="" />
+				</td>
+				<td>在下拉列表中选择一个想查看的表，点击<b>查看</b>按钮进行查看。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search.png" alt="" />查看</td>
+				<td>查看表数据监控。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的表数据行数。</p>
+	<p>
+		<strong>表数据行数图表</strong>
+	</p>
+	<p>&emsp;&emsp;图表展示了表数据行数随时间的变化情况。横坐标为时间，纵坐标为表数据行数。</p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<DataSource ID="ShowMessageTask" inheritsFrom="ProcessElement" Constructor="ShowMessageTask">
+    <fields>
+        <field name="type" type="string" xmlAttribute="true" />
+        <field name="message" type="string" />
+        <field name="textFormula" type="UserSummary"/>
+    </fields>
+</DataSource>
+

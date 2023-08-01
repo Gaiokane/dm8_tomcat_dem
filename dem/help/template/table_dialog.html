@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="master.css" />
+<title>表对话框</title>
+</head>
+
+<body>
+	<h2>表对话框</h2>
+	<p>&emsp;&emsp;表对话框用于实现表的可视化创建及修改。</p>
+	<ul>
+		<li><a href="#tabs-1">常规</a></li>
+		<li><a href="#tabs-2">约束</a></li>
+		<li><a href="#tabs-3">选项</a></li>
+		<li><a href="#tabs-4">存储</a></li>
+		<li><a href="#tabs-5">分区</a></li>
+		<li><a href="#tabs-6">注释</a></li>
+		<li><a href="#tabs-7">DDL</a></li>
+	</ul>
+	<br />
+	<h3 id="tabs-1">常规</h3>
+	<p>&emsp;&emsp;表相关的一些常规属性信息配置页面。</p>
+	<p>
+		<img src="images/table_dialog_gen.png" />
+	</p>
+
+	<p>
+		<strong>模式名</strong><br />表对象所属的模式。
+	</p>
+
+	<p>
+		<strong>表名</strong><br />表的标识名。
+	</p>
+
+	<strong>列信息描述列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/add.png" />
+				</td>
+				<td>添加新列</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />
+				</td>
+				<td>删除选中列</td>
+			</tr>
+			<tr>
+				<td><img src="images/up.png" />
+				</td>
+				<td>上移选中列</td>
+			</tr>
+			<tr>
+				<td><img src="images/down.png" />
+				</td>
+				<td>下移选中列</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<strong>列信息描述</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>列名</td>
+				<td>列标识名</td>
+			</tr>
+			<tr>
+				<td>数据类型</td>
+				<td>列存放数据的类型</td>
+			</tr>
+			<tr>
+				<td>默认值</td>
+				<td>列所设置的默认值,设定字符型默认值时需要加单引号</td>
+			</tr>
+			<tr>
+				<td>引用约束</td>
+				<td>列所设置的引用约束</td>
+			</tr>
+			<tr>
+				<td>自增列</td>
+				<td>列是否为自增列</td>
+			</tr>
+			<tr>
+				<td>种子</td>
+				<td>列为自增列时所设置的种子</td>
+			</tr>
+			<tr>
+				<td>增量值</td>
+				<td>列为自增列时所设置的增量值</td>
+			</tr>
+			<tr>
+				<td>可建立普通索引</td>
+				<td>标识列是否可以创建普通索引</td>
+			</tr>
+			<tr>
+				<td>可建立全文索引</td>
+				<td>标识列是否可以创建全文索引</td>
+			</tr>
+			<tr>
+				<td>列注释</td>
+				<td>列级注释</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-2">约束</h3>
+	<p>&emsp;&emsp;表的列约束配置页面。</p>
+	<p>
+		<img src="images/table_dialog_constraint.png" />
+	</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>编辑</td>
+				<td>修改约束配置</td>
+			</tr>
+			<tr>
+				<td>添加</td>
+				<td>添加约束。打开<a href="test.html">约束对话框</a></td>
+			</tr>
+			<tr>
+				<td>删除</td>
+				<td>删除约束。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tab-3">选项</h3>
+	<p>&emsp;&emsp;表相关的选项配置页面。</p>
+	<p>
+		<img src="images/table_dialog_operation.png" />
+	</p>
+
+	<p>
+		<strong>表类型</strong><br />表的类型。
+	</p>
+
+	<p>
+		<strong>聚集型主键</strong><br />是否为表创建聚集主键。
+	</p>
+
+	<p>
+		<strong>提交选项设置</strong><br />表的提交选项设置。
+	</p>
+
+	<blockquote>
+		<div>普通表：表对象为啊</div>
+		<div>普通表：表对象为常规表</div>
+		<div>普通表：表对象为常规表</div>
+		<div>普通表：表对象为常规表</div>
+		<div>普通表：表对象为常规表</div>
+		<div>默认：不设置，采用服务器默认操作</div>
+		<div>保留行：提交操作后保留插入的行数据</div>
+	</blockquote>
+
+	<hr />
+	<strong>相关连接</strong>
+	<br />
+	<ul>
+		<li><a href="#tabs-1">常规</a></li>
+	</ul>
+</body>
+</html>

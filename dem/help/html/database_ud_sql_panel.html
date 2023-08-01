@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>自定义SQL分析</title>
+</head>
+
+<body>
+	<h2>自定义SQL分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>自定义SQL分析</b>可以打开自定义SQL分析面板，该页面用于查看数据库的自定义SQL执行情况。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_ud_sql_panel.png" alt="" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+			<tr>
+				<td><img src="images/refresh.png" alt="" />刷新</td>
+				<td>刷新自定义SQL执行信息列表。</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/config.png" alt="" />添加/删除</td>
+				<td>添加或删除自定义SQL监控。点击打开<a href="./database_ud_sql_dialog.html">自定义SQL监控管理对话框</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/search_item.png" alt="" /></td>
+				<td>对自定义SQL执行信息列表进行sql关键字的过滤。搜索输入框中输入内容，敲下<b>回车</b>或者点击<img
+					src="images/search.png" />。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>自定义SQL列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+			<tr>
+				<td>sql语句</td>
+				<td>sql语句内容。</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>状态</td>
+				<td><p>
+						执行是否成功。<img src="images/failed_link.png" alt="" />表示执行失败，点击可以查看失败原因，打开对话框如下：
+					</p>
+					<p>
+						<img src="images/database_ud_sql_failed_msg.png" alt="" />
+					</p></td>
+			</tr>
+			<tr>
+				<td>执行结果</td>
+				<td>sql语句执行结果。</td>
+			</tr>
+			<tr>
+				<td>时间</td>
+				<td>执行时间。</td>
+			</tr>
+			<tr>
+				<td>历史记录</td>
+				<td>点击<img src="images/chart_line.png" alt="" />打开<a
+					href="#database_ud_sql_history_dialog">自定义SQL执行历史对话框</a>，查看sql语句执行的历史信息。</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3 id="database_ud_sql_history_dialog">自定义SQL执行历史对话框</h3>
+	<p>
+		<img src="images/database_ud_sql_history_dialog.png" alt="" />
+	</p>
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的自定义SQL执行结果。</p>
+	<p>
+		<strong>自定义sql执行历史图表</strong>
+	</p>
+	<p>&emsp;&emsp;图表展示了自定义sql在各个时间的执行结果。横坐标为时间，纵坐标为自定义sql执行结果。</p>
+
+</body>
+</html>

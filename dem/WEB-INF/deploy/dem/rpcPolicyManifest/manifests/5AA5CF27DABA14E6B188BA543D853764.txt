@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IDBLinkService
+path: E458B8F5C1FEFA3F7DC5E38A2EA6FDEE.gwt.rpc

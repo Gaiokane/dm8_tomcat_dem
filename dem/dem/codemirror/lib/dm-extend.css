@@ -1,0 +1,51 @@
+.breakpoints {
+	width: 1em;
+}
+
+.breakpoint {
+	color: #822;
+}
+
+.pre_compile_errors {
+	width: 1em;
+}
+
+/* .aaa {
+	text-decoration: underline;
+} */
+.pre_compile_error_line {
+	position: relative;
+}
+
+.pre_compile_error_line::before {
+	content: '';
+	position: absolute;
+	bottom: -0.125em;
+	width: 100%;
+	height: 0.25em;
+	background: -webkit-linear-gradient(315deg, transparent, transparent 45%, #ff0000,
+		transparent 55%, transparent 100%),
+		-webkit-linear-gradient(45deg, transparent, transparent 45%, #ff0000,
+		transparent 55%, transparent 100%);
+	background: linear-gradient(135deg, transparent, transparent 45%, #ff0000,
+		transparent 55%, transparent 100%),
+		linear-gradient(45deg, transparent, transparent 45%, #ff0000,
+		transparent 55%, transparent 100%);
+	background-size: 0.5em 0.5em;
+	background-repeat: repeat-x, repeat-x;
+}
+
+.debug_stack_now {
+	background: none repeat scroll 0 0 #C6DBAE;
+}
+
+.debug_stack {
+	background: none repeat scroll 0 0 #DBEBCC;
+}
+
+.text_underline_dashed {
+	text-decoration:underline;
+	text-decoration-style:dashed;
+	text-decoration-color:red;
+	text-decoration-thickness:2px;
+}

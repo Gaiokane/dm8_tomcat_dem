@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>管理服务器对话框</title>
+</head>
+<body>
+	<h2>管理服务器对话框</h2>
+	<p>&emsp;&emsp;通过管理服务器对话框，可以实现对当前连接数据库的系统管理包括状态、日志和归档等。</p>
+	<p>
+		<img src="images/server_manager_dialog.png" />
+	</p>
+
+	<p>&emsp;&emsp;管理服务器对话框主要包括以下几部分:</p>
+	<ul>
+		<li><a href="#tabs-1">系统概述</a></li>
+		<li><a href="#tabs-2">系统管理</a></li>
+		<li><a href="#tabs-3">日志文件</a></li>
+		<li><a href="#tabs-4">归档配置</a></li>
+		<li><a href="#tabs-5">DDL</a></li>
+	</ul>
+
+	<br />
+	<h3 id="tabs-1">系统概述</h3>
+	<p>&emsp;&emsp;当前连接数据库的基本信息，如下图所示:</p>
+	<p>
+		<img src="images/server_manager_dialog.png" />
+	</p>
+
+	<h3 id="tabs-2">系统管理</h3>
+	<p>&emsp;&emsp;系统管理包括状态转换、模式切换和检查点，如下图所示:</p>
+	<p>
+		<img src="images/server_manager_dialog_system_manager.png" />
+	</p>
+
+	<p>
+		<strong>状态转换</strong><br /> 转换数据库状态，包括：配置、打开和挂起。
+	</p>
+
+	<p>
+		<strong>模式切换</strong><br /> 切换数据库模式，包括：普通模式、主库模式和备库模式。
+	</p>
+
+	<p>
+		<strong>检查点</strong><br /> 设置刷脏页的比例，并执行。
+	</p>
+
+	<h3 id="tabs-3">日志文件</h3>
+	<p>&emsp;&emsp;查看和设置数据库的日志文件信息，如下图所示:</p>
+	<p>
+		<img src="images/server_manager_dialog_log.png" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/add.png" />添加</td>
+				<td>添加新的日志文件</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" />删除</td>
+				<td>删除选中日志文件</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<strong>日志文件列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>列名</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>文件路径</td>
+				<td>日志文件的路径，双击可进行修改。</td>
+			</tr>
+			<tr>
+				<td>文件大小(M)</td>
+				<td>日志文件大小，双击可进行修改。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>日志文件的状态。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-4">归档配置</h3>
+	<p>&emsp;&emsp;编辑器(查询分析器)的首选项，如下图所示:</p>
+	<p>
+		<img src="images/server_manager_dialog_arch.png" />
+	</p>
+	<p>
+		<strong>归档模式</strong><br /> 包括归档和非归档。
+	</p>
+
+	<strong>归档列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>列名</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>归档目标</td>
+				<td>归档文件生成目录的路径，双击可进行修改。</td>
+			</tr>
+			<tr>
+				<td>归档类型</td>
+				<td>归档类型，包括:LOCAL、ASYNC、SYNC、REALTIME、MARCH、TIMELY。</td>
+			</tr>
+			<tr>
+				<td>文件大小(M)</td>
+				<td>归档文件的大小，双击可进行修改。</td>
+			</tr>
+			<tr>
+				<td>空间限制大小(M:1024~4294967294)</td>
+				<td>归档文件大小的限制，双击可进行修改。</td>
+			</tr>
+			<tr>
+				<td>定时器</td>
+				<td>归档的定时器，只在ASYNC归档可用。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-5">DDL</h3>
+	<p>&emsp;&emsp;显示修改相关系统设置生成的DDL语句，如下图所示:</p>
+	<p>
+		<img src="images/server_manager_dialog_ddl.png" />
+	</p>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<DataSource ID="GridExportClientDataTask" inheritsFrom="ComponentTask" Constructor="GridExportClientDataTask">
+    <fields>
+        <field name="requestProperties" type="DSRequest"/>
+    </fields>
+</DataSource>
+

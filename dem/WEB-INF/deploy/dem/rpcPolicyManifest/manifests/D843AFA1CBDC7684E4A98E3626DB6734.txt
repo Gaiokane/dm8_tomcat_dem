@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IViewService
+path: 0BFBE994437AE7876ADB1CC86425AFE1.gwt.rpc

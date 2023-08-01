@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>角色管理</title>
+</head>
+
+<body>
+	<h2>角色管理</h2>
+	<p>&emsp;&emsp;双击主页左侧导航树的角色管理节点可以打开角色管理面板。该页面用于角色类型及其权限的查看。只有系统管理员才有权限打开该面板。角色类型都为内置类型，不能进行增删改。如下图所示:</p>
+	<p>
+		<img src="images/role_panel.png" alt="" />
+	</p>
+	<p>系统内置了四种角色类型：</p>
+	<blockquote>
+		<div>1.超级管理员：拥有系统全部权限，系统中初始化时内置了一个超级管理员用户admin。</div>
+		<div>2.系统管理员：同时拥有系统管理、监控告警、客户端工具使用权限。</div>
+		<div>3.高级用户：拥有监控告警、客户端工具使用权限。</div>
+		<div>4.普通用户：只拥有客户端工具使用权限。</div>
+	</blockquote>
+	<p>
+		<strong>角色信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;表中为系统中所有角色的权限信息列表。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>角色名称</td>
+			</tr>
+			<tr>
+				<td>描述</td>
+				<td>角色描述</td>
+			</tr>
+			<tr>
+				<td>客户端工具使用权限</td>
+				<td>角色是否有使用客户端工具（主页左侧客户端工具模块）的权限。<img src="images/mark.png"
+					alt="" />表示有权限，<img src="images/delete2_disabled.png" alt="" />表示没有权限。</td>
+			</tr>
+			<tr>
+				<td>监控告警权限</td>
+				<td>角色是否有使用监控告警（主页左侧监控及告警模块）的权限。<img src="images/mark.png"
+					alt="" />表示有权限，<img src="images/delete2_disabled.png" alt="" />表示没有权限。</td>
+			</tr>
+			<tr>
+				<td>系统管理权限</td>
+				<td>角色是否有系统管理（主页左侧系统管理模块）权限。<img src="images/mark.png" alt="" />表示有权限，<img
+					src="images/delete2_disabled.png" alt="" />表示没有权限。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

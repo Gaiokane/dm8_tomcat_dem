@@ -1,0 +1,7 @@
+<DataSource ID="GridSetEditValueTask" inheritsFrom="ComponentTask" Constructor="GridSetEditValueTask">
+    <fields>
+        <field name="targetField" type="string" xmlAttribute="true" />
+        <field name="value" type="any" xmlExplicitTypes="true" xmlAttributeInRuleCriteria="true"/>
+    </fields>
+</DataSource>
+

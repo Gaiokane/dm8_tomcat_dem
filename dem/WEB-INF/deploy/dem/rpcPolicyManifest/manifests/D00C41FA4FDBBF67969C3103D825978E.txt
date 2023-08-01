@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IDomainService
+path: 0B769D20A098A2D13FC86AC878FB4541.gwt.rpc

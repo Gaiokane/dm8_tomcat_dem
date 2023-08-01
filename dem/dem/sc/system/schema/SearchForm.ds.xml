@@ -1,0 +1,17 @@
+<DataSource ID="SearchForm" inheritsFrom="DynamicForm" Constructor="SearchForm" >
+    <fields>
+        <fields name="searchOnEnter" type="boolean" basic="true" />
+        <fields name="saveOnEnter" type="boolean" inapplicable="true" />
+    </fields>
+    <methods>
+        <method name="search" basic="true" />
+        <method name="criteriaChanged" basic="true" />
+        <method action="true" title="Perform Search" name="search" icon="[SKINIMG]/actions/search.png" basic="true" />
+        <method action="true" name="editSelectedData" inapplicable="true"/>
+        <method action="true" name="editRecord" inapplicable="true"/>
+        <method action="true" name="editNewRecord" inapplicable="true"/>
+        <method action="true" name="saveData" inapplicable="true"/>
+        <method action="true" name="validate" inapplicable="true"/>
+        
+    </methods>
+</DataSource>

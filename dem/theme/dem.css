@@ -1,0 +1,339 @@
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+	color: #777777;
+	margin: 40px 0px 70px;
+	text-align: center;
+}
+
+h4 {
+	font-weight: bold;
+	font-size: 18px;
+	color: #777777;
+	margin: 5px 0px 5px 0px;
+}
+
+h6 {
+	font-weight: bold;
+	font-size: 14px;
+	color: #777777;
+	margin: 5px 0px 5px 0px;
+}
+
+h7 {
+	font-weight: bold;
+	font-size: 12px;
+	color: #000000;
+	margin: 0px 0px 0px 0px;
+}
+
+h8 {
+	font-weight: bold;
+	font-size: 10px;
+	color: #000000;
+	margin: 0px 0px 0px 0px;
+}
+
+.sendButton {
+	display: block;
+	font-size: 16pt;
+}
+
+/** Most GWT widgets already have a style name defined */
+.gwt-DialogBox {
+	width: 400px;
+}
+
+.dialogVPanel {
+	margin: 5px;
+}
+
+.serverResponseLabelError {
+	color: red;
+}
+
+/** Set ids using widget.getElement().setId("idOfElement") */
+#closeButton {
+	margin: 15px 6px 6px;
+}
+
+/*dds style*/
+.logoTitle {
+	/*  font-family: 微软雅黑, Arial, Verdana, tahoma, serif; */
+	color: #454545;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.autoLineWidth {
+	white-space: normal;
+	word-break: break-all;
+}
+
+.dte-borderBottomAndLeft {
+	border-left: 1px solid #e5e7eb;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.dte-borderLeft {
+	border-left: 1px solid #e5e7eb;
+}
+
+.dte-tableHeader {
+	background-color: rgb(229, 231, 235);
+}
+
+.border-top-dashed-red {
+	border-top: 1px dashed #FF6666
+}
+
+.border-left-dashed-red {
+	border-left: 1px dashed #FF6666
+}
+
+.border-circle {
+	border-radius: 50%;
+}
+
+.border-radius-40percent {
+	border-radius: 40%;
+}
+
+.border-radius-35percent {
+	border-radius: 35%;
+}
+
+.border-radius-30percent {
+	border-radius: 30%;
+}
+
+/*---------------------------------- login -------------------------------------------------*/
+#login-dialog {
+    width: 350px;
+    height: 280px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -140px;
+    border-radius: 10px;
+    background-color: var(--theme_bgcolor_1);
+}
+
+#login-dialog #login-form {
+    width: 70%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+#login-dialog #login-form h1 {
+    /* font-family: 'Open Sans Condensed', sans-serif; */
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--theme_color_selected);
+}
+
+#login-dialog #login-form h1:before,
+#login-dialog #login-form h1:after {
+    display: inline-block;
+    content: " ";
+    width: 18px;
+    height: 6px;
+    border-top: 1px solid var(--theme_color_selected);
+}
+
+#login-dialog #login-form h1:before {
+    margin-right: 5px;
+}
+
+#login-dialog #login-form h1:after {
+    margin-left: 5px;
+}
+
+#login-dialog #login-form #login-username,
+#login-dialog #login-form #login-password {
+    width: 242px;
+    height: 23px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-indent: 10px;
+    outline: none;
+    background-color:var(--theme_bgcolor_1);
+    border:1px solid var(--theme_border_color_default);
+}
+
+#login-dialog #login-form button {
+    width: 248px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    letter-spacing:4px;
+    text-indent:4px;
+    text-align:center;
+    color:var(--theme_color_default);
+    background-color:var(--theme_bgcolor_1);
+    border:1px solid var(--theme_border_color_default);
+}
+
+#login-dialog #login-form button:hover {
+    color:var(--theme_color_highlight);
+    background-color:var(--theme_bgcolor_over);
+    border:1px solid var(--theme_border_color_default);
+}
+
+#login-dialog #login-form button:focus {
+    color: var(--theme_color_highlight);
+    background-color:var(--theme_bgcolor_selected);
+    border:1px solid var(--theme_border_color_default);
+}
+
+#login-dialog p {
+    text-align:center;
+    color:  var(--theme_color_disabled);
+}
+
+/*---------------------------------- demMain -------------------------------------------------*/
+.notify-count {
+	position: absolute;
+	top: 2px;
+	right: 0px;
+	max-width: 25px;
+	min-width: 8px;
+	height: 14px;
+	line-height: 14px;
+	padding: 0 3px;
+	font-size: 10px;
+	color: white;
+	text-align: center;
+	background: #e23442;
+	border-radius: 11px;
+	cursor: pointer;
+}
+
+.notify-counter {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	min-width: 8px;
+	height: 16px;
+	line-height: 16px;
+	padding: 0 4px;
+	font-weight: normal;
+	color: white;
+	text-align: center;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+	background: #e23442;
+	border-radius: 11px;
+	background-image: -webkit-linear-gradient(top, #e8616c, #dd202f);
+	background-image: -moz-linear-gradient(top, #e8616c, #dd202f);
+	background-image: -o-linear-gradient(top, #e8616c, #dd202f);
+	background-image: linear-gradient(to bottom, #e8616c, #dd202f);
+	-webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px
+		rgba(0, 0, 0, 0.12);
+	box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px
+		rgba(0, 0, 0, 0.12);
+}
+
+.notifySelected {
+	padding: 3px 3px 3px 3px;
+	/*  background-color: #d9d9d9; */
+	background-image: url("./images/cssButton/button_Over_stretch.png");
+	background-repeat: repeat-x;
+	background-image:
+		url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIvPjxzdG9wIG9mZnNldD0iNTIlIiBzdG9wLWNvbG9yPSIjZWRlZGVkIi8+PHN0b3Agb2Zmc2V0PSI1NyUiIHN0b3AtY29sb3I9IiNlM2UzZTMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkNmQ2ZDYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+	background-size: 100%;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f7f7f7),
+		color-stop(52%, #ededed), color-stop(57%, #e3e3e3),
+		color-stop(100%, #d6d6d6));
+	background-image: -moz-linear-gradient(top, #f7f7f7 0%, #ededed 52%, #e3e3e3 57%, #d6d6d6
+		100%);
+	background-image: -webkit-linear-gradient(top, #f7f7f7 0%, #ededed 52%, #e3e3e3 57%,
+		#d6d6d6 100%);
+	background-image: linear-gradient(to bottom, #f7f7f7 0%, #ededed 52%, #e3e3e3 57%, #d6d6d6
+		100%);
+}
+
+.notifycenter-footer {
+	text-align: center;
+	font-size: 12px;
+	line-height: 16px;
+	cursor: pointer;
+}
+
+.notifyCenter {
+	background-color:var(--theme_bgcolor_1_rgb);
+	border:1px solid var(--theme_border_color_default);
+}
+
+.notifyRow {
+	background-color:var(--theme_bgcolor_1);
+	border:1px solid var(--theme_border_color_default);
+}
+
+.notifyRow:hover {
+	background-color:var(--theme_bgcolor_over);
+}
+
+.backgroundBlue10Percents {
+	background-color: rgba(48,136,216,0.1);
+}
+
+.demMainHeader {
+	background-color: var(--theme_bgcolor_0);
+	border-bottom:1px solid var(--theme_border_color_default);
+}
+
+.demMainRooter {
+	background-color: var(--theme_bgcolor_1);
+}
+
+/*---------------------------------- home panel -------------------------------------------------*/
+.toolTitle {
+	font-size: 14px;
+	text-align: left;
+    color: var(--theme_color_default);
+    text-decoration: none;
+}
+
+.toolInfo {
+	font-size: 12px;
+	text-align: left;
+	color: var(--theme_color_disabled);
+}
+
+/*-- END --*/
+.console {
+    font-family: Consolas, monospace;
+}
+
+.console:hover {
+	background-color: var(--theme_bgcolor_over);
+}
+
+/*-- CustomDashboardDatasourcePage --*/
+.customLayoutMemberTitle{
+	background-color:transparent;
+}
+
+.customLayoutMemberTitle:hover {
+	background-color:var(--theme_bgcolor_over);
+}
+
+.customLayoutMemberUnselected {
+	border:1px solid var(--theme_border_color_default);
+}
+
+.customLayoutMemberSelected {
+	border:1px solid var(--theme_color_selected);
+}
+
+.demLogo {
+	background-color: #3074bb;
+	color: #F0F0F0;
+}

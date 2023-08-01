@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.dashboard.IDashboardDataService
+path: 4F2940AFB0B147E8C192666B7F3F54B3.gwt.rpc

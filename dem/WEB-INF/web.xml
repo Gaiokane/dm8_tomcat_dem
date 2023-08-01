@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>disable_http_method</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>PUT</http-method>
+			<http-method>DELETE</http-method>
+			<http-method>HEAD</http-method>
+			<http-method>OPTIONS</http-method>
+			<http-method>TRACE</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+		</auth-constraint>
+	</security-constraint>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>DashboardServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.dashboard.DashboardService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DashboardServlet</servlet-name>
+		<url-pattern>/dem/dashboard</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DashboardDataServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.dashboard.DashboardDataService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DashboardDataServlet</servlet-name>
+		<url-pattern>/dem/dashboardData</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>uploadServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.FileUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>uploadServlet</servlet-name>
+		<url-pattern>/dem/fileUpload</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>downloadServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.FileDownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>downloadServlet</servlet-name>
+		<url-pattern>/dem/fileDownload</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>loadHtmlServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.LoadHtmlServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loadHtmlServlet</servlet-name>
+		<url-pattern>/dem/loadHtml</url-pattern>
+	</servlet-mapping>
+
+	<!-- manager -->
+	<servlet>
+		<servlet-name>SqlExecutorServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SqlExecutorService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SqlExecutorServlet</servlet-name>
+		<url-pattern>/dem/sqlExecutor</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SqlDebugServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SqlDebugService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SqlDebugServlet</servlet-name>
+		<url-pattern>/dem/sqlDebug</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SqlAssistantServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SqlAssistantService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SqlAssistantServlet</servlet-name>
+		<url-pattern>/dem/sqlAssistant</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SqlHyperlinkServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SqlHyperlinkService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SqlHyperlinkServlet</servlet-name>
+		<url-pattern>/dem/sqlHyperlink</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SchemaServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SchemaService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SchemaServlet</servlet-name>
+		<url-pattern>/dem/schema</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.UserService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/dem/user</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RoleServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.RoleService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoleServlet</servlet-name>
+		<url-pattern>/dem/role</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ProfileServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ProfileService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProfileServlet</servlet-name>
+		<url-pattern>/dem/profile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DBLinkServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.DBLinkService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DBLinkServlet</servlet-name>
+		<url-pattern>/dem/dbLink</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ContextIndexServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ContextIndexService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ContextIndexServlet</servlet-name>
+		<url-pattern>/dem/contextIndex</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TableServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.TableService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TableServlet</servlet-name>
+		<url-pattern>/dem/table</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TableBrowseServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.TableBrowseService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TableBrowseServlet</servlet-name>
+		<url-pattern>/dem/tableBrowse</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ViewServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ViewService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewServlet</servlet-name>
+		<url-pattern>/dem/view</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ProcedureServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ProcedureService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProcedureServlet</servlet-name>
+		<url-pattern>/dem/procedure</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PackageServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.PackageService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PackageServlet</servlet-name>
+		<url-pattern>/dem/package</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DomainServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.DomainService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DomainServlet</servlet-name>
+		<url-pattern>/dem/domain</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SequenceServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SequenceService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SequenceServlet</servlet-name>
+		<url-pattern>/dem/sequence</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SynonymServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SynonymService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SynonymServlet</servlet-name>
+		<url-pattern>/dem/synonym</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TableSpaceServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.TableSpaceService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TableSpaceServlet</servlet-name>
+		<url-pattern>/dem/tableSpace</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ToolPackageServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ToolPackageService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ToolPackageServlet</servlet-name>
+		<url-pattern>/dem/toolPackage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SystemPackageServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.SystemPackageService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SystemPackageServlet</servlet-name>
+		<url-pattern>/dem/systemPackage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AliasServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.AliasService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AliasServlet</servlet-name>
+		<url-pattern>/dem/alias</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DirectoryServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.DirectoryService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DirectoryServlet</servlet-name>
+		<url-pattern>/dem/directory</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ContextServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ContextService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ContextServlet</servlet-name>
+		<url-pattern>/dem/context</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TriggerServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.TriggerService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TriggerServlet</servlet-name>
+		<url-pattern>/dem/trigger</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CipherServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.CipherService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CipherServlet</servlet-name>
+		<url-pattern>/dem/cipher</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DatabaseServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.DatabaseService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DatabaseServlet</servlet-name>
+		<url-pattern>/dem/database</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MViewServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.MViewService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MViewServlet</servlet-name>
+		<url-pattern>/dem/mview</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PolicyServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.PolicyService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PolicyServlet</servlet-name>
+		<url-pattern>/dem/policy</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TimerServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.TimerService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TimerServlet</servlet-name>
+		<url-pattern>/dem/timer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AuditServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.AuditService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuditServlet</servlet-name>
+		<url-pattern>/dem/audit</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DependObjectServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.DependObjectService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DependObjectServlet</servlet-name>
+		<url-pattern>/dem/dependObject</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CommentServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.CommentService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommentServlet</servlet-name>
+		<url-pattern>/dem/comment</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExplainPlanServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ExplainPlanService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExplainPlanServlet</servlet-name>
+		<url-pattern>/dem/explainPlan</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExportScriptServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ExportScriptService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportScriptServlet</servlet-name>
+		<url-pattern>/dem/exportScript</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DBConnectionServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.DBConnectionService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DBConnectionServlet</servlet-name>
+		<url-pattern>/dem/db_connection</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ServerConnectionServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.ServerConnectionService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServerConnectionServlet</servlet-name>
+		<url-pattern>/dem/server_connection</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BackupServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.BackupService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BackupServlet</servlet-name>
+		<url-pattern>/dem/backup</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Backup2Servlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.Backup2Service</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Backup2Servlet</servlet-name>
+		<url-pattern>/dem/backup2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Restore2Servlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.Restore2Service</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Restore2Servlet</servlet-name>
+		<url-pattern>/dem/restore2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RestoreServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.RestoreService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RestoreServlet</servlet-name>
+		<url-pattern>/dem/restore</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AgentServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.AgentService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgentServlet</servlet-name>
+		<url-pattern>/dem/agent</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ReplicationServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ReplicationService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReplicationServlet</servlet-name>
+		<url-pattern>/dem/replication</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CustomTypeServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.CustomTypeService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomTypeServlet</servlet-name>
+		<url-pattern>/dem/customType</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UDOperatorServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.UDOperatorService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UDOperatorServlet</servlet-name>
+		<url-pattern>/dem/ud_operator</url-pattern>
+	</servlet-mapping>
+
+	<!-- monitor -->
+	<servlet>
+		<servlet-name>PerformanceTuningServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.PerformanceTuningService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PerformanceTuningServlet</servlet-name>
+		<url-pattern>/dem/performance_tuning</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PerformanceServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.PerformanceService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PerformanceServlet</servlet-name>
+		<url-pattern>/dem/performance</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SessionServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.SessionService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SessionServlet</servlet-name>
+		<url-pattern>/dem/session</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TransactionServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.TransactionService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TransactionServlet</servlet-name>
+		<url-pattern>/dem/transaction</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DcrCfgServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.DcrCfgService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DcrCfgServlet</servlet-name>
+		<url-pattern>/dem/dcrCfg</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AsmServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.AsmService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AsmServlet</servlet-name>
+		<url-pattern>/dem/asm</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DmWatcherServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.DmWatcherService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DmWatcherServlet</servlet-name>
+		<url-pattern>/dem/dmWatcher</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CacheServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.CacheService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CacheServlet</servlet-name>
+		<url-pattern>/dem/cache</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>StorageServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.StorageService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StorageServlet</servlet-name>
+		<url-pattern>/dem/storage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RunTimeErrServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.RunTimeErrService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RunTimeErrServlet</servlet-name>
+		<url-pattern>/dem/runtimeerr</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SQLServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.SQLService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SQLServlet</servlet-name>
+		<url-pattern>/dem/sql</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MemoryServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.MemoryService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MemoryServlet</servlet-name>
+		<url-pattern>/dem/memory</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BufferServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.BufferService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BufferServlet</servlet-name>
+		<url-pattern>/dem/buffer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DBEventServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.DBEventService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DBEventServlet</servlet-name>
+		<url-pattern>/dem/dbevent</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MonitorDBLinkServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.monitor.DBLinkService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MonitorDBLinkServlet</servlet-name>
+		<url-pattern>/dem/monitor_dblink</url-pattern>
+	</servlet-mapping>
+
+	<!-- event push -->
+	<servlet>
+		<servlet-name>eventServiceImpl</servlet-name>
+		<servlet-class>de.novanic.eventservice.service.EventServiceImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>eventServiceImpl</servlet-name>
+		<url-pattern>/dem/gwteventservice</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ImageServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.ImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImageServlet</servlet-name>
+		<url-pattern>/imageServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- dma -->
+	<servlet>
+		<servlet-name>DMAgentServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.agent.AgentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DMAgentServlet</servlet-name>
+		<url-pattern>/dem/dma_agent</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DMADatabaseServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.DatabaseService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DMADatabaseServlet</servlet-name>
+		<url-pattern>/dem/dma_database</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DMAMainframeServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.MainframeService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DMAMainframeServlet</servlet-name>
+		<url-pattern>/dem/dma_mainframe</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DMAProcessServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.ProcessService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DMAProcessServlet</servlet-name>
+		<url-pattern>/dem/dma_process</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DMAMultiConnSQLTemplateServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.MultiConnSQLTemplateService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DMAMultiConnSQLTemplateServlet</servlet-name>
+		<url-pattern>/dem/dma_multi_conn_sql_templ</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AlertServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.AlertService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AlertServlet</servlet-name>
+		<url-pattern>/dem/dma_alert</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DMAInspectServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.InspectService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DMAInspectServlet</servlet-name>
+		<url-pattern>/dem/dma_inspect</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UdSqlServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.UdSqlService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UdSqlServlet</servlet-name>
+		<url-pattern>/dem/dma_ud_sql</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UdScriptServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.UdScriptService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UdScriptServlet</servlet-name>
+		<url-pattern>/dem/dma_ud_script</url-pattern>
+	</servlet-mapping>
+
+	<!-- 备份配置 -->
+	<servlet>
+		<servlet-name>BackupConfigServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.BackupService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BackupConfigServlet</servlet-name>
+		<url-pattern>/dem/dma_backup</url-pattern>
+	</servlet-mapping>
+
+	<!-- <servlet> <servlet-name>DMABatchServlet</servlet-name> <servlet-class>com.dameng.dem.server.service.dma.BatchService</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>DMABatchServlet</servlet-name> 
+		<url-pattern>/dem/dma_batch</url-pattern> </servlet-mapping> -->
+
+	<servlet>
+		<servlet-name>GroupServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.GroupService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GroupServlet</servlet-name>
+		<url-pattern>/dem/dma_group</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GroupBatchServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.GroupBatchService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GroupBatchServlet</servlet-name>
+		<url-pattern>/dem/dma_group_batch</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.ResourceService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/dem/dma_resource</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ResourcePkgServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.ResourcePkgService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourcePkgServlet</servlet-name>
+		<url-pattern>/dem/dma_resource_pkg</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DMAgentServiceClientServiceServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.DMAgentServiceClientService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DMAgentServiceClientServiceServlet</servlet-name>
+		<url-pattern>/dem/dmagent_client_service</url-pattern>
+	</servlet-mapping>
+
+	<!-- admin -->
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.LoginService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/dem/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CurrentUserServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.CurrentUserService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CurrentUserServlet</servlet-name>
+		<url-pattern>/dem/current_user</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminAuditServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.admin.AuditService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminAuditServlet</servlet-name>
+		<url-pattern>/dem/admin_audit</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminUserServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.admin.UserService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminUserServlet</servlet-name>
+		<url-pattern>/dem/admin_user</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminRoleServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.admin.RoleService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminRoleServlet</servlet-name>
+		<url-pattern>/dem/admin_role</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminConfigServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.admin.SYSConfigService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminConfigServlet</servlet-name>
+		<url-pattern>/dem/admin_config</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminStatServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.admin.SYSStatService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminStatServlet</servlet-name>
+		<url-pattern>/dem/admin_stat</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DmMontiorServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.DmMonitorService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DmMontiorServlet</servlet-name>
+		<url-pattern>/dem/dmmonitor</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DmASMServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.DmAsmService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DmASMServlet</servlet-name>
+		<url-pattern>/dem/dmasm</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeployServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.deploy.DeployService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeployServlet</servlet-name>
+		<url-pattern>/dem/deploy</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AutoLoginServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.AutoLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AutoLoginServlet</servlet-name>
+		<url-pattern>/auto_login_action</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AutoLoginExServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.AutoLoginExServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AutoLoginExServlet</servlet-name>
+		<url-pattern>/auto_login_ex_action</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>IDACall</servlet-name>
+		<servlet-class>com.dameng.common.gwt.export.servlet.ExportServlet</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>IDACall</servlet-name>
+		<url-pattern>/dem/sc/IDACall/*</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- rest -->
+
+	<servlet>
+		<servlet-name>ApiServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.api.ApiServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/api</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/InfoCollection</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/PolicyLanuch</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/PolicyDel</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/dictInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/ToRegister</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/HeartBeat</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/PolicyReport</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApiServlet</servlet-name>
+		<url-pattern>/API/AutoLoginEncryptParam</url-pattern>
+	</servlet-mapping>
+
+	<!-- api/v2 -->
+	<servlet>
+		<servlet-name>ApiV2Servlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.api.v2.ApiV2Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ApiV2Servlet</servlet-name>
+		<url-pattern>/api/v2/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DtsServlet2</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.dts.DtsService2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DtsServlet2</servlet-name>
+		<url-pattern>/dem/dts2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DtsConfigServlet2</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.dts.DtsConfigService2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DtsConfigServlet2</servlet-name>
+		<url-pattern>/dem/dtsConfig2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DtsTransformServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.DtsTransformServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DtsTransformServlet</servlet-name>
+		<url-pattern>/dem/dts_transform</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DdfsServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dma.DdfsService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DdfsServlet</servlet-name>
+		<url-pattern>/dem/ddfs</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>proxyServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.proxy.ProxyService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>proxyServlet</servlet-name>
+		<url-pattern>/dem/proxy</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>NotifyCenterServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.NotifyCenterService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NotifyCenterServlet</servlet-name>
+		<url-pattern>/dem/notifyCenter</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ImpExpServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.manager.ImpExpService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImpExpServlet</servlet-name>
+		<url-pattern>/dem/imp_exp</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PrometheusServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.servlet.prometheus.PrometheusServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PrometheusServlet</servlet-name>
+		<url-pattern>/metrics</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GatherDataTableServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.admin.SYSMetadataService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GatherDataTableServlet</servlet-name>
+		<url-pattern>/dem/gather_data_table</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeployConfigServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.deploy.DeployConfigService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeployConfigServlet</servlet-name>
+		<url-pattern>/dem/deployConfig</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ToolInspectServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.inspect.InspectService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ToolInspectServlet</servlet-name>
+		<url-pattern>/dem/tool_inspect</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ToolDeployServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.deploy2.DeployService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ToolDeployServlet</servlet-name>
+		<url-pattern>/dem/tool_deploy</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ToolBatchServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.batch.BatchService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ToolBatchServlet</servlet-name>
+		<url-pattern>/dem/tool_batch</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ToolReplaceServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.dbtool.replace.ReplaceService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ToolReplaceServlet</servlet-name>
+		<url-pattern>/dem/tool_replace</url-pattern>
+	</servlet-mapping>
+
+	<!-- realtime messaging -->
+	<servlet>
+		<servlet-name>MessagingServlet</servlet-name>
+		<servlet-class>com.isomorphic.messaging.MessagingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MessagingServlet</servlet-name>
+		<url-pattern>/dem/sc/messaging/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- smoke -->
+	<servlet>
+		<servlet-name>SmokeServlet</servlet-name>
+		<servlet-class>com.dameng.dem.server.service.admin.SmokeService</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SmokeServlet</servlet-name>
+		<url-pattern>/dem/smoke</url-pattern>
+	</servlet-mapping>
+
+	<!-- listener -->
+	<listener>
+		<listener-class>com.dameng.dem.server.listener.DemListener</listener-class>
+	</listener>
+
+	<session-config>
+		<session-timeout>0</session-timeout>
+	</session-config>
+
+	<!-- filter -->
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.dameng.dem.server.filter.EncodingFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>UrlFilter</filter-name>
+		<filter-class>com.dameng.dem.server.filter.UrlFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>UrlFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>HttpServletRequestReplaceFilter</filter-name>
+		<filter-class>com.dameng.dem.server.filter.HttpServletRequestReplaceFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>HttpServletRequestReplaceFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>Dem.html</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<error-code>400</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>503</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.jsp</location>
+	</error-page>
+</web-app>

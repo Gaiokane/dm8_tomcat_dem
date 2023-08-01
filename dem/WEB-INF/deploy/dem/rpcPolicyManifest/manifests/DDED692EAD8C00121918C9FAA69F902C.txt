@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IDmAsmService
+path: 4CAE94FF860A6A8105548C15DF060992.gwt.rpc

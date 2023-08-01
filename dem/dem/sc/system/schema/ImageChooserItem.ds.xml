@@ -1,0 +1,14 @@
+<DataSource	ID="ImageChooserItem" inheritsFrom="TextItem" Constructor="ImageChooserItem">
+	<fields>
+        <field name="pickerTitle" type="boolean"/>
+        <field name="showActionIcons" type="boolean"/>
+        <field name="showHeaderIcons" type="boolean"/>
+
+	</fields>
+    
+    <methods>
+        <method name="pickerCancelled" basic="true"/>
+        <method name="pickerImageSelected" basic="true"/>
+        <method name="getImageProperties" basic="true"/>
+    </methods>
+</DataSource>

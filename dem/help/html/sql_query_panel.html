@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>SQL查询面板</title>
+</head>
+
+<body>
+	<h2>SQL查询面板</h2>
+	<p>&emsp;&emsp;SQL查询面板用来执行SQL语句并显示相关结果集。如下图所示:</p>
+	<p>
+		<img src="images/sql_query_panel.png" />
+	</p>
+
+	<p>&emsp;&emsp;SQL查询面板主要由以下几个部分组成。</p>
+	<ul>
+		<li><a href="#tabs-1">查询面板</a></li>
+		<li><a href="#tabs-2">消息与结果集面板</a></li>
+	</ul>
+	<br />
+
+	<h3 id="tabs-1">查询面板</h3>
+	<p>&emsp;&emsp;查询面板包括功能按钮和输入面板，如下图所示:</p>
+	<p>
+		<img src="images/sql_query_panel_part1.png" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/run_all.png" />执行</td>
+				<td>执行SQL语句。</td>
+			</tr>
+			<tr>
+				<td><img src="images/run_bulk.png" />批量执行</td>
+				<td>批量执行SQL语句。</td>
+			</tr>
+			<tr>
+				<td><img src="images/run_step.png" />单步执行</td>
+				<td>单步执行SQL语句。</td>
+			</tr>
+			<tr>
+				<td><img src="images/stop.png" />停止</td>
+				<td>停止执行SQL语句。</td>
+			</tr>
+			<tr>
+				<td><img src="images/commit.png" />提交</td>
+				<td>提交SQL语句。</td>
+			</tr>
+			<tr>
+				<td><img src="images/rollback.png" />回滚</td>
+				<td>回滚SQL语句。</td>
+			</tr>
+			<tr>
+				<td><img src="images/showplan.png" />显示执行计划</td>
+				<td>显示SQL语句的执行计划。</td>
+			</tr>
+			<tr>
+				<td><img src="images/trace.png" />显示自动跟踪结果</td>
+				<td>打开<a href="auto_trace_dialog.html">自动跟踪对话框</a>，显示自动跟踪结果。</td>
+			</tr>
+			<tr>
+				<td><img src="images/flashback.png" />执行回闪查询</td>
+				<td>打开<a href="flash_back_dialog.html">闪回查询条件对话框</a>，执行回闪查询。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>&emsp;&emsp;输入面板右键菜单，如下图所示:</p>
+	<p>
+		<img src="images/sql_query_panel_part1_menu.png" />
+	</p>
+
+	<strong>右键菜单列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>撤销</td>
+				<td>撤销上一次修改。</td>
+			</tr>
+			<tr>
+				<td>还原</td>
+				<td>还原上一次撤销。</td>
+			</tr>
+			<tr>
+				<td>保存</td>
+				<td>保存当前SQL内容到本地文件。</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">SQL脚本</td>
+				<td>SQL脚本子菜单包括以下功能:增加缩进、减少缩进、格式化、注释、增加块注释、减少块注释、转换成大写、转换成小写、删除、向上复制行、向下复制行、上移行、下移行。</td>
+			</tr>
+			<tr>
+				<td>选项</td>
+				<td>打开<a href="sql_preference_dialog.html">首选项对话框</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-2">消息与结果集面板</h3>
+	<p>&emsp;&emsp;消息与结果集面板包括消息面板、执行计划面板和结果集面板，如下图所示:</p>
+	<p>
+		<img src="images/sql_query_panel_part2.png" />
+	</p>
+
+	<strong>消息面板功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/message.png" />选择显示类别</td>
+				<td>选择显示消息的类别，包括：全部、错误消息和正确消息。</td>
+			</tr>
+			<tr>
+				<td><img src="images/clear.png" />清空</td>
+				<td>清空消息。</td>
+			</tr>
+			<tr>
+				<td><img src="images/close.png" />关闭</td>
+				<td>关闭当前面板(消息面板不可用)。</td>
+			</tr>
+			<tr>
+				<td><img src="images/close_all.png" />关闭所有</td>
+				<td>关闭所有面板(消息面板除外)。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<strong>执行计划面板功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/explain_plan.png" />选择显示类别</td>
+				<td>选择显示消息的类别，包括：表格显示和文本显示。</td>
+			</tr>
+			<tr>
+				<td><img src="images/close.png" />关闭</td>
+				<td>关闭当前面板(消息面板不可用)。</td>
+			</tr>
+			<tr>
+				<td><img src="images/close_all.png" />关闭所有</td>
+				<td>关闭所有面板(消息面板除外)。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<strong>结果集面板功能列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>操作</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/close.png" />关闭</td>
+				<td>关闭当前面板(消息面板不可用)。</td>
+			</tr>
+			<tr>
+				<td><img src="images/close_all.png" />关闭所有</td>
+				<td>关闭所有面板(消息面板除外)。</td>
+			</tr>
+			<tr>
+				<td><img src="images/lock.png" />编辑数据</td>
+				<td>点击可编辑结果集数据，点击<img src="images/lock_open.png" />，可保存已修改数据。</td>
+			</tr>
+			<tr>
+				<td><img src="images/add.png" />增加一行</td>
+				<td>增加一行结果集数据，值为空。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete2.png" />删除一行</td>
+				<td>删除一行结果集数据</td>
+			</tr>
+			<tr>
+				<td><img src="images/ok2.png" />保存</td>
+				<td>保存修改</td>
+			</tr>
+			<tr>
+				<td><img src="images/cancel2.png" />取消修改</td>
+				<td>取消修改</td>
+			</tr>
+			<tr>
+				<td><img src="images/first.png" />第一行</td>
+				<td>选中结果集第一行</td>
+			</tr>
+			<tr>
+				<td><img src="images/previous.png" />前一行</td>
+				<td>选中前一行</td>
+			</tr>
+			<tr>
+				<td><img src="images/next.png" />下一行</td>
+				<td>选中下一行</td>
+			</tr>
+			<tr>
+				<td><img src="images/next.png" />下一行</td>
+				<td>选中结果集最后一行</td>
+			</tr>
+			<tr>
+				<td><img src="images/next_page2.png" />更多记录</td>
+				<td>获取更多记录</td>
+			</tr>
+			<tr>
+				<td><img src="images/last_page2.png" />全部记录</td>
+				<td>获取更多记录</td>
+			</tr>
+			<tr>
+				<td><img src="images/stop.png" />停止</td>
+				<td>停止获取记录</td>
+			</tr>
+			<tr>
+				<td><img src="images/toggle_row.png" />单记录显示</td>
+				<td>在对话框中显示选中行的数据</td>
+			</tr>
+			<tr>
+				<td><img src="images/refresh.png" />刷新</td>
+				<td>刷新数据</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

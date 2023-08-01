@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.batch.IBatchService
+path: 679DB8C0886B9CDC74AD4A063463312E.gwt.rpc

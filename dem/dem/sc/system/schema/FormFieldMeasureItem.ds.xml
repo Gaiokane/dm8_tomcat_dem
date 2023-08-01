@@ -1,0 +1,4 @@
+<DataSource ID="FormFieldMeasureItem" inheritsFrom="TextItem" Constructor="FormFieldMeasureItem" >
+    <fields>
+    </fields>
+</DataSource>

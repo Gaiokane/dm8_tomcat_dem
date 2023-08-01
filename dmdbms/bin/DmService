@@ -1,0 +1,650 @@
+#!/bin/sh
+#
+#
+# This shell script takes care of starting and stopping
+# the Dameng DmServiceXXX.
+#
+# chkconfig: 2345 98 2
+# description: Dameng Database Service.
+# service name: DmServiceXXX
+# pidfile: $DM_BIN_DIR/pids/$CUR_SERVICE_NAME.pid
+# version: V8.0.0.0
+
+### BEGIN INIT INFO
+# Provides: %PROVIDES%
+# Required-Start: $local_fs $remote_fs
+# Required-Stop: $local_fs $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop database service
+### END INIT INFO
+
+DM_HOME="/opt/dmdbms"
+INI_PATH="/opt/dmdbms/data/DAMENG/dm.ini"
+DCR_INI_PATH=%DCR_INI_PATH%
+
+#mount or open
+START_MODE=open
+IS_DISABLED=false
+DDFS_FLAG=false
+
+CUR_SERVICE_NAME=`basename "$0"`
+EXEC_PROG_NAME=dmserver
+SERVICE_TYPE_NAME=database
+DM_BIN_DIR="$DM_HOME/bin"
+EXEC_PROG_FULL_PATH="$DM_BIN_DIR/$EXEC_PROG_NAME"
+SERVICE_PID_FILE="$DM_BIN_DIR/pids/$CUR_SERVICE_NAME.pid"
+SERVICE_LOG_FILE="$DM_HOME/log/$CUR_SERVICE_NAME.log"
+
+STARTUP_PARAMS=""
+PS_STARTUP_PARAMS=""
+STARTUP_PARAMS="\"$INI_PATH\""
+PS_STARTUP_PARAMS="$INI_PATH"
+if [ "x$DCR_INI_PATH" != "x" -a "$DCR_INI_PATH" != "%DCR_INI_PATH%" ]
+then
+	STARTUP_PARAMS="$STARTUP_PARAMS DCR_INI=\"$DCR_INI_PATH\""
+	PS_STARTUP_PARAMS="$PS_STARTUP_PARAMS DCR_INI=$DCR_INI_PATH"
+fi
+
+#compatible with the old version script
+dm_home="$DM_HOME"
+
+#kill process wait time(s)
+KILL_PROG_WAIT_TIME=180
+WAIT_OUTTIME_KILL_9=false
+
+#wait asmtool
+WAIT_ASM_TIME_COUNT=10
+
+#LOG DIR
+if [ ! -d "$DM_HOME/log" ]
+then
+	mkdir -p "$DM_HOME/log"
+	chmod 777 "$DM_HOME/log"
+fi
+
+#PIDS
+if [ ! -d "$DM_BIN_DIR/pids" ]
+then
+	mkdir -p "$DM_BIN_DIR/pids"
+	chmod 777 "$DM_BIN_DIR/pids"
+fi
+
+#get dm user
+/usr/ucb/whoami >/dev/null 2>/dev/null
+if [ $? -eq 0 ]
+then
+	CUR_USER_NAME=`/usr/ucb/whoami`
+else
+	whoami >/dev/null 2>/dev/null
+	if [ $? -eq 0 ]
+	then
+		CUR_USER_NAME=`whoami`
+	else
+		if [ ! -f "$SERVICE_LOG_FILE" ]
+		then
+			touch "$SERVICE_LOG_FILE"
+			chmod 666 "$SERVICE_LOG_FILE"
+		fi
+		echo "failed to get whoami!" > "$SERVICE_LOG_FILE"
+		cat "$SERVICE_LOG_FILE"
+		exit 1
+	fi
+fi
+
+DM_USER_NAME=`ls -ld "$DM_HOME/." 2>/dev/null | awk 'NR==1{print $3}'`
+CUR_PROG_USER_NAME=""
+
+#os name
+DIST_OS=`uname`
+if [ "$DIST_OS" = "HP-UX" -o "$DIST_OS" = "HP-UX64" ]
+then
+	DIST_OS="HP-UX"
+	PATH=$PATH:/sbin:/usr/sbin:/usr/bin:/usr/local/bin
+
+	SHLIB_PATH="$DM_HOME/tool/bin:$SHLIB_PATH"
+	export SHLIB_PATH
+elif [ "$DIST_OS" = "SunOS" ]
+then
+	DIST_OS="Solaris"
+
+	LD_LIBRARY_PATH="$DM_BIN_DIR:$LD_LIBRARY_PATH"
+	export LD_LIBRARY_PATH
+elif [ "$DIST_OS" = "AIX" ]
+then
+	LIBPATH="$DM_BIN_DIR:$LIBPATH"
+	export LIBPATH
+elif [ "$DIST_OS" = "Darwin" ]
+then
+	DYLD_LIBRARY_PATH="$DM_BIN_DIR:$DYLD_LIBRARY_PATH"
+	export DYLD_LIBRARY_PATH
+elif [ "$DIST_OS" = "Linux" ]
+then
+	LD_LIBRARY_PATH="$DM_BIN_DIR:$LD_LIBRARY_PATH"
+	export LD_LIBRARY_PATH
+elif [ "$DIST_OS" = "FreeBSD" ]
+then
+	LD_LIBRARY_PATH="$DM_BIN_DIR:$LD_LIBRARY_PATH"
+	export LD_LIBRARY_PATH
+fi
+
+if [ "x$SHELL" = "x" ]
+then
+	DIST_SHELL="sh"
+else
+	DIST_SHELL=`basename "$SHELL"`
+fi
+
+if [ "$CUR_USER_NAME" != "root" -a "$CUR_USER_NAME" != "$DM_USER_NAME" ]
+then
+	echo "please change $DM_USER_NAME or root to execute the service script, otherwise may be failed !"
+exit 1
+fi
+
+# Test Echo
+ECHOTEST=`echo -n "x"`
+if [ "$ECHOTEST" = "x" ]
+then
+	ECHOOPT="-n "
+	ECHOOPTC=""
+else
+	ECHOOPT=""
+	ECHOOPTC="\c"
+fi
+
+ECHOETEST=`echo -e "x"`
+if [ "$ECHOETEST" = "x" ]
+then
+	ECHOEOPT="-e "
+else
+	ECHOEOPT=""
+fi
+
+PS_BIN="/usr/ucb/ps"
+if [ ! -x "$PS_BIN" ]
+then
+	PS_BIN="/usr/bin/ps"
+	if [ ! -x "$PS_BIN" ]
+	then
+		PS_BIN="/bin/ps"
+		if [ ! -x "$PS_BIN" ]
+		then
+			if [ ! -f "$SERVICE_LOG_FILE" ]
+			then
+				touch "$SERVICE_LOG_FILE"
+				chmod 666 "$SERVICE_LOG_FILE"
+			fi
+			echo "failed to get ps!" > "$SERVICE_LOG_FILE"
+			cat "$SERVICE_LOG_FILE"
+			exit 1
+		fi
+	fi
+fi
+
+DCR_INI_PARAM=""
+if [ "x$DCR_INI_PATH" != "x" -a "$DCR_INI_PATH" != "%DCR_INI_PATH%" ]
+then
+	DCR_INI_PARAM="DCR_INI=$DCR_INI_PATH"
+fi
+
+GREP_FULL_STR=""
+if [ "x$PS_STARTUP_PARAMS" = "x" ] 
+then
+	GREP_FULL_STR="$EXEC_PROG_FULL_PATH"
+else
+	GREP_FULL_STR="$EXEC_PROG_FULL_PATH $PS_STARTUP_PARAMS"
+fi
+
+ulimit -c unlimited
+
+BOOTUP=color
+RES_COL=60
+MOVE_TO_COL="echo $ECHOEOPT $ECHOOPT \\033[${RES_COL}G$ECHOOPTC"
+SETCOLOR_SUCCESS="echo $ECHOEOPT $ECHOOPT \\033[1;32m$ECHOOPTC"
+SETCOLOR_FAILURE="echo $ECHOEOPT $ECHOOPT \\033[1;31m$ECHOOPTC"
+SETCOLOR_NORMAL="echo $ECHOEOPT $ECHOOPT \\033[0;39m$ECHOOPTC"
+
+# define some functions to be used by most or all shell scripts
+# -------------------------------functions start------------------------------
+
+echo_success() {
+	if [ "$DIST_OS" = "FreeBSD" ]
+	then
+		echo "[ OK ]"
+	else
+		[ "$BOOTUP" = "color" ] && $MOVE_TO_COL
+		echo $ECHOOPT "[ $ECHOOPTC"
+		[ "$BOOTUP" = "color" ] && $SETCOLOR_SUCCESS
+		echo $ECHOOPT "OK$ECHOOPTC"
+		[ "$BOOTUP" = "color" ] && $SETCOLOR_NORMAL
+		echo $ECHOOPT " ]$ECHOOPTC"
+		echo ""
+	fi
+	return 0
+}
+
+echo_failure() {
+	if [ "$DIST_OS" = "FreeBSD" ]
+		then
+		echo "[ FAILED ]"
+	else
+		[ "$BOOTUP" = "color" ] && $MOVE_TO_COL
+		echo $ECHOOPT "[ $ECHOOPTC"
+		[ "$BOOTUP" = "color" ] && $SETCOLOR_FAILURE
+		echo $ECHOOPT "FAILED$ECHOOPTC"
+		[ "$BOOTUP" = "color" ] && $SETCOLOR_NORMAL
+		echo $ECHOOPT " ]$ECHOOPTC"
+		echo ""
+	fi
+	return 1
+}
+
+#show_desc
+show_desc() {
+	echo "Dameng Database Service"
+}
+
+#get the pid username
+get_pid_user() {
+
+	case "$DIST_OS" in
+		'HP-UX')
+			CUR_PROG_USER_NAME=`$PS_BIN -ef | grep $pid | grep -F "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+			;;
+		'Solaris')
+			case "$PS_BIN" in
+				'/usr/ucb/ps')
+					CUR_PROG_USER_NAME=`$PS_BIN -auxww $pid | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+					;;
+				'/usr/bin/ps')
+					CUR_PROG_USER_NAME=`$PS_BIN -p $pid -eo user,args | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+					;;
+				'/bin/ps')
+					CUR_PROG_USER_NAME=`$PS_BIN -p $pid -eo user,args | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+					;;
+				*)
+					echo "Unsupported ps command $PS_BIN"
+					exit 1
+					;;
+			esac
+			;;
+		'AIX')
+			CUR_PROG_USER_NAME=`$PS_BIN -p $pid -eo user,args | grep -F "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+			;;
+		'FreeBSD')
+			CUR_PROG_USER_NAME=`$PS_BIN -auxww $pid | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+			;;
+		*)
+			CUR_PROG_USER_NAME=`$PS_BIN -p $pid -eo user,args | grep -F "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+			;;
+	esac
+}
+
+#get the pid
+get_pid() {
+	pid=""
+	case "$DIST_OS" in
+		'HP-UX')
+			pid=`$PS_BIN -ef | grep -F "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $2}'`
+			;;
+		'Solaris')
+			case "$PS_BIN" in
+				'/usr/ucb/ps')
+					pid=`$PS_BIN -auxww | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $2}'`
+					;;
+				'/usr/bin/ps')
+					pid=`$PS_BIN -eo pid,args | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+					;;
+				'/bin/ps')
+					pid=`$PS_BIN -eo pid,args | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+					;;
+				*)
+					echo "Unsupported ps command $PS_BIN"
+					exit 1
+					;;
+			esac
+			;;
+		'AIX')
+			pid=`$PS_BIN -eo pid,args | grep -F "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+			;;
+		'FreeBSD')
+			pid=`$PS_BIN -auxww | fgrep "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $2}'`
+			;;
+		*)
+			pid=`$PS_BIN -eo pid,args | grep -F "$GREP_FULL_STR" | grep -v "grep" | tail -1 | awk '{print $1}'`
+			;;
+	esac
+}
+
+# A function to stop a program.
+kill_cur_prog() {
+	get_pid
+	if [ "x$pid" = "x" ]
+	then
+		return 0
+	fi
+
+	if [ "x$DCR_INI_PARAM" = "x" ]
+	then
+		kill $pid
+	else
+		kill -2 $pid
+	fi
+
+	RETURN_CODE=$?
+	if [ $RETURN_CODE -ne 0 ]
+	then
+		return 1
+	fi
+
+	while [ "x$pid" != "x" ]
+	do
+		sleep 5
+		get_pid
+		if [ "x$pid" = "x" ]
+		then
+			return 0
+		fi
+
+		KILL_PROG_WAIT_TIME=`expr $KILL_PROG_WAIT_TIME - 5`
+		if [ $KILL_PROG_WAIT_TIME -le 0 ]
+		then
+			if [ "$WAIT_OUTTIME_KILL_9" = "true" ]
+			then
+				kill -9 $pid
+			else
+				echo "kill the process(pid:$pid) had timeout!" > "$SERVICE_LOG_FILE"
+				return 1
+			fi
+		fi
+	done
+	return 0
+}
+
+# -------------------------------functions end------------------------------
+
+start_service() {
+	get_pid
+	if [ "x$pid" != "x" ]
+	then
+		echo "$CUR_SERVICE_NAME (pid $pid) is running."
+		return 2
+	fi
+
+	if [ ! -f "$SERVICE_LOG_FILE" ]
+	then
+		touch "$SERVICE_LOG_FILE"
+		chmod 666 "$SERVICE_LOG_FILE"
+	fi
+
+	echo $ECHOOPT "Starting $CUR_SERVICE_NAME: $ECHOOPTC"
+	cd "$DM_BIN_DIR"
+
+	TMP_START_MODE=""
+	if [ "$1" = "mount" -o "$START_MODE" = "mount" ]
+	then
+		TMP_START_MODE="mount"
+	fi
+
+	if [ "x$DCR_INI_PARAM" != "x" ]
+	then
+		if [ "$DDFS_FLAG" != "true" ]
+		then
+			while [ $WAIT_ASM_TIME_COUNT -gt 0 ]
+			do
+				#test asmtool
+				"$DM_BIN_DIR/dmasmtool" "$DCR_INI_PARAM" >/dev/null 2>&1 <<EOF
+exit
+EOF
+
+				IS_READY_FLAG=$?
+				if [ $IS_READY_FLAG -eq 0 ]
+				then
+					break;
+				fi
+				WAIT_ASM_TIME_COUNT=`expr $WAIT_ASM_TIME_COUNT - 1`
+				echo "failed to connnect dmasmtool, please wait 20 seconds..."
+				sleep 20
+			done
+
+			if [ $IS_READY_FLAG -eq 0 ]
+			then
+				echo "connnect dmasmtool successfully."
+			else
+				echo "failed to connnect dmasmtool."
+			fi
+		else
+			sleep 20
+		fi
+	fi
+
+	if [ "$CUR_USER_NAME" = "root" -a "$DM_USER_NAME" != "root" ]
+	then
+		if [ "$DIST_SHELL" = "csh" ]
+		then
+			SHELL_SCRIPT_TMP_FILE="/tmp/$CUR_SERVICE_NAME""_tmp_file"
+			echo "cd \"$DM_BIN_DIR\"" > "$SHELL_SCRIPT_TMP_FILE"
+			echo $ECHOOPT "\"$EXEC_PROG_FULL_PATH\" $ECHOOPTC">>"$SHELL_SCRIPT_TMP_FILE"
+			if [ "x$STARTUP_PARAMS" != "x" ]
+			then
+				echo $ECHOOPT " $STARTUP_PARAMS $ECHOOPTC">>"$SHELL_SCRIPT_TMP_FILE"
+			fi
+			echo $ECHOOPT " -noconsole $TMP_START_MODE $ECHOOPTC">>"$SHELL_SCRIPT_TMP_FILE"
+			echo " >& \"$SERVICE_LOG_FILE\" &">>"$SHELL_SCRIPT_TMP_FILE"
+			su - "$DM_USER_NAME"<"$SHELL_SCRIPT_TMP_FILE"
+		else
+			if [ "x$STARTUP_PARAMS" = "x" ]
+			then
+				su - "$DM_USER_NAME"<<EOO
+cd "$DM_BIN_DIR"
+"$EXEC_PROG_FULL_PATH" -noconsole $TMP_START_MODE > "$SERVICE_LOG_FILE" 2>&1 &
+EOO
+			else
+				su - "$DM_USER_NAME"<<EOO
+cd "$DM_BIN_DIR"
+eval exec "\"$EXEC_PROG_FULL_PATH\"" "$STARTUP_PARAMS" -noconsole $TMP_START_MODE > "$SERVICE_LOG_FILE" 2>&1 &
+EOO
+			fi
+		fi
+	else
+		if [ "$DIST_SHELL" = "csh" ]
+		then
+			if [ "x$STARTUP_PARAMS" = "x" ]
+			then
+				"$EXEC_PROG_FULL_PATH" -noconsole $TMP_START_MODE >& "$SERVICE_LOG_FILE" &
+			else
+				eval exec "\"$EXEC_PROG_FULL_PATH\"" "$STARTUP_PARAMS" -noconsole $TMP_START_MODE >& "$SERVICE_LOG_FILE" &
+			fi
+		else
+			if [ "x$STARTUP_PARAMS" = "x" ]
+			then
+"$EXEC_PROG_FULL_PATH" -noconsole $TMP_START_MODE > "$SERVICE_LOG_FILE" 2>&1 &
+			else
+eval exec "\"$EXEC_PROG_FULL_PATH\"" "$STARTUP_PARAMS" -noconsole $TMP_START_MODE > "$SERVICE_LOG_FILE" 2>&1 &
+			fi
+		fi
+	fi
+
+	RETURN_CODE=$?
+	if [ $RETURN_CODE -eq 0 ]
+	then
+		sleep 15
+		get_pid
+		if [ "x$pid" = "x" ]
+		then
+			echo_failure
+			cat "$SERVICE_LOG_FILE"
+			return 1
+		else
+			echo_success
+			if [ ! -f "$SERVICE_PID_FILE" ]
+			then
+				touch "$SERVICE_PID_FILE"
+				chmod 666 "$SERVICE_PID_FILE"
+			fi
+			echo $pid > "$SERVICE_PID_FILE"
+		fi
+	else
+		echo_failure
+		cat "$SERVICE_LOG_FILE"
+	fi
+
+	if [ "$DIST_SHELL" = "csh" ]
+	then
+		rm -f "$SHELL_SCRIPT_TMP_FILE"
+	fi
+
+	return $RETURN_CODE
+}
+
+stop_service() {
+	get_pid
+	if [ "x$pid" = "x" ]
+	then
+		echo "$CUR_SERVICE_NAME service is stopped."
+		return 0
+	fi
+
+	get_pid_user
+	if [ "$CUR_USER_NAME" != "root" ] && [ "$CUR_PROG_USER_NAME" != "$CUR_USER_NAME" ]
+	then
+		echo "The process is not current user's, please change $CUR_PROG_USER_NAME or root to stop the process."
+		return 1
+	fi
+
+	if [ ! -f "$SERVICE_LOG_FILE" ]
+	then
+		touch "$SERVICE_LOG_FILE"
+		chmod 666 "$SERVICE_LOG_FILE"
+	fi
+
+	echo $ECHOOPT "Stopping $CUR_SERVICE_NAME: $ECHOOPTC"
+	kill_cur_prog > "$SERVICE_LOG_FILE" 2>&1
+
+	RETURN_CODE=$?
+	if [ $RETURN_CODE -eq 0 ]
+	then
+		echo_success
+		rm -f "$SERVICE_PID_FILE"
+	else
+		echo_failure
+		cat "$SERVICE_LOG_FILE"
+	fi
+	return $RETURN_CODE
+}
+
+restart_service() {
+	stop_service
+	if [ "x$1" = "x" ]
+	then
+		start_service
+	else
+		start_service "$1"
+	fi
+}
+
+condrestart_service() {
+	get_pid
+	if [ "x$pid" != "x" ]
+	then
+		restart_service
+	else
+		echo "$CUR_SERVICE_NAME service is not running."
+		return 1
+	fi
+}
+
+status_service() {
+	get_pid
+	if [ "x$pid" != "x" ]
+	then
+		echo "$CUR_SERVICE_NAME (pid $pid) is running."
+		return 0
+	fi
+
+	if [ -f "$SERVICE_PID_FILE" ]
+	then
+		read pid < "$SERVICE_PID_FILE"
+		if [ "x$pid" != "x" ]
+		then
+			echo "$CUR_SERVICE_NAME dead but pid file exists"
+			return 1
+		fi
+	fi
+	echo "$CUR_SERVICE_NAME is stopped"
+	return 3
+}
+
+if [ "$IS_DISABLED" = "true" ]
+then
+	if [ "$1" = "status" ]
+	then
+		status_service
+	else
+		echo "$CUR_SERVICE_NAME is disabled"
+	fi
+	exit 0
+fi
+
+# See how we were called.
+case "$1" in
+	start)
+		if [ "x$2" != "x" ]
+		then
+			if [ "$2" = "mount" ]
+			then
+				start_service "mount"
+			elif [ "$2" = "dm_db_mount_flag" -a "x$dm_db_mount_flag" = "xmount" ]
+			then
+				start_service "mount"
+			else
+				start_service
+			fi
+		else
+			start_service
+		fi
+		;;
+	stop)
+		stop_service
+		;;
+	status)
+		status_service
+		;;
+	restart)
+		if [ "x$2" != "x" ]
+		then
+			if [ "$2" = "mount" ]
+			then
+				restart_service "mount"
+			elif [ "$2" = "dm_db_mount_flag" -a "x$dm_db_mount_flag" = "xmount" ]
+			then
+				restart_service "mount"
+			else
+				restart_service
+			fi
+		else
+			restart_service
+		fi
+		;;
+	has_dcr_ini)
+		if [ "x$DCR_INI_PARAM" != "x" ]
+		then
+			exit 0
+		else
+			exit 1
+		fi
+		;;
+	desc)
+		show_desc
+		;;
+	condrestart)
+		condrestart_service
+		;;
+	*)
+		echo "Usage: $0 {start|stop|status|condrestart|restart}"
+		exit 1
+		;;
+esac
+
+exit $?
+

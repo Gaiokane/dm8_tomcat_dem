@@ -1,0 +1,7 @@
+<DataSource ID="FormDisableFieldTask" inheritsFrom="ComponentTask" Constructor="FormDisableFieldTask">
+    <fields>
+        <field name="targetField" type="string" xmlAttribute="true" />
+        <field name="disable" type="boolean" xmlAttribute="true" />
+    </fields>
+</DataSource>
+

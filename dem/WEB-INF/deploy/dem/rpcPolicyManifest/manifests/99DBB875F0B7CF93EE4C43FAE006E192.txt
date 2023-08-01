@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ISynonymService
+path: 13A3139DC440AB64365B1566392ECA1D.gwt.rpc

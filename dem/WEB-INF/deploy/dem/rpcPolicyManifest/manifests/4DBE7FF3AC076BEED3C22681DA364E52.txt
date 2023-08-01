@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.replace.IReplaceService
+path: 2E3AADEF898051DF8DCA07385318C309.gwt.rpc

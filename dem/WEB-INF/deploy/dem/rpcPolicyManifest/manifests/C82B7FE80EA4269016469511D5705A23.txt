@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IRoleService
+path: A478D1A4CD1201075B016999CBF33425.gwt.rpc

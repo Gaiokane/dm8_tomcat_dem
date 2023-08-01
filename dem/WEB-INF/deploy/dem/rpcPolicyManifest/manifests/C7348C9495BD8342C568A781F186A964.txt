@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IGroupBatchService
+path: 7337B8588B531A0F1EFE671AD32DFCA2.gwt.rpc

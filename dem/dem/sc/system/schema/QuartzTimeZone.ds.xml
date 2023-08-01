@@ -1,0 +1,15 @@
+<DataSource ID="QuartzTimeZone"
+			serverConstructor="com.isomorphic.scheduler.QuartzTriggers"
+>
+
+	<fields>
+		<field name="ID" type="string" primaryKey="true"/>
+	</fields>
+
+
+    <operationBindings>
+      <operationBinding operationType="fetch"><script language="groovy">
+        java.util.TimeZone.getAvailableIDs().collect{[ID: it];}
+      </script></operationBinding>
+    </operationBindings>
+</DataSource>

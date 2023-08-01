@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.IServerConnectionService
+path: 98846CC4EE7574EE463A4E17FAC7182F.gwt.rpc

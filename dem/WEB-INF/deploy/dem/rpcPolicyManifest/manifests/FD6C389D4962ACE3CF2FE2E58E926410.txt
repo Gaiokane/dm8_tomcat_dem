@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IPolicyService
+path: F0FFB4A3F32549CCC644BAB3678E3CAB.gwt.rpc

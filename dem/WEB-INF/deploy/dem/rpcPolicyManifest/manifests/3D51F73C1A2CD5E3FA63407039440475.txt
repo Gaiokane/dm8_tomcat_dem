@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IReplicationService
+path: 1468EAA0F2AC0212244EF3AB76EE6EAA.gwt.rpc

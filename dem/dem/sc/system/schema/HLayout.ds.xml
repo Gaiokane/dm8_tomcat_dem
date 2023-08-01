@@ -1,0 +1,8 @@
+<DataSource	ID="HLayout" inheritsFrom="Layout" Constructor="HLayout">
+    <fields>
+        <!-- overflow / scrolling -->
+        <!-- Redefine overflow to make basic property on layouts -->
+		<field name="overflow" editorType="OverflowItem"
+			 xmlAttribute="true" type="overflowEnum" title="Scrolling" basic="true"/>	
+    </fields>
+</DataSource>

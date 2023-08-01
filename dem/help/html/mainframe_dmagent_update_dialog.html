@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>数据库代理升级</title>
+</head>
+
+<body>
+	<h2>数据库代理升级</h2>
+
+	<p>
+		&emsp;&emsp;如果主机上的数据库代理版本过低可能会影响部分监控信息的收集。当发现有主机上的数据库代理需要升级时，可以在<a
+			href="mainframe_panel.html">主机监控面板</a>上点击<b>升级代理</b>按钮打开数据库代理升级对话框进行统一升级。如下图所示:
+	</p>
+	<p>
+		<img src="images/dmagent_update_dialog.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;页面打开后表格中已自动添加了所有需要升级的数据库代理，点击升级按钮即可统一进行升级。</p>
+	<p>
+		<strong>功能按钮列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/start.png" alt="" />开始升级</td>
+				<td>开始升级。</td>
+			</tr>
+			<tr>
+				<td><img src="images/stop.png" alt="" />停止升级</td>
+				<td>停止升级，在升级过程中慎用，因为中途停止可能导致数据库代理无法继续使用。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png" alt="" />删除</td>
+				<td>若不想对某些数据库代理进行升级，可以选中后点击删除按钮进行删除。删除后可以继续对其他保留的数据库代理进行升级。<br />
+					<br />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>代理升级列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>名称</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>主机</td>
+				<td>数据库代理所在主机的ip地址或名称。</td>
+			</tr>
+			<tr>
+				<td>当前版本</td>
+				<td>数据库代理当前的版本。</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>数据库代理升级状态。（等待、升级中、升级成功、升级失败）</td>
+			</tr>
+			<tr>
+				<td>消息</td>
+				<td>数据库代理升级失败时返回的消息。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

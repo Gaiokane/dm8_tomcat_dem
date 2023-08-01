@@ -1,0 +1,14 @@
+<DataSource ID="ServiceTask" inheritsFrom="Task" Constructor="ServiceTask">
+    <fields>
+        <field name="dataSource" type="DataSource" idAllowed="true" />
+        <field name="operationType" type="string" xmlAttribute="true" />
+        <field name="operationId" type="string" xmlAttribute="true" />
+        <field name="exportFormat" type="string" xmlAttribute="true" />
+        <field name="criteria" type="Criterion" />
+        <field name="values" type="Record" fieldsCanBeFormula="true" />
+        <field name="fixedCriteria" type="Criterion" />
+        <field name="fixedValues" type="Record" />
+        <field name="failureElement" type="string" xmlAttribute="true" />
+    </fields>
+</DataSource>
+

@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IGroupService
+path: 8484A8D02499CDADDA131AC87AC6AC4A.gwt.rpc

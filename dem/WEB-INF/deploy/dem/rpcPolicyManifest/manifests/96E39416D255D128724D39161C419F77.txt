@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IAuditService
+path: 8F6446A97EEE5FB880FA13FAE1D8E012.gwt.rpc

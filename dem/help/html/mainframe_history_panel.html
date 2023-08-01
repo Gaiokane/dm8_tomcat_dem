@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>负载分析</title>
+</head>
+
+<body>
+	<h2>负载分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="mainframe_panel.html">主机监控面板</a>的主机列表的操作下拉菜单中点击<b>负载分析</b>可以打开主机负载分析面板，该页面用于查看主机负载的历史信息。如下图所示:
+	</p>
+	<p>
+		<img src="images/mainframe_history_panel.png" alt="" />
+	</p>
+
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的主机负载情况。</p>
+	<strong>主机负载信息图表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>图表</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>内存</td>
+				<td>主机内存使用率曲线图。横坐标是时间，纵坐标是内存使用率。</td>
+			</tr>
+			<tr>
+				<td>CPU</td>
+				<td>主机总的CPU使用率曲线图。横坐标是时间，纵坐标是cpu使用率。</td>
+			</tr>
+			<tr>
+				<td>磁盘IO</td>
+				<td>主机磁盘读写速率曲线图。图中有两条曲线分别表示磁盘读和写速率，横坐标是时间，纵坐标是速率，单位B/s.<br />
+					<br /> 点击图表下方的按钮<img
+					src="images/mainframe_history_panel_disk_button.png" alt="" />，可以显示或隐藏相应的曲线。
+
+				</td>
+			</tr>
+			<tr>
+				<td>网络IO</td>
+				<td>主机网络接收和发送速率曲线图。图中有两条曲线分别表示网络接收和发送速率，横坐标是时间，纵坐标是速率，单位B/s.<br />
+					<br /> 点击图表下方的按钮<img
+					src="images/mainframe_history_panel_net_button.png" alt="" />，可以显示或隐藏相应的曲线。
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

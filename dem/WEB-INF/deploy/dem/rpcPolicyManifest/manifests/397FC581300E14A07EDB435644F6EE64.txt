@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ITableBrowseService
+path: 254A039E43C9E76884CC18CFD68315D4.gwt.rpc

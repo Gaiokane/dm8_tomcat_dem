@@ -1,0 +1,11 @@
+<DataSource ID="DecisionGateway" inheritsFrom="ProcessElement" Constructor="DecisionGateway">
+    <fields>
+        <field name="decisionList" type="TaskDecision" multiple="true" />
+        <field name="defaultElement" type="string" xmlAttribute="true" />
+        <field name="nextElement" inapplicable="true" />
+
+        <!-- deprecated -->
+        <field name="criteriaMap" type="Object" />
+    </fields>
+</DataSource>
+

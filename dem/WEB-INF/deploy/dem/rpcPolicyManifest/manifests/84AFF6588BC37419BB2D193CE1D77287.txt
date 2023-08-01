@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.dts.IDtsService2
+path: DC4CCB3E8E086AD019CAEECE6784D363.gwt.rpc

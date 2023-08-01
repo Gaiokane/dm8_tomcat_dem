@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ITableSpaceService
+path: 2356E4182FE675C95701C0D8D93666EB.gwt.rpc

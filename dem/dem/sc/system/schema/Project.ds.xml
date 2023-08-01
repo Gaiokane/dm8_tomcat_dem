@@ -1,0 +1,12 @@
+<DataSource ID="Project" Constructor="Project">
+    <fields>
+        <field name="screens" type="ScreenTree" />
+        <field name="currentScreenFileName" type="string" />
+        <field name="datasources" type="Record" multiple="true" />
+        <field name="runConfigurations" type="Record" multiple="true" />
+        <field name="authentication" type="ProjectAuthentication" />
+
+        <!-- backcompat -->
+        <field name="currentScreenID" type="any" />
+    </fields>
+</DataSource>

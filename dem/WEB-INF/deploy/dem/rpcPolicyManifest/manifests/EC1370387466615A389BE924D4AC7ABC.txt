@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.IDMAgentServiceClientService
+path: 9A9837CF90B40FB0A953F6EF9B5D07E3.gwt.rpc

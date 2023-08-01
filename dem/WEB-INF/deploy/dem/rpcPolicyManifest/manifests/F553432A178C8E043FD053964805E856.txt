@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dma.IDdfsService
+path: CAAB88211EA39696967E9F837941A418.gwt.rpc

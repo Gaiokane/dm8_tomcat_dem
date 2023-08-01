@@ -1,0 +1,3 @@
+<DataSource ID="GridRemoveSelectedDataTask" inheritsFrom="ComponentTask" Constructor="GridRemoveSelectedDataTask">
+</DataSource>
+

@@ -1,0 +1,10 @@
+<DataSource
+    ID="BMPRReader"
+    serverConstructor="com.isomorphic.datasource.BMPRReaderDataSource"
+    addGlobalId="false"
+>
+    <fields>
+        <field name="ID" primaryKey="true" hidden="true" />
+        <field name="recordType" type="text" />
+    </fields>
+</DataSource>

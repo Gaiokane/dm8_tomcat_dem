@@ -1,0 +1,7 @@
+<DataSource ID="SetButtonTitleTask" inheritsFrom="ComponentTask" Constructor="SetButtonTitleTask">
+    <fields>
+        <field name="title" type="text"/>
+        <field name="textFormula" type="UserSummary"/>
+    </fields>
+</DataSource>
+

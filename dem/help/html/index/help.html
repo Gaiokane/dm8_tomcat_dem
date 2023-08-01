@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>帮助</title>
+
+<script language="JavaScript">
+	var maximizeListeners = new Object();
+	function registerMaximizeListener(name, listener) {
+		maximizeListeners[name] = listener;
+	}
+	function notifyMaximizeListeners(maximizedNotRestored) {
+		for (i in maximizeListeners) {
+			try {
+				maximizeListeners[i](maximizedNotRestored);
+			} catch (exc) {
+			}
+		}
+	}
+
+	var leftCols = "29.5%";
+	var rightCols = "70.5%";
+
+	function toggleFrame(title) {
+		var frameset = document.getElementById("helpFrameset");
+		var navFrameSize = frameset.getAttribute("cols");
+		var comma = navFrameSize.indexOf(',');
+		var left = navFrameSize.substring(0, comma);
+		var right = navFrameSize.substring(comma + 1);
+
+		if (left == "*" || right == "*") {
+			// restore frames
+			frameset.frameSpacing = "3";
+			frameset.setAttribute("border", "6");
+			frameset.setAttribute("cols", leftCols + "," + rightCols);
+			notifyMaximizeListeners(false);
+		} else {
+			// the "cols" attribute is not always accurate, especially after resizing.
+			// offsetWidth is also not accurate, so we do a combination of both and 
+			// should get a reasonable behavior
+
+			var leftSize = NavFrame.document.body.offsetWidth;
+			var rightSize = ContentFrame.document.body.offsetWidth;
+
+			leftCols = leftSize * 100 / (leftSize + rightSize);
+			rightCols = 100 - leftCols;
+
+			// maximize the frame.
+			//leftCols = left;
+			//rightCols = right;
+			// Assumption: the content toolbar does not have a default title.
+
+			if (title != "") // this is the left side for left-to-right rendering
+				frameset.setAttribute("cols", "100%,*");
+			else
+				// this is the content toolbar
+				frameset.setAttribute("cols", "*,100%");
+
+			frameset.frameSpacing = "0";
+			frameset.setAttribute("border", "1");
+			notifyMaximizeListeners(true);
+		}
+	}
+</script>
+</head>
+
+<frameset
+	style="border-bottom: buttonface 4px solid; border-left: buttonface 4px solid; border-top: buttonface 0px solid; border-right: buttonface 4px solid;"
+	scrolling="no" frameborder="1" border="6" framespacing="3"
+	cols="27%,73%" id="helpFrameset"> <frame resize="yes"
+	frameborder="1" scrolling="no" marginheight="0" marginwidth="0"
+	src="nav.html" title="Layout frame: NavFrame" name="NavFrame"
+	class="nav"></frame> <frame resize="yes" frameborder="0" scrolling="no"
+	marginheight="0" marginwidth="0" src="content.html" class="content"
+	title="Layout frame: ContentFrame" name="ContentFrame"></frame> </frameset>
+</html>

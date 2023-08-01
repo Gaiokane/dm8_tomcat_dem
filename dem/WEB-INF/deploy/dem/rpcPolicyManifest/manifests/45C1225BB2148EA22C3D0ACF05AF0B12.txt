@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IProfileService
+path: 91C138EB0AAD476B473956D5C106998C.gwt.rpc

@@ -1,0 +1,10 @@
+<DataSource ID="ShowNotificationTask" inheritsFrom="ProcessElement" Constructor="ShowNotificationTask">
+    <fields>
+        <field name="notifyType" type="string" xmlAttribute="true" />
+        <field name="message" type="string" />
+        <field name="textFormula" type="UserSummary"/>
+        <field name="autoDismiss" type="boolean" xmlAttribute="true"/>
+        <field name="position" type="string" xmlAttribute="true"/>
+    </fields>
+</DataSource>
+

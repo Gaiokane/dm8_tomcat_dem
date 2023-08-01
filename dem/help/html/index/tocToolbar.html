@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+<title>工具条</title>
+
+<style type="text/css">
+
+/* need this one for Mozilla */
+HTML {
+	margin: 0px;
+	padding: 0px;
+}
+
+BODY {
+	background: ButtonFace;
+}
+
+#titleText {
+	font-weight: bold;
+	color: WindowText;
+}
+
+.buttonOn a {
+	display: block;
+	margin-left: 2px;
+	margin-right: 2px;
+	width: 18px;
+	height: 18px;
+	border: 1px solid Highlight;
+	vertical-align: middle;
+	background: Window;
+}
+
+.button a,.buttonMenu a {
+	display: block;
+	margin-left: 2px;
+	margin-right: 2px;
+	height: 18px;
+	border: 1px solid ButtonFace;
+	vertical-align: middle;
+}
+
+.button a {
+	width: 18px;
+}
+
+.buttonMenu a {
+	width: 30px;
+}
+
+.buttonHidden a {
+	display: none;
+}
+
+.button a:hover,.buttonMenu a:hover {
+	border-top: 1px solid ButtonHighlight;
+	border-left: 1px solid ButtonHighlight;
+	border-right: 1px solid ButtonShadow;
+	border-bottom: 1px solid ButtonShadow;
+}
+
+#b6:hover {
+	border: 1px solid ButtonFace;
+}
+
+.separator {
+	background-color: ThreeDShadow;
+	height: 100%;
+	width: 1px;
+	border-top: 2px solid ButtonFace;
+	border-bottom: 2px solid ButtonFace;
+	border-left: 3px solid ButtonFace;
+	border-right: 3px solid ButtonFace;
+}
+
+#container {
+	border-bottom: 1px solid ThreeDShadow;
+	border-top: 1px solid ThreeDShadow;
+	height: 24px;
+}
+</style>
+
+
+
+<script language="JavaScript">
+	var bRestore = false;
+	// Preload images
+
+	var show_all = new Image();
+	show\u005Fall.src = "images\u002Fe\u005Fshow\u005Fall\u002Egif";
+
+	var print_toc = new Image();
+	print\u005Ftoc.src = "images\u002Fe\u005Fprint\u005Ftoc\u002Egif";
+
+	var quick_search = new Image();
+	quick\u005Fsearch.src = "images\u002Fe\u005Fquick\u005Fsearch\u005Fmulti\u002Egif";
+
+	var collapseall = new Image();
+	collapseall.src = "images\u002Fe\u005Fcollapseall\u002Egif";
+
+	var synchnav = new Image();
+	synchnav.src = "images\u002Fe\u005Fauto\u005Fsynch\u005Ftoc\u002Egif";
+
+	var maximize_restore = new Image();
+	maximize\u005Frestore.src = "images\u002Fmaximize\u002Egif";
+
+	function setTitle(label) {
+		if (label == null)
+			label = "";
+		var title = document.getElementById("titleText");
+		if (title == null)
+			return;
+		var text = title.lastChild;
+		if (text == null)
+			return;
+		text.nodeValue = label;
+	}
+
+	function restore_maximize(button) {
+		toggleFrame();
+		if (button && document.getElementById(button)) {
+			document.getElementById(button).blur();
+		}
+	}
+	function toggleFrame() {
+		// get to the frameset
+		var p = parent;
+		while (p && !p.toggleFrame) {
+			if (p === p.parent) {
+				return;
+			}
+			p = p.parent;
+		}
+
+		if (p != null) {
+			p.toggleFrame('Contents');
+		}
+		document.selection.clear;
+	}
+
+	function maximizedChanged(maximizedNotRestored) {
+		if (maximizedNotRestored) {
+			document.getElementById("maximize_restore").src = "images/e_restore.gif";
+			document.getElementById("maximize_restore").setAttribute("title",
+					"Restore");
+			document.getElementById("maximize_restore").setAttribute("alt",
+					"Restore");
+			bRestore = true;
+		} else {
+			document.getElementById("maximize_restore").src = "images/e_maximize.gif";
+			document.getElementById("maximize_restore").setAttribute("title",
+					"Maximize");
+			document.getElementById("maximize_restore").setAttribute("alt",
+					"Maximize");
+			bRestore = false;
+		}
+	}
+
+	function setButtonState(buttonName, pressed) {
+		if (!document.getElementById("tdb_" + buttonName))
+			return;
+		if (pressed == "hidden")
+			document.getElementById("tdb_" + buttonName).className = "buttonHidden";
+		else if (pressed == true)
+			document.getElementById("tdb_" + buttonName).className = "buttonOn";
+		else
+			document.getElementById("tdb_" + buttonName).className = "button";
+	}
+
+	function setWindowStatus(buttonName) {
+
+		if (buttonName == "show\u005Fall") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Show\u0020All\u0020Topics";
+			}
+		}
+
+		if (buttonName == "print\u005Ftoc") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Print\u0020topics";
+			}
+		}
+
+		if (buttonName == "null") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "null";
+			}
+		}
+
+		if (buttonName == "quick\u005Fsearch") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Search\u0020topics";
+			}
+		}
+
+		if (buttonName == "collapseall") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Collapse\u0020All";
+			}
+		}
+
+		if (buttonName == "synchnav") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Link\u0020with\u0020Contents";
+			}
+		}
+
+		if (buttonName == "maximize\u005Frestore") {
+			if (buttonName == "maximize_restore") {
+				if (bRestore) {
+					window.status = "Restore";
+				} else {
+					window.status = "Maximize";
+				}
+			} else {
+				window.status = "Maximize";
+			}
+		}
+
+	}
+
+	function menu(button, param) {
+		var doc = parent.frames[1].document;
+		if (!doc.getElementById("menu")) {
+			var menu = doc.createElement("div");
+			menu.id = "menu";
+			menu.srcButton = button;
+			menu.onmouseout = menuExit;
+			menu.onkeydown = menuKey;
+
+			menu.style.padding = "2px 2px 2px 2px";
+			menu.style.position = "absolute";
+			menu.style.right = "0px";
+			menu.style.top = "0px";
+			menu.style.background = "ButtonFace";
+			menu.style.font = "icon";
+			menu.style.borderLeft = "1px solid ThreeDShadow";
+			menu.style.borderBottom = "1px solid ThreeDShadow";
+
+			var entries = param.split(",");
+			for ( var i = 0; i < entries.length; ++i) {
+				var properties = entries[i].split("=");
+				var anchor = doc.createElement("a");
+				var text = doc.createTextNode(properties[0]);
+				anchor.appendChild(text);
+				anchor.href = "javascript:parent.frames[0].closeMenu(),parent.frames[0]."
+						+ properties[1];
+				anchor.target = "_self";
+				anchor.onmouseover = itemEnter;
+				anchor.onmouseout = itemExit;
+				anchor.onfocus = itemEnter;
+				anchor.onblur = itemExit;
+				anchor.style.display = "block";
+				anchor.style.cursor = "default";
+				anchor.style.textDecoration = "none";
+				anchor.style.padding = "4px 4px 4px 4px";
+				anchor.style.background = "transparent";
+				anchor.style.color = "WindowText";
+				menu.appendChild(anchor);
+			}
+
+			doc.body.appendChild(menu);
+			menu.focus();
+		}
+
+		if (button && document.getElementById(button)) {
+			var buttonElem = document.getElementById(button);
+			buttonElem.blur();
+			buttonElem.firstChild.title = "";
+		}
+	}
+
+	function menuKey(e) {
+		var key;
+		if (!e)
+			var e = parent.frames[parent.frames.length - 1].window.event;
+		if (e.keyCode)
+			key = e.keyCode;
+		else if (e.which)
+			key = e.which;
+		var src = e.srcElement ? e.srcElement : e.target;
+
+		if (key == 38) { // Up arrow
+			if (src.id != "menu" && src.previousSibling) {
+				src.previousSibling.focus();
+			}
+		} else if (key == 40) { // Down arrow
+			if (src.id == "menu") {
+				src.firstChild.focus();
+			} else if (src.nextSibling) {
+				src.nextSibling.focus();
+			}
+		} else if (key == 27) { // Esc
+			closeMenu();
+		} else {
+			return true;
+		}
+		return false;
+	}
+
+	function closeMenu() {
+		parent.frames[parent.frames.length - 1].window.status = "";
+		var menu = parent.frames[1].document.getElementById("menu");
+		menu.parentNode.removeChild(menu);
+
+		var img = document.getElementById(menu.srcButton).firstChild;
+		img.title = img.alt;
+	}
+
+	function itemEnter(e) {
+		this.style.background = "Highlight";
+		this.style.color = "HighlightText";
+		parent.frames[parent.frames.length - 1].window.status = this.firstChild.nodeValue;
+		return true;
+	}
+
+	function itemExit(e) {
+		this.style.background = "transparent";
+		this.style.color = "WindowText";
+		parent.frames[parent.frames.length - 1].window.status = "";
+		return true;
+	}
+
+	function menuExit(e) {
+		if (!e)
+			var e = parent.frames[parent.frames.length - 1].window.event;
+		var target = e.relatedTarget ? e.relatedTarget : e.toElement;
+		while (target && target != this)
+			target = target.parentNode;
+		if (target == this)
+			return;
+		closeMenu();
+	}
+</script>
+
+<script src="navActions.js" language="JavaScript"></script>
+</head>
+
+
+<body dir="ltr">
+	<table width="100%" height="100%" cellspacing="0" cellpadding="0"
+		border="0" style="padding-left: 8px;" id="container">
+
+		<tbody>
+			<tr>
+				<td valign="middle" nowrap="" style="font: icon">
+					<div style="overflow: hidden; height: 22px;" id="titleTextTableDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td nowrap="" style="font: icon"><div id="titleText">&nbsp;导航</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+					<div style="position: absolute; top: 1px; right: 0px;">
+						<table width="100%" height="100%" cellspacing="1" cellpadding="0"
+							border="0">
+							<tbody>
+								<tr>
+									<td align="right">
+										<table height="100%" cellspacing="0" cellpadding="0"
+											border="0" align="right" style="background: ButtonFace">
+											<tbody>
+												<tr>
+													<td height="18" align="center" class="button"
+														id="tdb_collapseall"><a id="b4"
+														onmouseout="window.status='';"
+														onmouseover="javascript:setWindowStatus('collapseall');return true;"
+														href="javascript:collapseAll('b4', '');"> <img
+															border="0" id="collapseall" title="折叠全部" alt="合并全部"
+															src="images/e_collapseall.gif" /> </a></td>
+
+													<!--  暂时搞不定
+													<td height="18" align="center" class="button"
+														id="tdb_synchnav"><a id="b5"
+														onmouseout="window.status='';"
+														onmouseover="javascript:setWindowStatus('synchnav');return true;"
+														href="javascript:toggleAutosynch('b5', '');"> <img
+															border="0" id="synchnav" title="定位导航"
+															alt="Link with Contents"
+															src="images/e_auto_synch_toc.gif" /> </a></td>
+															-->
+												</tr>
+											</tbody>
+										</table></td>
+								</tr>
+							</tbody>
+						</table>
+					</div></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+
+
+</body>
+</html>

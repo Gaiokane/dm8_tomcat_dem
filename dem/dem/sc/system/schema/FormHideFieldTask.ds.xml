@@ -1,0 +1,7 @@
+<DataSource ID="FormHideFieldTask" inheritsFrom="ComponentTask" Constructor="FormHideFieldTask">
+    <fields>
+        <field name="targetField" type="string" xmlAttribute="true" />
+        <field name="hide" type="boolean" xmlAttribute="true" />
+    </fields>
+</DataSource>
+

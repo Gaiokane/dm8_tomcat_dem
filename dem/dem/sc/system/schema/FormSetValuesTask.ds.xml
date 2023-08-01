@@ -1,0 +1,6 @@
+<DataSource ID="FormSetValuesTask" inheritsFrom="ComponentTask" Constructor="FormSetValuesTask">
+    <fields>
+        <field name="values" type="Record" fieldsCanBeFormula="true"/>
+    </fields>
+</DataSource>
+

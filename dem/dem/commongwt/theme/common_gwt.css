@@ -1,0 +1,200 @@
+/** Add css rules here for your application. */
+.bold {
+	font-weight: bold;
+}
+
+.border {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-right: 1px solid var(--theme_border_color_default);
+	border-top: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.borderRadius {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-right: 1px solid var(--theme_border_color_default);
+	border-top: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+	border-radius: 8px
+}
+
+.borderRadiusOnly {
+	border-radius: 8px
+}
+
+.border_null {
+	border: none;
+}
+
+.borderLeft {
+	border-left: 1px solid var(--theme_border_color_default);
+}
+
+.borderRight {
+	border-right: 1px solid var(--theme_border_color_default);
+}
+
+.borderLeftAndRight {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-right: 1px solid var(--theme_border_color_default);
+}
+
+.borderTop {
+	border-top: 1px solid var(--theme_border_color_default);
+}
+
+.borderBottom {
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.borderBottom2 {
+	border-bottom: 2px solid var(--theme_border_color_default);
+}
+
+.borderTopAndBottom {
+	border-top: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.borderTopAndLeft {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-top: 1px solid var(--theme_border_color_default);
+}
+
+.borderBottomAndLeft {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.borderTopAndRight {
+	border-top: 1px solid var(--theme_border_color_default);
+	border-right: 1px solid var(--theme_border_color_default);
+}
+
+.borderBottomAndRight {
+	border-right: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.unBorderTop {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-right: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.unBorderBottom {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-right: 1px solid var(--theme_border_color_default);
+	border-top: 1px solid var(--theme_border_color_default);
+}
+
+.unBorderLeft {
+	border-right: 1px solid var(--theme_border_color_default);
+	border-top: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.unBorderRight {
+	border-left: 1px solid var(--theme_border_color_default);
+	border-top: 1px solid var(--theme_border_color_default);
+	border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.searchTextItem,.searchTextItemFocused,.searchTextItemDisabled,.searchTextItemDisabledHint,.searchTextItemError,.searchTextItemHint,.searchSelectItem,.searchSelectItemError,.searchSelectItemDisabled,.searchSelectItemFocused
+	{
+	color: black;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.searchTextItem,.searchTextItemFocused,.searchTextItemDisabled,.searchTextItemDisabledHint,.searchTextItemError,.searchTextItemHint,.searchSelectItem,.searchSelectItemError,.searchSelectItemFocused,.searchSelectItemDisabled,.searchSelectItemHint
+	{
+	background: white;
+	border: 1px solid #ababab;
+	color: black;
+	padding: 4px 2px 4px 2px;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.searchTextItem,.searchTextItemHint,.searchTextItemFocused {
+	border-bottom: 1px solid #dedede;
+	border-left: 1px solid #dedede;
+	border-right: 0px solid #dedede;
+	border-top: 1px solid #ababab;
+}
+
+.searchSelectItem,.searchSelectItemError,.searchSelectItemFocused,.searchSelectItemDisabled,.searchSelectItemHint
+	{
+	border-right: 0;
+	border-left: 1px solid #dedede;
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid #dedede;
+}
+
+.searchTextItemDisabled,.searchTextItemDisabledHint,.searchSelectItemDisabled
+	{
+	background-color: white;
+	border: 1px solid #ababab;
+	color: #ababab;
+}
+
+.searchTextItemHint,.searchSelectItemHint {
+	color: #204269;
+}
+
+.searchSelectItem,.searchSelectItemError,.searchSelectItemFocused,.searchSelectItemDisabled
+	{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-right: 0;
+	background: url("../images/arrwd.gif") no-repeat scroll 100% 50%
+		transparent;
+	cursor: pointer;
+	padding-right: 16px;
+	white-space: nowrap;
+	background-color: white;
+	color: #B5B5B5
+}
+
+.dropFilesLabel {
+	margin-top: 6px;
+	/* padding-top: 28px;
+    padding-bottom: 28px; */
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	display: block;
+	border: 2px dashed #888888;
+}
+
+.dropFilesLabelHover {
+	border: 2px solid #337AB7;
+}
+
+.wordWrap {
+	white-space:normal;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+
+.cardTitle,
+.cardTitleSelected {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.cardTitleSelected {
+	color: var(--theme_color_selected);
+	font-weight:bold;
+}
+
+.commonNavigateButton {
+	border-left: 3px solid var(--theme_bgcolor_0);
+}
+
+.commonNavigateButtonSelected {
+	border-left: 3px solid var(--theme_color_selected);	
+}

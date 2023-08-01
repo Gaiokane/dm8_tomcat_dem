@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.INotifyCenterService
+path: 8D01F572F50319EC799DCC606666C468.gwt.rpc

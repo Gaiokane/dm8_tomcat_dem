@@ -1,0 +1,7 @@
+<DataSource	ID="SectionHeader" inheritsFrom="Label" Constructor="SectionHeader">
+    <fields>
+        <field name="icon" type="URL"/>
+        <field name="baseStyle" type="cssClass"/>
+        <field name="showClippedTitleOnHover" type="boolean"/>
+    </fields>
+</DataSource>

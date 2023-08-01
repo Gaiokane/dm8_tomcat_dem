@@ -1,0 +1,19 @@
+<DataSource	ID="ImagePicker" inheritsFrom="VLayout" Constructor="ImagePicker">
+	<fields>
+        <field name="showActionIcons" type="boolean"/>
+        <field name="actionIconsTitle" type="string"/>
+        <field name="showHeaderIcons" type="boolean"/>
+        <field name="headerIconsTitle" type="string"/>
+        <field name="tipText" type="string"/>
+        <field name="thumbnailSize" type="integer"/>
+        <field name="thumbnailWidth" type="integer"/>
+        <field name="thumbnailHeight" type="integer"/>
+
+	</fields>
+    
+    <methods>
+        <method name="pickerCancelled" basic="true"/>
+        <method name="pickerImageSelected" basic="true"/>
+        <method name="getImageProperties" basic="true"/>
+    </methods>
+</DataSource>

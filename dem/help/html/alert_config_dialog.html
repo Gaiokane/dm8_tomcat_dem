@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>告警配置</title>
+</head>
+
+<body>
+	<h2>告警配置</h2>
+	<p>
+		&emsp;&emsp;告警的配置可以在<a href="alert_panel.html">告警配置面板</a>上点击功能按钮<b>添加</b>，打开告警配置对话框，这是一个向导框，根据提示完成每一页上的配置即可。向导框分为三页：
+	</p>
+	<ul>
+		<li><a href="#tabs-1">第一页：应用资源配置</a></li>
+		<li><a href="#tabs-2">第二页：告警规则配置</a></li>
+		<li><a href="#tabs-3">第三页：通知用户配置</a></li>
+	</ul>
+
+	<h3 id="tabs-1">第一页：应用资源配置</h3>
+	<p>
+		<img src="images/alert_dialog_page1.png" alt="" />
+	</p>
+
+	<p>
+		<strong>名称</strong><br /> 告警配置名称。
+	</p>
+	<p>
+		<strong>启用</strong><br /> 是否启用告警配置。
+	</p>
+	<p>
+		<strong>描述</strong><br /> 告警配置描述。
+	</p>
+	<p>
+		<strong>应用资源列表</strong><br />
+		告警配置应用到哪些资源上。资源列表按所属集群分组显示，所有主机为一组，所有单机也为一组；同时还保留了集群中站点的主备关系。
+	</p>
+	<blockquote>
+		<div>
+			<img src="images/add.png" alt="" />添加：点击表格右上角<b>添加</b>按钮，打开<a
+				href="../res_choose_dialog.html">资源选择对话框</a>，勾选需要应用的资源点击<b>确定</b>按钮。
+		</div>
+		<div>
+			<img src="images/delete.png" alt="" />删除：选中需要删除的资源点击表格右上角<b>删除</b>按钮。
+		</div>
+	</blockquote>
+
+	<h3 id="tabs-2">第二页：告警规则配置</h3>
+	<p>
+		&emsp;&emsp;资源有数据库和主机两种类型，而告警规则也有数据库和主机两种类型，添加的告警规则会根据类型自动进行映射。例如:<b>数据库-连接异常</b>会映射到添加的所有数据库资源上；<b>主机-连接异常</b>会映射到所有主机资源上。
+	</p>
+	<p>
+		<img src="images/alert_dialog_page2.png" alt="" />
+	</p>
+	<p>
+		<strong>告警规则列表</strong><br />
+		告警规则列表。当实际检测到的值与阀值按比较运算符运算的结果为true时就会发出警告。
+	</p>
+	<blockquote>
+		<div>
+			<img src="images/add.png" alt="" />添加：点击表格右上角<b>添加</b>按钮，打开<a
+				href="#alert_rule_dialog">告警规则添加对话框</a>，勾选需要添加的规则点击<b>确定</b>按钮添加到该列表中；然后双击每一条规则完成规则的详细配置。
+		</div>
+		<div>
+			<img src="images/delete.png" alt="" />删除：选中需要删除的规则点击表格右上角<b>删除</b>按钮。
+		</div>
+	</blockquote>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>度量</td>
+				<td>告警规则应用资源类型和规则名称。</td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td>备注信息，只有自定义sql和表监控告警规则有效。（双击可编辑，若双击不可编辑说明当前规则无需配置该列）<br /> <br />对于自定义sql规则该列中需要输入自定义SQL语句。<br />
+					<br />对于表监控规则该列中需要输入表名。</td>
+			</tr>
+			<tr>
+				<td>比较运算符</td>
+				<td>告警规则的比较运算符。（双击可编辑，若双击不可编辑说明当前规则无需配置该列）</td>
+			</tr>
+			<tr>
+				<td>阀值</td>
+				<td>告警规则的阀值。（双击可编辑，若双击不可编辑说明当前规则无需配置该列）</td>
+			</tr>
+			<tr>
+				<td>单位</td>
+				<td>告警规则阀值的单位。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong id="alert_rule_dialog">告警规则添加对话框</strong>
+
+	</p>
+	<p>
+		<img src="images/alert_rule_dialog.png" alt="" />
+	</p>
+	<p>
+		<strong>过滤</strong><br /> 规则名称过滤。
+	</p>
+	<h3 id="tabs-3">第三页：通知用户配置</h3>
+	<p>
+		<img src="images/alert_dialog_page3.png" alt="" />
+	</p>
+	<p>
+		<strong>邮件通知</strong><br /> 是否发送邮件通知用户。
+	</p>
+	<p>
+		<strong>手机通知</strong><br /> 是否发送手机短信通知用户。
+	</p>
+	<p>
+		<strong>通知用户列表</strong><br /> 需要通知的用户列表。
+	</p>
+	<blockquote>
+		<div>
+			<img src="images/add.png" alt="" />添加：点击表格右上角<b>添加</b>按钮，打开<a
+				href="#alert_user_dialog">用户选择对话框</a>，勾选需要通知的用户点击<b>确定</b>按钮即可。
+		</div>
+		<div>
+			<img src="images/delete.png" alt="" />删除：选中需要删除的用户点击表格右上角<b>删除</b>按钮。
+		</div>
+	</blockquote>
+	<p>
+		<strong id="alert_user_dialog">用户选择对话框</strong>
+	</p>
+	<p>
+		<img src="images/alert_user_dialog.png" alt="" />
+	</p>
+	<p>
+		<strong>过滤</strong><br /> 用户名过滤。
+	</p>
+</body>
+</html>

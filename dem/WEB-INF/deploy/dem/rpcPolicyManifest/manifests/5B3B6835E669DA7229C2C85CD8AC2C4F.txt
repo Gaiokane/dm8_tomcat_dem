@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.ILoginService
+path: 70F4E0F1A4C34EB18C07292A9E2B87D1.gwt.rpc

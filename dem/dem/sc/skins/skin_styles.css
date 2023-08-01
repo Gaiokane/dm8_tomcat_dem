@@ -1,0 +1,3400 @@
+@charset "UTF-8";
+/* ------------------------------ 颜色 ----------------------------------------- */
+/* ------------------------------  border 边框----------------------------------------- */
+/* ------------------------------ color 字体颜色----------------------------------------- */
+/* ------------------------------ font 字体----------------------------------------- */
+/* ------------------------------ 背景色 ----------------------------------------- */
+/* tab、section */
+/* toolstrip、table */
+/* button、formItem */
+/* form、layout、canvas */
+/* 选中 */
+/* 鼠标上移 */
+/* 鼠标上移后的提示框 */
+/* ------------------------------ 组件 ----------------------------------------- */
+/* window header */
+/* listgrid cell */
+/*============================================================
+This CSS file is generated from the Flat series of skins
+
+DO NOT edit this .css file directly, unless renamed to
+something other than skin_styles.css, since future compass compiles
+will overwrite that file.
+==============================================================*/
+/*============================================================
+    "dark" theme programmatic settings
+============================================================*/
+/*============================================================
+General
+============================================================*/
+* {
+  font-size: var(--theme_font_size);
+  font-family: var(--theme_font_family);
+}
+
+hr {
+  border: 1px solid var(--theme_border_color_default);
+}
+
+:focus {
+  outline: none;
+}
+
+ol,
+ul {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--theme_bgcolor_0);
+  color: var(--theme_color_default);
+}
+
+option:hover {
+  background-color: var(--theme_bgcolor_over) !important;
+  color: var(--theme_color_default) !important;
+}
+
+/* HTML link colors */
+a:link {
+  color: var(--theme_color_selected);
+}
+
+a:hover {
+  color: var(--theme_color_over);
+}
+
+a:active {
+  color: var(--theme_color_selected);
+}
+
+a:visited {
+  color: var(--theme_color_link_visited);
+}
+
+/* input radio */
+input[type="RADIO"] {
+	background-image: radial-gradient(circle, var(--theme_bgcolor_1), var(--theme_bgcolor_1));
+  border-radius: 50%;
+  border: 1px solid var(--theme_border_color_default);
+  -webkit-appearance: none;
+  width: 15px !important;
+  height: 15px !important;
+  margin: 3px 3px 0px 0px !important;
+}
+input[type="RADIO"]:checked {
+  background-image: radial-gradient(circle, var(--theme_color_selected) 30%, var(--theme_bgcolor_1) 50%);
+}
+input[type="RADIO"]:disabled {
+  background: transparent;
+  border: 1px solid var(--theme_border_color_default);
+  color: var(--theme_color_disabled);
+}
+input[type="RADIO"]:checked:disabled {
+  background-image: radial-gradient(circle, var(--theme_border_color_default) 30%, transparent 50%);
+}
+/* input checkbox */
+input[type="checkbox"] {
+  border: 1px solid var(--theme_border_color_default);
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--theme_bgcolor_1);
+  vertical-align: -webkit-baseline-middle;
+}
+
+input[type="checkbox"] + label {
+  vertical-align: -webkit-baseline-middle;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url("images/DynamicForm/check.png");
+  background-position: center center;
+}
+
+input[type="checkbox"]:disabled {
+  background: var(--theme_bgcolor_1);
+  background-image: url("images/DynamicForm/check_disabled.png");
+  background-position: center center;
+}
+
+/* input hint */
+input::-webkit-input-placeholder {
+  color: var(--theme_color_disabled);
+}
+
+input:-ms-input-placeholder {
+  color: var(--theme_color_disabled);
+}
+
+input::-moz-placeholder {
+  color: var(--theme_color_disabled);
+}
+
+/* textarea hint */
+textarea::-webkit-input-placeholder {
+  color: var(--theme_color_disabled);
+}
+
+.pageBackground {
+  color: var(--theme_color_default);
+  background: var(--theme_bgcolor_0);
+}
+
+/* default text */
+.defaultBorder {
+  border: 1px solid #A7ABB4;
+}
+
+/* drag outline */
+.dragOutline {
+  border: 1px solid #0060BF;
+}
+
+/* drop indicator */
+.dropBorder {
+  background-color: #808080;
+}
+
+/* hover canvas  */
+.canvasHover,
+.gridHover,
+.formHover {
+  color: var(--theme_color_default);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background-color: var(--theme_bgcolor_1_rgb);
+  border: 1px solid var(--theme_border_color_default);
+  padding: 5px;
+}
+
+/* group label */
+.groupLabel {
+  color: var(--theme_color_default);
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: var(--theme_bgcolor_0) !important;
+}
+
+.richTextEditor p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/*============================================================
+    Unused? Review & Remove
+============================================================*/
+.selectedText {
+  color: var(--theme_color_default);
+  background-color: darkblue;
+}
+
+.disabled {
+  color: #CCCCCC;
+}
+
+.pageHeader {
+  font-size: 12px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.printPageHeader {
+  font-size: 14px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.printCell {
+  font-size: 10px;
+}
+
+/*============================================================
+Button (also used as MenuButton base style)
+============================================================*/
+.button,
+.buttonOver,
+.buttonDown,
+.buttonDisabled,
+.buttonSelected,
+.buttonSelectedDown,
+.buttonSelectedOver,
+.buttonSelectedDisabled {
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal;
+  padding: 2px;
+  border: 1px solid var(--theme_border_color_item);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: visible;
+  text-align: center;
+}
+
+.buttonOver {
+  color: var(--theme_color_default);
+  background: var(--theme_bgcolor_over);
+  outline: 0;
+}
+
+.buttonDown {
+  color: var(--theme_color_default);
+}
+
+.buttonDisabled {
+  color: var(--theme_color_disabled);
+  background: var(--theme_bgcolor_disabled);
+  border: 1px solid var(--theme_border_color_default);
+}
+
+.buttonSelected,
+.buttonSelectedDown,
+.buttonSelectedOver,
+.buttonSelectedDisabled {
+  color: var(--theme_color_default);
+  background: var(--theme_bgcolor_selected);
+}
+
+.buttonSelectedOver {
+  color: var(--theme_color_default);
+  background: var(--theme_bgcolor_selected);
+}
+
+.headerBar {
+  border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.sorterButton,
+.sorterButtonOver,
+.sorterButtonDown,
+.sorterButtonDisabled,
+.sorterButtonSelected,
+.sorterButtonSelectedDown,
+.sorterButtonSelectedOver,
+.sorterButtonSelectedDisabled,
+.headerButton,
+.headerButtonOver,
+.headerButtonDown,
+.headerButtonDisabled,
+.headerButtonSelected,
+.headerButtonSelectedDown,
+.headerButtonSelectedOver,
+.headerButtonSelectedDisabled {
+  padding-left: 2px;
+  padding-right: 2px;
+  border-right: 1px solid var(--theme_border_color_default);
+  background: transparent;
+}
+
+.sorterButton,
+.sorterButtonOver,
+.sorterButtonDown,
+.sorterButtonDisabled,
+.sorterButtonSelected,
+.sorterButtonSelectedDown,
+.sorterButtonSelectedOver,
+.sorterButtonSelectedDisabled {
+  border-right: none;
+  border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.sorterButtonOver,
+.headerButtonOver {
+  background: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+.sorterButtonDown,
+.headerButtonDown {
+  background: transparent;
+}
+
+.sorterButtonDisabled,
+.headerButtonDisabled {
+  color: var(--theme_color_disabled);
+  background: transparent;
+}
+
+.sorterButtonSelected,
+.sorterButtonSelectedDown,
+.sorterButtonSelectedOver,
+.sorterButtonSelectedDisabled,
+.headerButtonSelected,
+.headerButtonSelectedDown,
+.headerButtonSelectedOver,
+.headerButtonSelectedDisabled {
+  color: var(--theme_color_default);
+  background: var(--theme_bgcolor_selected);
+}
+
+.sorterButtonSelectedOver,
+.headerButtonSelectedOver {
+  color: var(--theme_color_default);
+  background: var(--theme_bgcolor_selected);
+}
+
+.sorterButtonSelectedDisabled,
+.headerButtonSelectedDisabled {
+  color: var(--theme_color_disabled);
+}
+
+/*=============================================================================================
+    ...Rotated styles, parallel those of headerButton and similar above, but are intended for
+    header buttons with rotated (vertical) titles, so must provide top and bottom padding.
+==============================================================================================*/
+.headerButtonRotated,
+.headerButtonOverRotated,
+.headerButtonDownRotated,
+.headerButtonSelectedRotated,
+.headerButtonSelectedOverRotated,
+.headerButtonSelectedDownRotated,
+.headerButtonDisabledRotated,
+.headerButtonSelectedDisabledRotated {
+  color: var(--theme_color_default);
+  text-indent: 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.headerButtonRotated {
+  background-color: transparent;
+  border: 1px solid var(--theme_border_color_default);
+  border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+.headerButtonOverRotated,
+.headerButtonDownRotated {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_over);
+}
+
+.headerButtonSelectedRotated {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_selected);
+}
+
+.headerButtonDisabledRotated,
+.headerButtonSelectedDisabledRotated {
+  background: transparent;
+  color: var(--theme_color_disabled);
+}
+
+.headerButtonSelectedOverRotated,
+.headerButtonSelectedDownRotated {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_selected);
+}
+
+/* ImgButton */
+.imgButton,
+.imgButtonOver,
+.imgButtonSelected,
+.imgButtonSelectedDisabled,
+.imgButtonSelectedOver,
+.imgButtonDown,
+.imgButtonSelectedDown,
+.imgButtonDisabled {
+  font-size: 10px;
+  outline: none;
+}
+
+.imgButtonDisabled {
+  color: var(--theme_color_disabled);
+}
+
+/* StretchImgButton */
+.stretchImgButton,
+.stretchImgButtonSelected,
+.stretchImgButtonSelectedOver,
+.stretchImgButtonOver,
+.stretchImgButtonDown,
+.stretchImgButtonSelectedDown,
+.stretchImgButtonSelectedDisabled,
+.stretchImgButtonDisabled {
+  font-size: 10px;
+}
+
+.stretchImgButtonSelectedDisabled,
+.stretchImgButtonDisabled {
+  color: var(--theme_color_disabled);
+}
+
+/*============================================================
+  Menus
+============================================================*/
+.menuBody {
+  border-color: var(--theme_border_color_default);
+  border: 1px solid var(--theme_border_color_default) !important;
+  background-color: var(--theme_bgcolor_1_rgb);
+  padding: 6px 0px 6px 0px;
+}
+
+.menuTable [role="menuitem"] {
+  height: 18px;
+}
+
+.menuTable [role="separator"] {
+  height: 10px;
+}
+
+.menu,
+.menuDark,
+.menuSelected,
+.menuSelectedDark,
+.menuOver,
+.menuOverDark,
+.menuSelectedOver,
+.menuSelectedOverDark,
+.menuDisabled,
+.treeMenuSelected,
+.treeMenuSelectedOver {
+  background-color: transparent;
+}
+
+.menuOver,
+.menuOverDark,
+.menuSelectedOver,
+.menuSelectedOverDark {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_over);
+}
+
+.treeMenuSelected {
+  background-color: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.treeMenuSelectedOver {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_selected);
+}
+
+.menuDisabled {
+  color: var(--theme_color_disabled);
+}
+
+.windowBackground,
+.dialogBackground {
+  border: 1px solid var(--theme_border_color_default);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: var(--theme_bgcolor_0);
+}
+
+.windowBackgroundFill {
+  background-color: var(--theme_bgcolor_0);
+}
+
+.windowHeader,
+.windowHeaderHilite,
+.dialogHeader,
+.dialogHeaderHilite {
+  border-bottom: 1px solid var(--theme_border_color_default);
+  background-color: var(--theme_bgcolor_1);
+}
+
+.windowHeaderText,
+.dialogHeaderText,
+.dialogStatusBarText {
+  color: var(--theme_color_default);
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.windowStatusBar,
+.dialogStatusBar {
+  color: var(--theme_color_default);
+}
+
+.modalMask {
+  background-color: black;
+}
+
+/*============================================================
+  Layout
+============================================================*/
+.layoutDropLine {
+  background-color: #DDDDFF;
+}
+
+.layoutPlaceHolder {
+  border: 1px solid black;
+}
+
+.splitbar {
+  padding: 5px;
+}
+
+.splitbarDown {
+  border: 1px solid #C0C0C0;
+}
+
+/*============================================================
+  TabSet and tab titles
+============================================================*/
+.tabBarBaseLine {
+  background-color: var(--theme_border_color_default_rgb);
+}
+
+.tabSetContainer {
+  border: 1px solid var(--theme_border_color_default_rgb); 
+  background-color: var(--theme_bgcolor_tab_selected);
+}
+
+.tabSelectedDisabled,
+.tabDisabled {
+  color: var(--theme_color_disabled);
+}
+
+.tabTitle,
+.tabTitleDown,
+.tabTitleOver,
+.tabTitleDisabled,
+.tabTitleSelected,
+.tabTitleSelectedDown,
+.tabTitleSelectedOver,
+.tabTitleSelectedDisabled,
+.vtabTitle,
+.vtabTitleSelected,
+.vtabTitleOver,
+.vtabTitleDown,
+.vtabTitleSelectedOver,
+.vtabTitleSelectedDown,
+.vtabTitleDisabled,
+.vtabTitleSelectedDisabled {
+  color: var(--theme_color_default);
+  padding-bottom: 4px;
+}
+
+.tabTitleOver,
+.vtabTitleOver {
+  color: var(--theme_color_default);
+}
+
+.tabTitleSelected,
+.vtabTitleSelected {
+  color: var(--theme_color_default);
+  padding-bottom: 4px;
+}
+
+.tabTitleSelectedOver,
+.vtabTitleSelectedOver {
+  color: var(--theme_color_default);
+  padding-bottom: 4px;
+}
+
+.tabTitleDisabled,
+.tabTitleSelectedDisabled,
+.vtabTitleDisabled,
+.vtabTitleSelectedDisabled {
+  color: var(--theme_color_disabled);
+  padding-bottom: 2px;
+}
+
+/* styles for simple css-styled tabs*/
+/* left */
+.tabButtonLeft,
+.tabButtonLeftOver,
+.tabButtonLeftSelected,
+.tabButtonLeftSelectedOver,
+.tabButtonLeftDown,
+.tabButtonLeftSelectedDown,
+.tabButtonLeftSelectedDisabled,
+.tabButtonLeftDisabled {
+  padding: 10px 0px 10px 1px;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: visible;
+  color: var(--theme_color_default);
+  border-left: 3px solid var(--theme_bgcolor_0);
+  border-right: none;
+  border-top: 1px solid var(--theme_bgcolor_0);
+  border-bottom: 1px solid var(--theme_bgcolor_0);
+}
+
+.tabButtonLeftSelected,
+.tabButtonLeftSelectedOver,
+.tabButtonLeftSelectedDown {
+  color: var(--theme_color_highlight);
+  background: var(--theme_bgcolor_tab_selected);
+  border-left: 3px solid var(--theme_color_selected);
+  border-top: 1px solid var(--theme_border_color_default_rgb);
+  border-bottom: 1px solid var(--theme_border_color_default_rgb);
+}
+
+.tabButtonLeftSelectedDisabled,
+.tabButtonLeftDisabled {
+  color: var(--theme_color_disabled);
+}
+/*
+.tabButtonLeft img,
+.tabButtonLeftSelected img,
+.tabButtonLeftDown img,
+.tabButtonLeftSelectedDown img,
+.tabButtonLeftSelectedDisabled img,
+.tabButtonLeftDisable img {
+  visibility:hidden;
+}
+.tabButtonLeftOver img,
+.tabButtonLeftSelectedOver img {
+  visibility:visible;
+}
+*/
+/* right */
+.tabButtonRight,
+.tabButtonRightOver,
+.tabButtonRightSelected,
+.tabButtonRightSelectedOver,
+.tabButtonRightDown,
+.tabButtonRightSelectedDown,
+.tabButtonRightSelectedDisabled,
+.tabButtonRightDisabled {
+  padding: 10px 1px 10px 0px;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: visible;
+  color: var(--theme_color_default);
+  border-left: none;
+  border-right: 3px solid var(--theme_bgcolor_0);
+  border-top: 1px solid var(--theme_bgcolor_0);
+  border-bottom: 1px solid var(--theme_bgcolor_0);
+}
+
+.tabButtonRightSelected,
+.tabButtonRightSelectedOver,
+.tabButtonRightSelectedDown {
+  color: var(--theme_color_highlight);
+  background: var(--theme_bgcolor_tab_selected);
+  border-right: 3px solid var(--theme_color_selected);
+  border-top: 1px solid var(--theme_border_color_default_rgb);
+  border-bottom: 1px solid var(--theme_border_color_default_rgb);
+}
+
+.tabButtonRightSelectedDisabled,
+.tabButtonRightDisabled {
+  color: var(--theme_color_disabled);
+}
+
+/*
+.tabButtonRight img,
+.tabButtonRightSelected img,
+.tabButtonRightDown img,
+.tabButtonRightSelectedDown img,
+.tabButtonRightSelectedDisabled img,
+.tabButtonRightDisable img {
+  visibility:hidden;
+}
+.tabButtonRightOver img,
+.tabButtonRightSelectedOver img {
+  visibility:visible;
+}
+*/
+/* top */
+.tabButtonTop,
+.tabButtonTopOver,
+.tabButtonTopSelected,
+.tabButtonTopSelectedOver,
+.tabButtonTopDown,
+.tabButtonTopSelectedDown,
+.tabButtonTopSelectedDisabled,
+.tabButtonTopDisabled {
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal;
+  padding: 0px 10px 1px 10px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: visible;
+  color: var(--theme_color_default);
+  border-left: 1px solid var(--theme_bgcolor_0);
+  border-right: 1px solid var(--theme_bgcolor_0);
+  border-top: 3px solid var(--theme_bgcolor_0);
+  border-bottom: none;
+}
+
+.tabButtonTopSelected,
+.tabButtonTopSelectedOver,
+.tabButtonTopSelectedDown {
+  background: var(--theme_bgcolor_tab_selected);
+  color: var(--theme_color_highlight);
+  border-left: 1px solid var(--theme_border_color_default_rgb);
+  border-right: 1px solid var(--theme_border_color_default_rgb);
+  border-top: 3px solid var(--theme_color_selected);
+}
+
+.tabButtonTopSelectedDisabled,
+.tabButtonTopDisabled {
+  color: var(--theme_color_disabled);
+}
+/*
+.tabButtonTop img,
+.tabButtonTopSelected img,
+.tabButtonTopDown img,
+.tabButtonTopSelectedDown img,
+.tabButtonTopSelectedDisabled img,
+.tabButtonTopDisable img {
+  visibility:hidden;
+}
+.tabButtonTopOver img,
+.tabButtonTopSelectedOver img {
+  visibility:visible;
+}
+*/
+/* bottom */
+.tabButtonBottom,
+.tabButtonBottomOver,
+.tabButtonBottomSelected,
+.tabButtonBottomSelectedOver,
+.tabButtonBottomDown,
+.tabButtonBottomSelectedDown,
+.tabButtonBottomSelectedDisabled,
+.tabButtonBottomDisabled {
+  padding: 1px 10px 0px 10px;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: visible;
+  color: var(--theme_color_default);
+  border-left: 1px solid var(--theme_bgcolor_0);
+  border-right: 1px solid var(--theme_bgcolor_0);
+  border-top: none;
+  border-bottom: 3px solid var(--theme_bgcolor_0);
+}
+
+.tabButtonBottomSelected,
+.tabButtonBottomSelectedOver,
+.tabButtonBottomSelectedDown {
+  background: var(--theme_bgcolor_tab_selected);
+  color: var(--theme_color_highlight);
+  border-left: 1px solid var(--theme_border_color_default_rgb);
+  border-right: 1px solid var(--theme_border_color_default_rgb);
+  border-bottom: 3px solid var(--theme_color_selected);
+}
+
+.tabButtonBottomSelectedDisabled,
+.tabButtonBottomDisabled {
+  color: var(--theme_color_disabled);
+}
+/*
+.tabButtonBottom img,
+.tabButtonBottomSelected img,
+.tabButtonBottomDown img,
+.tabButtonBottomSelectedDown img,
+.tabButtonBottomSelectedDisabled img,
+.tabButtonBottomDisable img {
+  visibility:hidden;
+}
+.tabButtonBottomOver img,
+.tabButtonBottomSelectedOver img {
+  visibility:visible;
+}
+
+/* 该位置必须在tabButtonXXX img 最后面*/
+/*
+.tabIcon img{
+  visibility:visible;
+}*/
+
+/* TabPicker */
+.tabPickerDisabledtop,
+.tabPickerDowntop,
+.tabPickertop,
+.tabPickerbottom,
+.tabPickerDisabledbottom,
+.tabPickerDownbottom {
+  background: url("images/TabSet/hpicker.gif") no-repeat;
+  background-position:center;
+}
+
+.tabPickerDisabledright,
+.tabPickerright,
+.tabPickerDownright,
+.tabPickerDisabledleft,
+.tabPickerleft,
+.tabPickerDownleft {
+  background: url("images/TabSet/vpicker.gif") no-repeat;
+  background-position:center;
+}
+
+/*============================================================
+  SectionStack
+============================================================*/
+.sectionStack {
+  border: none;
+  /*border-left: 1px solid var(--theme_border_color_default);
+  border-right: 1px solid var(--theme_border_color_default);
+  border-top: 1px solid var(--theme_border_color_default);
+  border-bottom: 1px solid var(--theme_border_color_default);*/
+}
+
+/* SectionStack headers - css based */
+.sectionHeaderopened,
+.sectionHeaderclosed,
+.sectionHeaderDisabledopened,
+.sectionHeaderDisabledclosed {
+  font-weight: bold;
+  padding-left: 3px;
+ /* border-bottom: 1px solid var(--theme_border_color_default_rgb);
+  border-top: 1px solid var(--theme_border_color_default_rgb);
+  border-left: none;
+  border-right: none;*/
+  border:none;
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_1);
+}
+
+.sectionHeaderDisabledopened,
+.sectionHeaderDisabledclosed {
+  color: var(--theme_color_disabled);
+}
+
+.navToolbar {
+  border-top: 1px solid var(--theme_border_color_default);
+  border-bottom: 1px solid var(--theme_border_color_default);
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_1);
+}
+
+.navBarHeader,
+.navButton,
+.navButtonOver,
+.navButtonFocused,
+.navButtonFocusedOver,
+.navButtonDown,
+.navButtonFocusedDown,
+.navButtonSelected,
+.navButtonSelectedFocused,
+.navButtonSelectedDown,
+.navButtonSelectedFocusedDown,
+.navButtonSelectedOver,
+.navButtonSelectedFocusedOver,
+.navButtonDisabled,
+.navButtonSelectedDisabled,
+.navBackButton,
+.navBackButtonOver,
+.navBackButtonFocused,
+.navBackButtonFocusedOver,
+.navBackButtonDown,
+.navBackButtonFocusedDown,
+.navBackButtonSelected,
+.navBackButtonSelectedFocused,
+.navBackButtonSelectedDown,
+.navBackButtonSelectedFocusedDown,
+.navBackButtonSelectedOver,
+.navBackButtonSelectedFocusedOver,
+.navBackButtonDisabled,
+.navBackButtonSelectedDisabled,
+.navForwardButton,
+.navForwardButtonOver,
+.navForwardButtonFocused,
+.navForwardButtonFocusedOver,
+.navForwardButtonDown,
+.navForwardButtonFocusedDown,
+.navForwardButtonSelected,
+.navForwardButtonSelectedFocused,
+.navForwardButtonSelectedDown,
+.navForwardButtonSelectedFocusedDown,
+.navForwardButtonSelectedOver,
+.navForwardButtonSelectedFocusedOver,
+.navForwardButtonDisabled,
+.navForwardButtonSelectedDisabled {
+  padding: 0px 10px 0px 10px !important;
+  /* !important to override the cellpadding attribute */
+  font-size: 15px;
+  line-height: 23px;
+}
+
+.navBarHeader {
+  font-weight: bold;
+}
+
+.navBackButton,
+.navBackButtonOver,
+.navBackButtonFocused,
+.navBackButtonFocusedOver,
+.navBackButtonDown,
+.navBackButtonFocusedDown,
+.navBackButtonSelected,
+.navBackButtonSelectedFocused,
+.navBackButtonSelectedDown,
+.navBackButtonSelectedFocusedDown,
+.navBackButtonSelectedOver,
+.navBackButtonSelectedFocusedOver,
+.navBackButtonDisabled,
+.navBackButtonSelectedDisabled {
+  padding-left: 7px !important;
+  padding-right: 5px !important;
+}
+
+.navForwardButton,
+.navForwardButtonOver,
+.navForwardButtonFocused,
+.navForwardButtonFocusedOver,
+.navForwardButtonDown,
+.navForwardButtonFocusedDown,
+.navForwardButtonSelected,
+.navForwardButtonSelectedFocused,
+.navForwardButtonSelectedDown,
+.navForwardButtonSelectedFocusedDown,
+.navForwardButtonSelectedOver,
+.navForwardButtonSelectedFocusedOver,
+.navForwardButtonDisabled,
+.navForwardButtonSelectedDisabled {
+  padding-left: 5px !important;
+  padding-right: 10px !important;
+}
+
+/*============================================================
+  Forms
+============================================================*/
+/* general form styles */
+.formTitle,
+.formTitleFocused,
+.formTitleDisabled,
+.formCellError,
+.formTitleError,
+.formHint,
+.formHintDisabled,
+.headerItem,
+.headerItemDisabled,
+.headerItemError,
+.nativeSelectItem,
+.nativeSelectItemDisabled,
+.nativeSelectItemError,
+.textItem,
+.textItemFocused,
+.textItemDisabled,
+.textItemDisabledHint,
+.textItemError,
+.textItemHint,
+.uploadItem,
+.uploadItemFocused,
+.uploadItemDisabled,
+.uploadItemDisabledHint,
+.uploadItemError,
+.uploadItemHint,
+.comboBoxItem,
+.comboBoxItemFocused,
+.comboBoxItemError,
+.comboBoxItemDisabled,
+.comboBoxItemPendingText,
+.pickListCell,
+.pickListCellSelected,
+.pickListCellDisabled,
+.pickListCellDark,
+.pickListCellSelectedDark,
+.pickListCellDisabledDark,
+.tallPickListCell,
+.tallPickListCellSelected,
+.tallPickListCellDisabled,
+.tallPickListCellDark,
+.tallPickListCellSelectedDark,
+.tallPickListCellDisabledDark,
+.labelAnchor,
+.labelAnchorDisabled,
+.labelAnchorError,
+.labelAnchorFocused {
+  outline: none;
+}
+
+.formCellError,
+.formTitleError {
+  color: var(--theme_color_error);
+}
+
+.formTitleDisabled {
+  color: var(--theme_color_disabled);
+}
+
+.formHint,
+.formHintDisabled {
+  color: var(--theme_color_disabled);
+  padding: 3px;
+}
+
+/* headerItem */
+.headerItem,
+.headerItemDisabled,
+.headerItemError {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* text items */
+.nativeSelectItem,
+.textItem,
+.textItemFocused,
+.textItemDisabled,
+.textItemDisabledHint,
+.textItemError,
+.textItemHint,
+.comboBoxItemPendingText {
+  background: transparent;
+  padding: 2px;
+  border: 1px solid var(--theme_border_color_item);
+  border-radius: 0px;
+  color: var(--theme_color_default);
+}
+
+.uploadItem,
+.uploadItemFocused,
+.uploadItemDisabled,
+.uploadItemDisabledHint,
+.uploadItemError,
+.uploadItemHint {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: var(--theme_bgcolor_1);
+}
+
+.comboBoxItemPendingText {
+  border-right: 0;
+}
+
+.textItemDisabled,
+.textItemDisabledHint,
+.uploadItemDisabled,
+.uploadItemDisabledHint,
+.pickerSearchBoxDisabled,
+.pickerSearchBoxDisabledHint,
+.nativeSelectItemDisabled {
+  color: var(--theme_color_disabled);
+  background: transparent;
+  border: 1px solid var(--theme_border_color_default);
+}
+
+.textItemHint,
+.uploadItemHint,
+.selectItemTextHint {
+  color: var(--theme_color_disabled);
+}
+
+.textItem {
+  border: 1px solid var(--theme_border_color_item);
+}
+
+.comboBoxItemPendingText {
+  color: var(--theme_color_default);
+}
+
+.textItemFocused {
+  color: var(--theme_color_default);
+  outline-offset: -1;
+  -moz-outline-offset: -1;
+  border: 1px solid var(--theme_color_selected);
+}
+
+/* staticTextItem */
+.staticTextItem,
+.staticTextItemDisabled,
+.staticTextItemError {
+  outline: none;
+}
+
+.staticTextItemDisabled {
+  color: var(--theme_color_disabled);
+}
+
+/* selectItem */
+.selectItemControl,
+.selectItemControlError,
+.selectItemControlFocused,
+.selectItemControlDisabled,
+.selectItemText,
+.selectItemTextError,
+.selectItemTextDisabled,
+.selectItemTextFocused,
+.selectItemTextHint,
+.selectItemTextDisabledHint {
+  outline: none;
+}
+
+.selectItemControl,
+.selectItemControlError,
+.selectItemControlFocused {
+  border: 1px solid var(--theme_border_color_item);
+}
+
+.selectItemControlFocused {
+  color: var(--theme_color_default);
+  outline-offset: -1;
+  -moz-outline-offset: -1;
+  border: 1px solid var(--theme_color_selected);
+}
+
+.selectItemControlDisabled {
+  border: 1px solid var(--theme_border_color_default);
+  background-color: transparent;
+}
+
+.selectItemText,
+.selectItemTextError,
+.selectItemTextFocused,
+.selectItemTextDisabled,
+.selectItemTextHint,
+.selectItemTextDisabledHint {
+  background: transparent;
+  padding: 2px;
+  border: none;
+  border-radius: 0px;
+  color: var(--theme_color_default);
+}
+
+.selectItemTextDisabled,
+.selectItemTextDisabledHint {
+  color: var(--theme_color_disabled);
+}
+
+.selectItemPickerIcon,
+.selectItemPickerIconFocused,
+.selectItemPickerIconDisabled,
+.selectItemPickerIconError {
+  padding: 0px;
+}
+
+.searchPickerIcon {
+	width:16px;
+	height:16px;	
+}
+
+.clearPickerIcon {
+	width:12px;
+	height:12px;	
+}
+
+.nativeSelectItemOver {
+  background-color: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+div[role="listbox"],
+.pickListMenu {
+  background-color: var(--theme_bgcolor_1_rgb);
+  border: 1px solid var(--theme_border_color_default);
+}
+
+.pickListCell,
+.pickListCellDark,
+.tallPickListCell,
+.tallPickListCellDark {
+  color: var(--theme_color_default);
+  background-color: transparent;
+}
+
+.pickListCellSelected,
+.pickListCellSelectedDark {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_selected);
+}
+
+.tallPickListCellSelected,
+.tallPickListCellSelectedDark {
+  color: var(--theme_color_default);
+  background: var(--theme_bgcolor_selected);
+}
+
+.pickListCellDisabled,
+.tallPickListCellDisabled,
+.pickListCellDisabledDark,
+.tallPickListCellDisabledDark {
+  color: var(--theme_color_disabled);
+  background-color: transparent;
+}
+
+.pickListCellOver,
+.pickListCellSelectedOver,
+.pickListCellOverDark,
+.pickListCellSelectedOverDark,
+.tallPickListCellOver,
+.tallPickListCellSelectedOver,
+.tallPickListCellOverDark,
+.tallPickListCellSelectedOverDark {
+  background-color: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+/* spinner */
+.spinnerDecreaseIconFocused,
+.spinnerIncreaseIconFocused {
+  background-color: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.unstackedSpinnerItemIncrease {
+  border: 1px solid var(--theme_border_color_default);
+  background-color: var(--theme_bgcolor_1);
+}
+
+.unstackedSpinnerItemIncreaseFocused {
+  border: 1px solid var(--theme_color_selected);
+  background-color: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+/* checkbox and radioButton */
+.labelAnchor,
+.labelAnchorDisabled,
+.labelAnchorError,
+.labelAnchorFocused {
+  text-decoration: none;
+}
+
+.labelAnchorDisabled {
+  color: var(--theme_color_disabled);
+}
+
+.checkboxTrueDisabled,
+.checkboxTrue,
+.checkboxTrueOver,
+.checkboxTrueDown,
+.checkboxFalseDisabled,
+.checkboxFalse,
+.checkboxFalseOver,
+.checkboxFalseDown,
+.checkboxPartialDisabled,
+.checkboxPartial,
+.checkboxPartialOver,
+.checkboxPartialDown,
+.checkboxUnsetDisabled,
+.checkboxUnset,
+.checkboxUnsetOver,
+.checkboxUnsetDown {
+  border: 1px solid var(--theme_border_color_item);
+  margin-left: 0px !important;
+  transform: none !important;
+}
+
+.checkboxTrueDisabled,
+.checkboxTrue,
+.checkboxTrueOver,
+.checkboxTrueDown,
+.checkboxPartialDisabled,
+.checkboxPartial,
+.checkboxPartialOver,
+.checkboxPartialDown,
+.checkboxUnsetDisabled{
+  background-position: center center;
+  background-image: url("images/DynamicForm/check.png");
+}
+
+.checkboxTrueDisabled,
+.checkboxFalseDisabled {
+  background-color: var(--theme_bgcolor_disabled);
+  border: 1px solid var(--theme_border_color_item);
+}
+
+.checkboxTrueDisabled {
+  background-image: url("images/DynamicForm/check_Disabled.png");
+}
+
+.checkboxTrueDisabled + label,
+.checkboxFalseDisabled + label {
+  color: var(--theme_color_disabled);
+}
+
+.checkboxUnset
+.checkboxPartial {
+  background-image: radial-gradient(circle, var(--theme_color_selected) 30%, var(--theme_bgcolor_1) 70%);
+}
+
+.checkboxUnsetDisabled,
+.checkboxPartialDisabled {
+ background-image: radial-gradient(circle, var(--theme_border_color_default) 30%, var(--theme_bgcolor_1) 70%);
+ border: 1px solid var(--theme_border_color_default);
+}
+
+/* FilterBuilder */
+.bracketBorders {
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* ColorChooser */
+.colorChooserCell {
+  background-color: #EFEFEF;
+  border-left: 1px solid #EFEFEF;
+  border-top: 1px solid #EFEFEF;
+  border-right: 1px solid #EFEFEF;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.colorChooserCellOver {
+  background-color: #EFEFEF;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+/*============================================================
+     DateChooser
+============================================================*/
+/* Defaults for all days and controls */
+.dateChooserButton,
+.dateChooserButtonOver,
+.dateChooserButtonDown,
+.dateChooserButtonDisabled,
+.dateChooserButtonSelected,
+.dateChooserButtonSelectedDown,
+.dateChooserButtonSelectedOver,
+.dateChooserButtonSelectedDisabled,
+.dateChooserWeekendButton,
+.dateChooserWeekendButtonOver,
+.dateChooserWeekendButtonDown,
+.dateChooserWeekendButtonDisabled,
+.dateChooserWeekendButtonSelected,
+.dateChooserWeekendButtonSelectedDown,
+.dateChooserWeekendButtonSelectedOver,
+.dateChooserWeekendButtonSelectedDisabled,
+.dateChooserBottomButton,
+.dateChooserBottomButtonOver,
+.dateChooserBottomButtonDown,
+.dateChooserBottomButtonSelected,
+.dateChooserBottomButtonSelectedOver,
+.dateChooserBottomButtonSelectedDown,
+.dateChooserNavButton,
+.dateChooserNavButtonOver,
+.dateChooserNavButtonDown,
+.dateChooserNavButtonSelected,
+.dateChooserNavButtonSelectedOver,
+.dateChooserNavButtonSelectedDown,
+.dateChooserWeekday,
+.dateChooserWeekdayOver,
+.dateChooserWeekdayDown,
+.dateChooserWeekdaySelected,
+.dateChooserWeekdaySelectedOver,
+.dateChooserWeekdaySelectedDown,
+.dateChooserWeekdayDisabled,
+.dateChooserWeekend,
+.dateChooserWeekendOver,
+.dateChooserWeekendDown,
+.dateChooserWeekendSelected,
+.dateChooserWeekendSelectedOver,
+.dateChooserWeekendSelectedDown,
+.dateChooserWeekendSelectedDisabled,
+.dateChooserWeekendDisabled,
+.dateChooserDisabledWeekday,
+.dateChooserDisabledWeekdayOver,
+.dateChooserDisabledWeekdayDown,
+.dateChooserDisabledWeekdaySelected,
+.dateChooserDisabledWeekdaySelectedDown,
+.dateChooserDisabledWeekdaySelectedOver,
+.dateChooserDisabledWeekend,
+.dateChooserDisabledWeekendOver,
+.dateChooserDisabledWeekendDown,
+.dateChooserDisabledWeekendSelected,
+.dateChooserDisabledWeekendSelectedDown,
+.dateChooserDisabledWeekendSelectedOver,
+.dateChooserSelectedWeek,
+.dateChooserSelectedWeekOver,
+.dateChooserSelectedWeekDown,
+.dateChooserSelectedWeekDisabled,
+.dateChooserSelectedWeekSelected,
+.dateChooserSelectedWeekSelectedDown,
+.dateChooserSelectedWeekSelectedOver,
+.dateChooserSelectedWeekSelectedDisabled,
+.dateChooserFiscalYearCell,
+.dateChooserFiscalYearCellOver,
+.dateChooserFiscalYearCellDown,
+.dateChooserFiscalYearCellDisabled,
+.dateChooserFiscalYearCellSelected,
+.dateChooserFiscalYearCellSelectedDown,
+.dateChooserFiscalYearCellSelectedOver,
+.dateChooserFiscalYearCellSelectedDisabled,
+.dateChooserWeekCell,
+.dateChooserWeekCellOver,
+.dateChooserWeekCellDown,
+.dateChooserWeekCellDisabled,
+.dateChooserWeekCellSelected,
+.dateChooserWeekCellSelectedDown,
+.dateChooserWeekCellSelectedOver,
+.dateChooserWeekCellSelectedDisabled {
+  background-color: var(--theme_bgcolor_0);
+  border: 1px solid var(--theme_bgcolor_0);
+  color: var(--theme_color_default);
+}
+
+.dateChooserButtonOver,
+.dateChooserButtonDown,
+.dateChooserButtonSelected,
+.dateChooserButtonSelectedDown,
+.dateChooserButtonSelectedOver {
+  border: 1px solid var(--theme_border_color_default);
+}
+
+/* year/month buttons */
+.dateChooserNavButton,
+.dateChooserNavButtonOver,
+.dateChooserNavButtonDown,
+.dateChooserNavButtonSelected,
+.dateChooserNavButtonSelectedOver,
+.dateChooserNavButtonSelectedDown {
+  padding: 0px;
+  border: 0px none !important;
+  background-color: transparent;
+}
+
+/* for all buttons, plus weekday headers (dateChooserButton) */
+.dateChooserButton,
+.dateChooserButtonOver,
+.dateChooserButtonDown,
+.dateChooserButtonSelected,
+.dateChooserButtonSelectedOver,
+.dateChooserButtonSelectedDown,
+.dateChooserWeekendButton,
+.dateChooserWeekendButtonOver,
+.dateChooserWeekendButtonDown,
+.dateChooserWeekendButtonSelected,
+.dateChooserWeekendButtonSelectedOver,
+.dateChooserWeekendButtonSelectedDown,
+.dateChooserNavButton,
+.dateChooserNavButtonOver,
+.dateChooserNavButtonDown,
+.dateChooserNavButtonSelected,
+.dateChooserNavButtonSelectedOver,
+.dateChooserNavButtonSelectedDown {
+  font-weight: bold;
+  color: var(--theme_color_default);
+}
+
+.dateChooserButtonOver,
+.dateChooserButtonDown {
+  cursor: pointer;
+  color: var(--theme_color_default);
+}
+
+.dateChooserWeekendButton,
+.dateChooserWeekendButtonOver,
+.dateChooserWeekendButtonDown,
+.dateChooserWeekendButtonSelected,
+.dateChooserWeekendButtonSelectedOver,
+.dateChooserWeekendButtonSelectedDown {
+  background-color: var(--theme_bgcolor_0);
+  border: 1px solid var(--theme_bgcolor_0);
+}
+
+.dateChooserNavButton,
+.dateChooserNavButtonOver,
+.dateChooserNavButtonDown,
+.dateChooserNavButtonSelected,
+.dateChooserNavButtonSelectedOver,
+.dateChooserNavButtonSelectedDown {
+  cursor: pointer;
+  padding: 2px;
+}
+
+.dateChooserNavButtonOver {
+  color: var(--theme_color_default);
+}
+
+.dateChooserNavButtonOver,
+.dateChooserNavButtonDown {
+  border: 1px solid var(--theme_border_color_default);
+}
+
+/* Today, Cancel buttons */
+.dateChooserBottomButton,
+.dateChooserBottomButtonOver,
+.dateChooserBottomButtonDown {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--theme_color_default);
+  border: 1px solid var(--theme_border_color_default);
+  background-color: transparent;
+}
+
+.dateChooserBottomButtonOver {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_over);
+}
+
+.dateChooserBottomButtonOver,
+.dateChooserBottomButtonDown {
+  border: 1px solid var(--theme_border_color_default);
+}
+
+/* weekday and weekend cells */
+.dateChooserWeekday,
+.dateChooserWeekdayOver,
+.dateChooserWeekdayDown,
+.dateChooserWeekdaySelected,
+.dateChooserWeekdaySelectedOver,
+.dateChooserWeekdaySelectedDown,
+.dateChooserWeekdayDisabled,
+.dateChooserWeekend,
+.dateChooserWeekendOver,
+.dateChooserWeekendDown,
+.dateChooserWeekendSelected,
+.dateChooserWeekendSelectedOver,
+.dateChooserWeekendSelectedDown,
+.dateChooserWeekendDisabled {
+  cursor: pointer;
+  color: var(--theme_color_default);
+  border: 1px solid var(--theme_bgcolor_0);
+  background-color: var(--theme_bgcolor_0);
+}
+
+.dateChooserDisabledWeekday,
+.dateChooserDisabledWeekdayOver,
+.dateChooserWeekdayDisabled,
+.dateChooserWeekendDisabled,
+.dateChooserWeekendSelectedDisabled,
+.dateChooserDisabledWeekend,
+.dateChooserDisabledWeekendOver,
+.dateChooserDisabledWeekendDown {
+  color: var(--theme_color_disabled);
+}
+
+.dateChooserWeekdayOver,
+.dateChooserWeekendOver {
+  border: 1px solid var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+/* selected/over date-cell styling */
+.dateChooserWeekdaySelected,
+.dateChooserWeekdaySelectedOver,
+.dateChooserWeekdayDown,
+.dateChooserWeekdaySelectedDown,
+.dateChooserWeekendSelected,
+.dateChooserWeekendSelectedOver,
+.dateChooserWeekendDown,
+.dateChooserWeekendSelectedDown,
+.dateChooserDisabledWeekdayDown,
+.dateChooserDisabledWeekdaySelected,
+.dateChooserDisabledWeekdaySelectedDown,
+.dateChooserDisabledWeekdaySelectedOver,
+.dateChooserDisabledWeekendDown,
+.dateChooserDisabledWeekendSelected,
+.dateChooserDisabledWeekendSelectedOver,
+.dateChooserDisabledWeekendSelectedDown {
+  font-weight: bold;
+  color: var(--theme_color_default);
+  border: 1px solid var(--theme_bgcolor_selected);
+  background-color: var(--theme_bgcolor_selected);
+}
+
+.dateChooserWeekdayDown,
+.dateChooserWeekendDown {
+  font-weight: normal;
+}
+
+/* year and month pop-up menus */
+.dateChooserYearMenu,
+.dateChooserMonthMenu,
+.dateChooserWeekMenu {
+  background-color: var(--theme_bgcolor_1_rgb);
+  border: 1px solid var(--theme_border_color_default);
+}
+
+/*============================================================
+  Slider & Rangebar
+============================================================*/
+/* slider and rangebar labels */
+.sliderTitle,
+.sliderRange,
+.sliderRangeDisabled,
+.sliderValue,
+.sliderValueDisabled,
+.rangebarTitle,
+.rangebarRange,
+.rangebarValue {
+  font-size: 10px;
+}
+
+.sliderRangeDisabled,
+.sliderValueDisabled {
+  color: #ACA899;
+}
+
+.sliderTitle,
+.rangebarTitle {
+  font-weight: bold;
+}
+
+.sliderRange,
+.rangebarRange {
+  color: gray;
+}
+
+/* slider value - start */
+.sliderValue,
+.sliderValueOver,
+.sliderValueDisabled,
+.vSliderValue,
+.vSliderValueOver,
+.vSliderValueDisabled,
+.hSliderValue,
+.hSliderValueOver,
+.hSliderValueDisabled {
+  color: grey;
+  position: absolute;
+  background: #ffffff;
+  padding: 3px 3px 0px 3px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* sliderValue text */
+.sliderValueText,
+.sliderValueTextOver,
+.sliderValueTextDisabled,
+.sliderValuePendingText,
+.sliderValuePendingTextOver,
+.sliderValuePendingTextDisabled {
+  color: var(--theme_color_default);
+  font-size: 10px;
+  padding: 2px 2px 0px 2px;
+  background-color: var(--theme_bgcolor_1);
+}
+
+/*============================================================
+  DetailViewer
+============================================================*/
+.detailBlock {
+  border-left: 1px solid var(--theme_border_color_default);
+  border-top: 1px solid var(--theme_border_color_default);
+  background-color: var(--theme_bgcolor_1_rgb);
+}
+
+.detail,
+.detailLabel,
+.detailHeader {
+  border-right: 1px solid var(--theme_border_color_default);
+  border-bottom: 1px solid var(--theme_border_color_default);
+  background-color: transparent;
+}
+
+.detailLabel {
+  font-weight: bold;
+  text-align: right;
+}
+
+.detailHeader {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/**/
+.detailFixedBlock {
+  border-left: 1px solid var(--theme_border_color_default);
+  border-top: 1px solid var(--theme_border_color_default);
+  table-layout:fixed;
+}
+
+.detailFixed,
+.detailFixedLabel,
+.detailFixedHeader {
+  border-right: 1px solid var(--theme_border_color_default);
+  border-bottom: 1px solid var(--theme_border_color_default);
+  background-color: transparent;
+  word-wrap:break-word;
+}
+
+.detailFixedLabel {
+  font-weight: bold;
+  text-align: right;
+  width: 20%;
+}
+
+.detailFixedHeader {
+  font-size: 14px;
+  font-weight: bold;
+}
+/*============================================================
+  ListGrid
+============================================================*/
+/*============================================================
+	ListGrid parts
+		styleName - listGrid
+		headerBarStyle - headerBar
+		bodyStyleName - gridBody
+============================================================*/
+.listGrid {
+  border: 1px solid var(--theme_border_color_default);
+}
+
+.loadingDataMessage,
+.offlineMessage,
+.emptyMessage {
+  padding: 0px;
+  color:var(--theme_color_disabled);
+}
+
+.gridDragTracker {
+  background-color: white;
+  padding: 1px;
+  border: 1px dotted blue;
+}
+
+.dragLine {
+  border-top: 2px dotted #548ACA;
+  pointer-events: none;
+}
+
+.dragLineVertical {
+  border-right: 2px dotted #548ACA;
+  pointer-events: none;
+}
+
+/* for filterEditor */
+.recordEditorCell {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_1);
+}
+
+/*============================================================
+	ListGrid cells
+		listGrid.baseStyle
+============================================================*/
+/*------------------------------------------------------------
+		listGrid.baseStyle
+------------------------------------------------------------*/
+.cell,
+.cellDark,
+.cellOver,
+.cellOverDark,
+.cellSelected,
+.cellSelectedDark,
+.cellSelectedOver,
+.cellSelectedOverDark,
+.cellDisabled,
+.cellDisabledDark,
+.tallCell,
+.tallCellDark,
+.tallCellOver,
+.tallCellOverDark,
+.tallCellSelected,
+.tallCellSelectedDark,
+.tallCellSelectedOver,
+.tallCellSelectedOverDark,
+.tallCellDisabled,
+.tallCellDisabledDark,
+.groupSummaryCell,
+.groupSummaryCellDisabled,
+.gridSummaryCell,
+.gridSummaryCellDisabled,
+.recordSummaryCell,
+.recordSummaryCellDark,
+.recordSummaryCellOver,
+.recordSummaryCellOverDark,
+.recordSummaryCellSelected,
+.recordSummaryCellSelectedDark,
+.recordSummaryCellSelectedOver,
+.recordSummaryCellSelectedOverDark,
+.recordSummaryCellDisabled,
+.recordSummaryCellDisabledDark,
+.expansionCellCell,
+.expansionCellCellDark,
+.expansionCellCellOver,
+.expansionCellCellOverDark,
+.expansionCellCellSelected,
+.expansionCellCellSelectedDark,
+.expansionCellCellSelectedOver,
+.expansionCellCellSelectedOverDark,
+.expansionCellCellDisabled,
+.expansionCellCellDisabledDark,
+.specialCol,
+.specialColOver,
+.specialColSelected,
+.specialColSelectedOver,
+.specialColDisabled,
+.groupNode {
+  text-overflow: ellipsis;
+  color: var(--theme_color_default);
+}
+
+.specialCol {
+  text-overflow: ellipsis;
+  color: var(--theme_color_disabled);
+}
+
+.cellDark,
+.recordSummaryCell,
+.recordSummaryCellDark {
+  background-color: transparent;
+}
+
+.groupSummaryCell,
+.groupSummaryCellDisabled,
+.gridSummaryCell,
+.gridSummaryCellDisabled {
+  border-top: 1px solid var(--theme_bgcolor_1);
+  border-bottom: 1px solid var(--theme_bgcolor_1);
+  background-color: var(--theme_bgcolor_1);
+}
+
+.gridSummaryCell,
+.gridSummaryCellDisabled {
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+.summaryRowBody {
+  background-color: var(--theme_bgcolor_1);
+}
+
+.tallCellDark {
+  background-color: transparent;
+}
+
+.cellOver,
+.cellOverDark,
+.specialColOver,
+.recordSummaryCellOver,
+.recordSummaryCellOverDark {
+  background-color: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+.tallCellOver,
+.tallCellOverDark {
+  background-color: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+.cellSelected,
+.cellSelectedDark,
+.specialColSelected,
+.recordSummaryCellSelected,
+.recordSummaryCellSelectedDark {
+  background: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.tallCellSelected,
+.tallCellSelectedDark {
+  background: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.cellSelectedOver,
+.cellSelectedOverDark,
+.specialColSelectedOver,
+.recordSummaryCellSelectedOver,
+.recordSummaryCellSelectedOverDark {
+  background: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.tallCellSelectedOver,
+.tallCellSelectedOverDark {
+  background-color: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.groupSummaryCell,
+.groupSummaryCellDisabled,
+.gridSummaryCell,
+.gridSummaryCellDisabled {
+  font-weight: bold;
+}
+
+.cellDisabled,
+.cellDisabledDark,
+.specialColDisabled,
+.tallCellDisabled,
+.tallCellDisabledDark,
+.groupSummaryCellDisabled,
+.gridSummaryCellDisabled,
+.specialColDisabled,
+.recordSummaryCellDisabled,
+.recordSummaryCellDisabledDark {
+  color: var(--theme_color_disabled);
+  background-color: transparent;
+}
+
+.groupNode {
+  font-weight: bold;
+  border-bottom: 1px solid var(--theme_border_color_default);
+}
+
+/*Tree styling*/
+/*------------------------------------------------------------
+		treeGrid.baseStyle
+------------------------------------------------------------*/
+.treeCell,
+.treeCellDark,
+.treeCellOver,
+.treeCellOverDark,
+.treeCellSelected,
+.treeCellSelectedDark,
+.treeCellSelectedOver,
+.treeCellSelectedOverDark,
+.treeCellDisabled,
+.treeCellDisabledDark,
+.treeTallCell,
+.treeTallCellDark,
+.treeTallCellOver,
+.treeTallCellOverDark,
+.treeTallCellSelected,
+.treeTallCellSelectedDark,
+.treeTallCellSelectedOver,
+.treeTallCellSelectedOverDark,
+.treeTallCellDisabled,
+.treeTallCellDisabledDark {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.treeCellDark,
+.treeTallCellDark {
+  background-color: transparent;
+}
+
+.treeCellOver,
+.treeCellOverDark {
+  background: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+.treeTallCellOver,
+.treeTallCellOverDark {
+  background-color: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+.treeCellSelected,
+.treeCellSelectedDark {
+  background: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.treeTallCellSelected,
+.treeTallCellSelectedDark {
+  background-color: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.treeCellSelectedOver,
+.treeCellSelectedOverDark {
+  background: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.treeTallCellSelectedOver,
+.treeTallCellSelectedOverDark {
+  background-color: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.treeCellDisabled,
+.treeCellDisabledDark,
+.treeTallCellDisabled,
+.treeTallCellDisabledDark {
+  color: var(--theme_color_disabled);
+  background-color: transparent;
+}
+
+/* Field builders (Formula/Summary) */
+.sampleOutput {
+  border: 2px solid #D9D9D9;
+  padding: 3px;
+}
+
+/* Multi-sort - sort-index appearing next to sort-arrows in field headers */
+.sortNumeral {
+  font-size: 7px;
+}
+
+/*============================================================
+	12) ToolStrip
+============================================================*/
+.toolStrip {
+  border: 1px solid var(--theme_border_color_default);
+}
+
+.toolStripLayoutDropLine {
+  background-color: #404040;
+}
+
+.toolbarButton,
+.toolbarButtonOver,
+.toolbarButtonDown,
+.toolbarButtonDisabled,
+.toolbarButtonSelected,
+.toolbarButtonSelectedDown,
+.toolbarButtonSelectedOver,
+.toolbarButtonSelectedDisabled {
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: var(--theme_color_default);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.toolbarButtonOver,
+.toolbarButtonDown {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_over);
+}
+
+.toolbarButtonDisabled {
+  color: var(--theme_color_disabled);
+}
+
+.toolbarButtonSelected,
+.toolbarButtonSelectedDown,
+.toolbarButtonSelectedOver,
+.toolbarButtonSelectedDisabled {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_selected);
+}
+
+.toolbarButtonSelectedOver {
+  color: var(--theme_color_default);
+  background-color: var(--theme_bgcolor_selected);
+}
+
+.toolbarButtonSelectedDisabled {
+  color: var(--theme_color_disabled);
+}
+
+/*============================================================
+   12a) ToolStripGroup and IconButton
+==============================================================*/
+.toolStripGroup,
+.toolStripGroupOver,
+.toolStripGroupSelected,
+.toolStripGroupSelectedDisabled,
+.toolStripGroupSelectedOver,
+.toolStripGroupDown,
+.toolStripGroupSelectedDown,
+.toolStripGroupDisabled {
+  border: 1px solid var(--theme_bgcolor_1);
+  padding: 0px;
+  color: var(--theme_color_default);
+}
+
+.toolStripGroupTitle,
+.toolStripGroupTitleOver,
+.toolStripGroupTitleSelected,
+.toolStripGroupTitleSelectedDisabled,
+.toolStripGroupTitleSelectedOver,
+.toolStripGroupTitleDown,
+.toolStripGroupTitleSelectedDown,
+.toolStripGroupTitleDisabled {
+  border: 0;
+  color: var(--theme_color_default);
+  font-weight: bold;
+  padding: 0px;
+}
+
+.iconButton,
+.iconButtonOver,
+.iconButtonFocused,
+.iconButtonFocusedOver,
+.iconButtonDown,
+.iconButtonFocusedDown,
+.iconButtonSelected,
+.iconButtonSelectedFocused,
+.iconButtonSelectedDown,
+.iconButtonSelectedFocusedDown,
+.iconButtonSelectedOver,
+.iconButtonSelectedFocusedOver,
+.iconButtonDisabled,
+.iconButtonSelectedDisabled {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--theme_color_default);
+  padding: 4px;
+}
+
+.iconButtonOver,
+.iconButtonDown {
+  background: var(--theme_bgcolor_over);
+  color: var(--theme_color_default);
+}
+
+.iconButtonFocused,
+.iconButtonFocusedOver,
+.iconButtonSelected,
+.iconButtonSelectedOver,
+.iconButtonSelectedFocused,
+.iconButtonSelectedDown,
+.iconButtonSelectedFocusedDown,
+.iconButtonSelectedFocusedOver {
+  background-color: var(--theme_bgcolor_selected);
+  color: var(--theme_color_default);
+}
+
+.iconButtonDisabled {
+  color: var(--theme_color_disabled);
+}
+
+/* IconButton icon and menuIcon styles - used for spacing top and bottom of the title in v-buttons */
+.iconButtonHIcon {
+  vertical-align: middle;
+}
+
+.iconButtonHMenuIcon {
+  vertical-align: middle;
+  border: 1px solid transparent;
+}
+
+.iconButtonVIcon {
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+
+.iconButtonVMenuIcon {
+  vertical-align: middle;
+  border: 1px solid transparent;
+  margin-top: 4px;
+}
+
+/*============================================================
+  Tools
+============================================================*/
+/*============================================================
+  TileGrid
+==============================================================*/
+.tileGrid {
+  border: 1px solid var(--theme_border_color_default);
+}
+
+.tileValue,
+.tileValueDown,
+.tileValueSelected,
+.tileValueOver,
+.tileValueSelectedOver,
+.tileValueSelectedDown {
+  font-size: 8pt;
+  text-overflow: ellipsis;
+}
+
+.tileValueSelected {
+  color: black;
+}
+
+.tileValueSelectedOver {
+  color: black;
+}
+
+.simpleTile,
+.simpleTileOver,
+.simpleTileSelected,
+.simpleTileSelectedOver {
+  padding: 3px;
+  border: 1px solid transparent;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.simpleTile:hover,
+.simpleTileOver {
+  padding: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid var(--theme_color_over);
+}
+
+.simpleTile:focus,
+.simpleTileSelected {
+  border: 1px solid var(--theme_color_selected);
+  padding: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.simpleTileSelectedOver {
+  border: 1px solid var(--theme_color_selected);
+  padding: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/*============================================================
+	15) Scrollbars
+============================================================*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--theme_bgcolor_scrollbar);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.scrollbar {
+  background-color: transparent;
+}
+
+.vScrollThumb,
+.vScrollThumbOver,
+.hScrollThumb {
+  background-color: var(--theme_bgcolor_scrollbar);
+}
+
+.vScrollThumbOver {
+  background-color: var(--theme_bgcolor_scrollbar_over);
+}
+
+.hScrollThumb,
+.hScrollThumbOver {
+  background-color: var(--theme_bgcolor_scrollbar);
+}
+
+.hScrollThumbOver {
+  background-color: var(--theme_bgcolor_scrollbar_over);
+}
+
+
+/*IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+	Styles below this comment are used by optional modules only
+
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII*/
+/*============================================================
+	CubeGrid - Analytics Module only
+		cubeGrid.baseStyle - cubeCell
+		headerGrid.baseStyle - rowHeader
+		reportHeaderBar.button.baseStyle - rowHeader
+		reportHeaderBar.button.baseStyle - innerHeader/colHeader
+		reportHeaderBar.button.baseStyle - rowHeaderLabel
+		reportHeaderBar.button.baseStyle - colHeaderLabel
+============================================================*/
+.cubeCell {
+  color: black;
+  text-overflow: ellipsis;
+  background-color: #FFFFFF;
+  border-top: 1px solid white;
+  border-bottom: 1px solid #828282;
+  border-left: 1px solid white;
+  border-right: 1px solid #828282;
+}
+
+.cubeCellDark {
+  color: black;
+  text-overflow: ellipsis;
+  background-color: #EEEEEE;
+  border-top: 1px solid #EEEEEE;
+  border-bottom: 1px solid #828282;
+  border-left: 1px solid #EEEEEE;
+  border-right: 1px solid #828282;
+}
+
+.cubeCellDisabled {
+  color: #666666;
+  text-overflow: ellipsis;
+  background-color: #FFFFFF;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+}
+
+/* partial styles */
+.cubeCellOver {
+  background-color: #B8D1EE;
+  border-top: 1px solid #B8D1EE;
+  border-bottom: 1px solid #828282;
+}
+
+.cubeCellSelected {
+  background-color: #FFE781;
+  border-top: 1px solid #FFE781;
+  border-bottom: 1px solid #828282;
+  border-left: 1px solid #FFE781;
+  border-right: 1px solid #828282;
+}
+
+.cubeCellSelectedOver {
+  background-color: #B8D1EE;
+  border-top: 1px solid #B8D1EE;
+  border-bottom: 1px solid #828282;
+  border-left: 1px solid #B8D1EE;
+  border-right: 1px solid #828282;
+}
+
+/* row headers */
+.rowHeader {
+  color: white;
+  background-color: #6682A0;
+  border-left: 1px solid #FFFFFF;
+  border-top: 1px solid #FFFFFF;
+  border-right: 1px solid #264260;
+  border-bottom: 1px solid #264260;
+  background-image: url("images/CubeGrid/rowHeader.gif");
+}
+
+.rowHeaderOver {
+  color: white;
+  background-color: #6682A0;
+  border-left: 1px solid #264260;
+  border-top: 1px solid #264260;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-image: url("images/CubeGrid/rowHeaderOver.gif");
+}
+
+.rowHeaderDown {
+  color: white;
+  background-color: #6682A0;
+  border-left: 1px solid #264260;
+  border-top: 1px solid #264260;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-image: url("images/CubeGrid/rowHeaderOver.gif");
+}
+
+.rowHeaderDisabled {
+  color: #808080;
+  background-color: #6682A0;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+.rowHeaderSelected,
+.rowHeaderSelectedDown {
+  color: white;
+  background-color: #3E74B3;
+  border-left: 1px solid #00008B;
+  border-top: 1px solid #00008B;
+  border-right: 1px solid #F0F8FF;
+  border-bottom: 1px solid #F0F8FF;
+  background-image: url("images/CubeGrid/rowHeaderSelected.gif");
+}
+
+.rowHeaderSelectedOver {
+  color: white;
+  background-color: #3E74B3;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  background-image: url("images/CubeGrid/rowHeaderSelectedOver.gif");
+}
+
+.rowHeaderSelectedDisabled {
+  color: #808080;
+  background-color: #3E74B3;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* row label */
+.rowHeaderLabel {
+  font-weight: bold;
+  color: white;
+  background-color: #204B7A;
+  border-left: 1px solid #FFFFFF;
+  border-top: 1px solid #FFFFFF;
+  border-right: 1px solid #000B3A;
+  border-bottom: 1px solid #000B3A;
+  background-image: url("images/CubeGrid/rowHeaderLabel.gif");
+}
+
+.rowHeaderLabelOver {
+  font-weight: bold;
+  color: white;
+  background-color: #204B7A;
+  border-left: 1px solid #000B3A;
+  border-top: 1px solid #000B3A;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-image: url("images/CubeGrid/rowHeaderLabel.gif");
+}
+
+.rowHeaderLabelDown {
+  font-weight: bold;
+  color: white;
+  background-color: #204B7A;
+  border-left: 1px solid #000B3A;
+  border-top: 1px solid #000B3A;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-image: url("images/CubeGrid/rowHeaderLabelDown.gif");
+}
+
+.rowHeaderLabelDisabled {
+  font-weight: bold;
+  color: #808080;
+  background-color: #7D7D7D;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+.rowHeaderLabelSelected,
+.rowHeaderLabelSelectedDown {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid #555555;
+  border-bottom: 1px solid #555555;
+  background-image: url("images/CubeGrid/rowHeaderDown.gif");
+}
+
+.rowHeaderLabelSelectedOver {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  background-image: url("images/CubeGrid/rowHeaderDown.gif");
+}
+
+.rowHeaderLabelSelectedDisabled {
+  font-weight: bold;
+  color: #808080;
+  background-color: #7D7D7D;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* column headers */
+.colHeader {
+  color: white;
+  background-color: #6682A0;
+  border-left: 1px solid #FFFFFF;
+  border-top: 1px solid #FFFFFF;
+  border-right: 1px solid #264260;
+  border-bottom: 1px solid #264260;
+  background-image: url("images/CubeGrid/colHeader.gif");
+}
+
+.colHeaderOver {
+  color: white;
+  background-color: #6682A0;
+  border-left: 1px solid #264260;
+  border-top: 1px solid #264260;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-image: url("images/CubeGrid/colHeaderOver.gif");
+}
+
+.colHeaderDown {
+  color: white;
+  background-color: #6682A0;
+  border-left: 1px solid #264260;
+  border-top: 1px solid #264260;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-image: url("images/CubeGrid/colHeader.gif");
+}
+
+.colHeaderDisabled {
+  color: #808080;
+  background-color: #6682A0;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+.colHeaderSelected,
+.colHeaderSelectedDown {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-left: 1px solid #00008B;
+  border-top: 1px solid #00008B;
+  border-right: 1px solid #F0F8FF;
+  border-bottom: 1px solid #F0F8FF;
+  background-image: url("images/CubeGrid/colHeaderSelected.gif");
+}
+
+.colHeaderSelectedOver {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  background-image: url("images/CubeGrid/colHeaderSelectedOver.gif");
+}
+
+.colHeaderSelectedDisabled {
+  font-weight: bold;
+  color: #808080;
+  background-color: #3E74B3;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* column label */
+.colHeaderLabel {
+  font-weight: bold;
+  color: white;
+  background-color: #204B7A;
+  border-left: 1px solid #FFFFFF;
+  border-top: 1px solid #FFFFFF;
+  border-right: 1px solid #555555;
+  border-bottom: 1px solid #555555;
+  background-image: url("images/CubeGrid/colHeaderLabel.gif");
+}
+
+.colHeaderLabelOver {
+  font-weight: bold;
+  color: white;
+  background-color: #204B7A;
+  border-left: 1px solid #000B3A;
+  border-top: 1px solid #000B3A;
+  border-right: 1px solid #555555;
+  border-bottom: 1px solid #555555;
+  background-image: url("images/CubeGrid/colHeaderLabelDown.gif");
+}
+
+.colHeaderLabelDown {
+  font-weight: bold;
+  color: white;
+  background-color: #204B7A;
+  border-left: 1px solid #000B3A;
+  border-top: 1px solid #000B3A;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-image: url("images/CubeGrid/colHeaderLabelDown.gif");
+}
+
+.colHeaderLabelDisabled {
+  font-weight: bold;
+  color: #808080;
+  background-color: #7D7D7D;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+.colHeaderLabelSelected,
+.colHeaderLabelSelectedDown {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid #555555;
+  border-bottom: 1px solid #555555;
+  background-image: url("images/CubeGrid/colHeaderLabelDown.gif");
+}
+
+.colHeaderLabelSelectedOver {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-right: 1px solid #555555;
+  border-bottom: 1px solid #555555;
+  background-image: url("images/CubeGrid/colHeaderDown.gif");
+}
+
+.colHeaderLabelSelectedDisabled {
+  font-weight: bold;
+  color: #808080;
+  background-color: #7D7D7D;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* inner header */
+.innerHeader {
+  color: black;
+  background-color: #CCCCCC;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  background-image: url("images/CubeGrid/innerHeader.gif");
+}
+
+.innerHeaderOver {
+  color: black;
+  background-color: #CCCCCC;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  background-image: url("images/CubeGrid/innerHeader.gif");
+}
+
+.innerHeaderDown {
+  color: black;
+  background-color: #CCCCCC;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  background-image: url("images/CubeGrid/innerHeader.gif");
+}
+
+.innerHeaderDisabled {
+  color: #808080;
+  background-color: #CCCCCC;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+.innerHeaderSelected,
+.innerHeaderSelectedDown {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-left: 1px solid #00008B;
+  border-top: 1px solid #00008B;
+  border-right: 1px solid #F0F8FF;
+  border-bottom: 1px solid #F0F8FF;
+  background-image: url("images/CubeGrid/innerHeaderSelected.gif");
+}
+
+.innerHeaderSelectedOver {
+  font-weight: bold;
+  color: white;
+  background-color: #3E74B3;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  background-image: url("images/CubeGrid/innerHeaderSelectedOver.gif");
+}
+
+.innerHeaderSelectedDisabled {
+  color: #808080;
+  background-color: #CCCCCC;
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/*============================================================
+	BarChart
+	internal, charting/visualization module only
+		styleName - chart
+		barStyle - chartBar
+		others are currently fixed
+============================================================*/
+.chart {
+  background-color: #CCCCCC;
+}
+
+.chartTitle {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.chartAxisTitle {
+  color: green;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.chartValueTitle {
+  color: black;
+  font-size: 10px;
+}
+
+.chartTotal {
+  color: black;
+  font-size: 12px;
+  background-color: linen;
+}
+
+.chartBody {
+  border-left: 1px solid black;
+  border-top: 1px dashed blue;
+  border-right: 1px solid black;
+  background-color: #dddddd;
+}
+
+.chartBar1 {
+  background-color: red;
+  filter: "progid:dximagetransform.microsoft.gradient(gradientType=1, startColorStr=#990000, endColorStr=#FF0000)";
+}
+
+.chartBar2 {
+  background-color: blue;
+  filter: "progid:dximagetransform.microsoft.gradient(gradientType=1, startColorStr=#000099, endColorStr=#0000FF)";
+}
+
+.chartBar3 {
+  background-color: green;
+  filter: "progid:dximagetransform.microsoft.gradient(gradientType=1, startColorStr=#009900, endColorStr=#00FF00)";
+}
+
+.rangeSliderSelected {
+  border: 1px solid var(--theme_border_color_default);
+  cursor: pointer;
+}
+
+/*============================================================
+	Printing
+        printHeader - general print style for header elements including:
+        - ListGrid header cells
+        - SectionStack headers
+============================================================*/
+.printHeader {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+/*============================================================
+	Calendar
+
+============================================================*/
+.calendar,
+.calendarDisabled,
+.calendarDisabledDark,
+.calendarDisabledOver,
+.calendarDisabledOverDark,
+.calendarWorkday,
+.calendarWorkdayDisabled,
+.calendarDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #ffffff;
+}
+
+.calendarWorkdayDisabled,
+.calendarDark,
+.calendarDisabled,
+.calendarDisabledDark,
+.calendarDisabledOver,
+.calendarDisabledOverDark {
+  background-color: gainsboro;
+}
+
+.calendarWorkday {
+  background-color: #f2f2f2;
+}
+
+.calendarOver,
+.calendarOverDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #c0ffc0;
+}
+
+.calendarWorkdaySelected,
+.calendarCellSelected {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #CCCCCC;
+}
+
+.labelColumn,
+.labelColumnDark,
+.labelColumnOver,
+.labelColumnOverDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: gainsboro;
+}
+
+.labelColumnOver,
+.labelColumnOverDark,
+.calendarDisabledOver,
+.calendarDisabledOverDark {
+  background-color: #a4bbdb;
+}
+
+/* ----month---- */
+/* calMonthDayHeader and Body */
+.calMonthDayHeader,
+.calMonthDayHeaderDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: gainsboro;
+}
+
+.calMonthDayHeaderOver,
+.calMonthDayHeaderOverDark,
+.calMonthDayHeaderSelected,
+.calMonthDayHeaderSelectedDark,
+.calMonthDayHeaderSelectedOver,
+.calMonthDayHeaderSelectedOverDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #c0ffc0;
+}
+
+.calMonthDayHeaderDisabled,
+.calMonthDayHeaderDisabledOver {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #E6E6E6;
+}
+
+.calMonthDayBody,
+.calMonthDayBodyDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #ffffff;
+}
+
+.calMonthDayBodyOver,
+.calMonthDayBodyOverDark,
+.calMonthDayBodySelected,
+.calMonthDayBodySelectedDark,
+.calMonthDayBodySelectedOver,
+.calMonthDayBodySelectedOverDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #c0ffc0;
+}
+
+.calMonthDayBodyDisabled,
+.calMonthDayBodyDisabledOver {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #E6E6E6;
+}
+
+/* calMonthOtherDayHeader and Body */
+.calMonthOtherDayHeader,
+.calMonthOtherDayHeaderDark {
+  color: #444444;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #aaaaaa;
+}
+
+.calMonthOtherDayHeaderSelected,
+.calMonthOtherDayHeaderSelectedOver,
+.calMonthOtherDayHeaderOver,
+.calMonthOtherDayHeaderOverDark {
+  color: #444444;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #c0ffc0;
+}
+
+.calMonthOtherDayBody,
+.calMonthOtherDayBodyDark,
+.calMonthOtherDayBodyDisabled,
+.calMonthOtherDayBodyDisabledOver {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #E6E6E6;
+}
+
+.calMonthOtherDayBodyOver,
+.calMonthOtherDayBodyOverDark {
+  color: black;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #c0ffc0;
+}
+
+/* calMonthOtherDayBlank */
+.calMonthOtherDayBlank,
+.calMonthOtherDayBlankDark,
+.calMonthOtherDayBlankOver,
+.calMonthOtherDayBlankOverDark,
+.calMonthOtherDayBlankSelected,
+.calMonthOtherDayBlankSelectedDark,
+.calMonthOtherDayBlankSelectedOver,
+.calMonthOtherDayBlankSelectedOverDark {
+  color: #444444;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  background-color: #E6E6E6;
+}
+
+/* calMonthEventLink */
+a.calMonthEventLink:link {
+  color: blue;
+  text-decoration: none;
+}
+
+a.calMonthEventLink:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+a.calMonthEventLink:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+a.calMonthEventLink:active {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Calendar Column Layouts - VLayouts used to stack eventCanvases in a day column */
+.calendarColumnLayout,
+.calendarColumnLayoutOver,
+.calendarColumnLayoutDown,
+.calendarColumnLayoutSelected {
+  background-color: #ffffff;
+  opacity: 1;
+  border-right: none;
+}
+
+/* ----event window---- */
+.eventWindow,
+.eventWindowSelected {
+  font-size: 9px;
+  background-color: #EBF4FF;
+  border: 1px solid #d0dff6;
+  padding: 1px;
+  margin: 0px;
+}
+
+.eventWindowHeader,
+.eventWindowGripper,
+.eventWindowLabel {
+  font-size: 9px;
+  color: #4C4C4C;
+  background-color: #d0dff6;
+  border: 1px solid #d0dff6;
+  padding: 2px 2px 0px 2px;
+}
+
+.eventWindowHeader {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: auto;
+  font-size: 9px;
+  color: #4C4C4C;
+  background-color: #d0dff6;
+  border: 1px solid #d0dff6;
+  padding: 2px 2px 0px 2px;
+}
+
+.eventWindowBody {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  vertical-align: top;
+  font-size: 9px;
+  color: black;
+  background-color: #EBF4FF;
+  border: 1px solid #EBF4FF;
+  padding: 2px 2px 2px 2px;
+}
+
+.eventWindowResizer {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+/* --- ZoneCanvas --- */
+.zoneCanvas {
+  background-color: rgba(150, 150, 150, 0.5);
+}
+
+.zoneCanvasHeader,
+.zoneCanvasGripper,
+.zoneCanvasLabel {
+  display: inline-block;
+  color: white;
+  background-color: grey;
+  left: 0px;
+  bottom: 0px;
+}
+
+.eventDragCanvas {
+  border: 1px dashed red;
+}
+
+/* --- IndicatorCanvas --- */
+.indicatorCanvas {
+  background-color: #AA0000;
+}
+
+.indicatorCanvasHeader,
+.indicatorCanvasGripper,
+.indicatorCanvasLabel {
+  display: inline-block;
+  color: white;
+  background-color: #AA0000;
+}
+
+/* make all grippers rounded */
+.eventWindowGripper,
+.indicatorCanvasGripper,
+.zoneCanvasGripper {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* show a border around floating labels */
+.eventWindowLabel,
+.zoneCanvasLabel,
+.indicatorCanvasLabel {
+  border: 1px solid black;
+}
+
+/*============================================================
+	PropertySheet
+	internal, used by Visual SmartClient tools
+        propertySheet.autoChildDefaults.cellStyle - propSheetValue
+        propertySheet.autoChildDefaults.titleStyle - propSheetTitle
+        propertySheet.TextItemDefaults.textBoxStyle - propSheetField
+        propertySheet.SelectItemDefaults.controlStyle - propSheetSelectControl
+        propertySheet.ColorItemDefaults.textBoxStyle - propSheetField
+        propertySheet.HeaderItemDefaults.textBoxStyle - propSheetHeading
+        propertySheet.SectionHeaderItemDefaults.cellStyle - propSheetSectionItemCell
+============================================================*/
+.propSheetValue,
+.propSheetValueFocused,
+.propSheetValueDisabled {
+  border-bottom: 1px solid #AAAAAA;
+  border-right: 1px solid #AAAAAA;
+  padding: 0px;
+  margin: 0px;
+}
+
+.propSheetTitle,
+.propSheetTitleFocused,
+.propSheetTitleDisabled {
+  border-bottom: 1px solid #AAAAAA;
+  border-right: 1px solid #AAAAAA;
+  background-color: #DDDDDD;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.propSheetTitleError,
+.propSheetValueError {
+  color: #204268;
+  background-color: #cfd9f2;
+}
+
+.propSheetField,
+.propSheetFieldDisabled {
+  background-color: #FFFFFF;
+  border: 0px;
+  padding: 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-top: 3px;
+}
+
+.propSheetHeading,
+.propSheetHeadingDisabled {
+  font-weight: bold;
+  color: black;
+  background-color: #CCCCCC;
+  padding: 4px;
+  border-bottom: 1px solid #AAAAAA;
+}
+
+.propSheetSelectControl,
+.propSheetSelectControlFocused,
+.propSheetSelectControlDisabled {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+/* Styles for Finder cells */
+.finder,
+.finderSelected {
+  background-color: #F0F0F0;
+  border-bottom: 1px solid white;
+}
+
+.finderSort,
+.finderSelectedSort {
+  background-color: #DDDDDD;
+  border-bottom: 1px solid white;
+}
+
+.finderDisabled {
+  color: #666666;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.finderSelectedText {
+  color: white;
+  background-color: black;
+  margin: 5px;
+}
+
+/* header buttons */
+.finderButton {
+  background-color: #DDDDDD;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-right: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.finderButtonDown,
+.finderButtonSelectedDown {
+  color: white;
+  background-color: #999999;
+  border-left: 1px solid #666666;
+  border-top: 1px solid #666666;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.finderButtonSelectedDisabled,
+.finderButtonSelected {
+  background-color: #999999;
+  border-left: 1px solid #666666;
+  border-top: 1px solid #666666;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.finderButtonDisabled {
+  color: #666666;
+  background-color: #999999;
+  border-left: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+/* Styles for Explorer cells */
+.explorerSelectedText {
+  background-color: darkblue;
+  color: white;
+  margin: 5px;
+}
+
+.explorerButtonOver,
+.explorerButtonSelected,
+.explorerButtonSelectedOver,
+.explorerButton {
+  background-color: #CCCCCC;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-right: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+}
+
+.explorerButtonSelectedDown,
+.explorerButtonDown {
+  background-color: #CCCCCC;
+  border-left: 2px solid #999999;
+  border-top: 2px solid #999999;
+  border-right: 0px solid white;
+  border-bottom: 0px solid white;
+}
+
+.explorerButtonSelectedDisabled,
+.explorerButtonDisabled {
+  color: #666666;
+  background-color: #CCCCCC;
+  border-left: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+/*============================================================
+    Notifications
+============================================================*/
+.notifyWarn,
+.notifyError,
+.notifyMessage,
+.notifyWarnRTL,
+.notifyErrorRTL,
+.notifyMessageRTL {
+  color: #ffffff;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+.notifyWarn,
+.notifyError,
+.notifyMessage {
+  padding: 10px 45px 10px 10px;
+}
+
+.notifyWarnRTL,
+.notifyErrorRTL,
+.notifyMessageRTL {
+  padding: 10px 10px 10px 45px;
+}
+
+.notifyWarn,
+.notifyWarnRTL {
+  background-color: #ea9039;
+  -moz-box-shadow: 0px 0px 5px #ea9039;
+  -webkit-box-shadow: 0px 0px 5px #ea9039;
+  box-shadow: 0px 0px 5px #ea9039;
+}
+
+.notifyError,
+.notifyErrorRTL {
+  background-color: #e34e42;
+  -moz-box-shadow: 0px 0px 5px #e34e42;
+  -webkit-box-shadow: 0px 0px 5px #e34e42;
+  box-shadow: 0px 0px 5px #e34e42;
+}
+
+.notifyMessage,
+.notifyMessageRTL {
+  background-color: #28ac97;
+  -moz-box-shadow: 0px 0px 5px #28ac97;
+  -webkit-box-shadow: 0px 0px 5px #28ac97;
+  box-shadow: 0px 0px 5px #28ac97;
+}
+
+.notifyWarnActionLink,
+.notifyErrorActionLink,
+.notifyMessageActionLink {
+  padding: 0;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  background: none;
+}
+
+.notifyWarnActionLink {
+  color: #4F140E;
+}
+
+.notifyErrorActionLink {
+  color: #F39C12;
+}
+
+.notifyMessageActionLink {
+  color: #22FF34;
+}
+
+/* dark hover for Reify */
+.darkHover {
+  background-color: #3a4a53;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+/* sprited minimalist Select / ComboBoxItem picker */
+/* end of minimalist text-based item styling */
+/* Progressbar */
+.progressbar,
+.progressbarOver,
+.progressbarDown,
+.progressbarSelected {
+  background-color: var(--theme_color_disabled);
+}
+
+.progressbarDisabled,
+.progressbarSelectedDisabled {
+  background-color: var(--theme_color_disabled);
+}
+
+/* the percentage-done */
+.progressbarProgress,
+.progressbarProgressOver,
+.progressbarProgressDown,
+.progressbarProgressSelected {
+  background-color: var(--theme_color_selected);
+}
+
+.progressbarProgressDisabled,
+.progressbarProgressSelectedDisabled {
+  background-color: var(--theme_color_disabled);
+}
+
+.progressbarTitle {
+  font-family: RobotoLight;
+  font-size: var(--theme_font_size);
+  color: var(--theme_color_default);
+  padding: 4px 4px 4px 4px;
+}
+
+.watermark,
+.watermarkOver,
+.watermarkSelected,
+.watermarkDown {
+  overflow:hidden;
+  color:var(--theme_color_disabled);
+}
+
+.watermark img[src$=".svg"], 
+.watermarkOver img[src$=".svg"], 
+.watermarkSelected img[src$=".svg"], 
+.watermarkDown img[src$=".svg"] {
+  transform: translateX(100000px);
+  filter: drop-shadow(var(--theme_color_watermark) -100000px 0px 0px);
+}

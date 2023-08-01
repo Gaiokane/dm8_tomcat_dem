@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.admin.ISYSStatService
+path: DAFB36DAA2C358C91DA4657FFFF7C856.gwt.rpc

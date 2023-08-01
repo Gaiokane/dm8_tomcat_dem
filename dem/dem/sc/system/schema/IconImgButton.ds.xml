@@ -1,0 +1,22 @@
+<DataSource	ID="IconImgButton" inheritsFrom="ImgButton" Constructor="IconImgButton">
+    <fields>
+		<field name="src" type="object" title="Image" editorType="StatefulImageChooserItem" basic="true"/>
+
+		<!-- icon fields that are not applicable -->
+		<field name="icon"			    inapplicable="true" />
+		<field name="iconSize"	        inapplicable="true" />
+		<field name="iconWidth"	        inapplicable="true" />
+		<field name="iconHeight"        inapplicable="true" />
+		<field name="iconAlign"         inapplicable="true" />
+		<field name="iconOrientation"   inapplicable="true" />
+		<field name="iconSpacing"       inapplicable="true" />
+		<field name="showDisabledIcon"  inapplicable="true" />
+		<field name="showRollOverIcon"  inapplicable="true" />
+		<field name="showDownIcon"      inapplicable="true" />
+		<field name="showSelectedIcon"  inapplicable="true" />
+		<field name="showFocusedIcon"   inapplicable="true" />
+    </fields>
+    <methods>
+        <method name="click" basic="true"/>
+    </methods>
+</DataSource>

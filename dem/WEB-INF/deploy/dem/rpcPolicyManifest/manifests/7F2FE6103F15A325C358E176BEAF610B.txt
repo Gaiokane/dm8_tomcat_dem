@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.proxy.IProxyService
+path: EA62BC476E80E6AC64F53FE495A0C5E1.gwt.rpc

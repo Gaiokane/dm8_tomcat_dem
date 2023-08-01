@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.ICipherService
+path: 87D8B99F25F4C879DEB6D11301A853C1.gwt.rpc

@@ -1,0 +1,27 @@
+@keyframes loading-cycle {
+    0% {transform:rotate(0deg)}
+    50% {transform:rotate(180deg)}
+    100% {transform:rotate(360deg)}
+}
+
+.loading-cycle div {
+    position:absolute;
+    animation: loading-cycle 1s linear infinite;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    box-shadow:0 4px 0 0 #3088d8;
+    transform-origin:70px 72px;
+}
+
+.loading-cycle {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+}
+.loading-cycle div {
+    box-sizing: content-box;
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="../../favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>DEM主页</title>
+</head>
+
+<body>
+	<h2>DEM主页</h2>
+	<p>&emsp;&emsp;DEM全称为Dameng Enterprise
+		Manager。DEM提供了数据库对象管理和数据库监控的功能，并且通过远程主机部署代理，能够实现对远程主机状态和远程主机上达梦数据库实例状态的监控。
+		DEM的监控不只局限于单个数据库实例，它能够对数据库集群(MPP、DSC、数据守护)进行监控和管理。DEM主页如下图所示:</p>
+	<p>
+		<img src="images/home_page.png" />
+	</p>
+
+	<p>&emsp;&emsp;DEM主页主要由以下几个部分组成。如下图所示:</p>
+	<ul>
+		<li><a href="#tabs-1">主页顶部</a></li>
+		<li><a href="#tabs-2">客户端工具</a></li>
+		<li><a href="#tabs-3">监控及警告</a></li>
+		<li><a href="#tabs-4">系统管理</a></li>
+		<li><a href="#tabs-5">主面板</a></li>
+		<li><a href="#tabs-6">主页底部介绍</a></li>
+	</ul>
+	<br />
+	<h3 id="tabs-1">主页顶部</h3>
+	<p>&emsp;&emsp;DEM主页顶部包括两部分，左侧为达梦数据库有限公司LOGO，右侧为用户修改按钮，告警通知按钮和退出按钮，如下图所示:</p>
+	<p>
+		<img src="images/home_page_head.png" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>用户修改按钮</td>
+				<td>点击DEM主页顶部左侧登录用户名，将弹出<a href="user_info_dialog.html">用户修改对话框</a>
+				</td>
+			</tr>
+			<tr>
+
+				<td><img src="images/notify.png" />
+				</td>
+				<td>在主面板中弹出<a href="alert_notify_panel.html">告警通知面板</a></td>
+			</tr>
+
+			<tr>
+				<td><img src="images/help_doc.png" />
+				</td>
+				<td>在浏览器中弹出DEM帮助页面。</td>
+			</tr>
+			<tr>
+				<td><img src="images/logout.png" />
+				</td>
+				<td>退出登录</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-2">客户端工具</h3>
+	<p>&emsp;&emsp;客户端工具导航包括顶部的功能按钮，数据库对象管理和监控的导航列表。</p>
+	<p>
+		<img src="images/home_page_cilent_tool_navigation.png" />
+	</p>
+
+	<strong>功能按钮列表</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td nowrap="nowrap"><img src="images/manager.png"></img>对象管理</td>
+				<td>打开<a href="db_connection_dialog.html">新建连接对话框</a>，连接成功后将在导航列表中创建此数据库连接的数据库对象管理导航。</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap"><img src="images/monitor.png"></img>状态监控</td>
+				<td>打开<a href="db_connection_dialog.html">新建连接对话框</a>，连接成功后将在导航列表中创建此数据库连接的数据库监控导航。</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap"><img src="images/sql.png"></img>新建查询...</td>
+				<td>如果选中已连接的数据库连接导航，点击按钮则在<b>主面板</b>创建新的SQL执行面板。否则 打开<a
+					href="db_connection_dialog.html">新建连接对话框</a>，连接成功后将在<b>主面板</b>创建新的SQL执行面板。</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap"><img src="images/debug_start.gif"></img>SQL调试...</td>
+				<td>如果选中已连接的数据库连接导航，点击按钮则在<b>主面板</b>创建新的SQL调试面板。否则 打开<a
+					href="db_connection_dialog.html">新建连接对话框</a>，连接成功后将在<b>主面板</b>创建新的SQL调试面板。</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap"><img src="images/preference.png"></img>首选项</td>
+				<td>打开<a href="sql_preference_dialog.html">首选项对话框</a>，用来设置SQL查询分析器的属性。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		&emsp;&emsp;客户端工具导航<b>右键菜单</b>如下图所示:
+	</p>
+	<p>
+		<img src="images/cilent_tool_navigation_menu.png" />
+	</p>
+	<strong>导航树右键菜单</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/connect.png"></img>连接</td>
+				<td>重连当前失效数据库连接。</td>
+			</tr>
+			<tr>
+				<td><img src="images/disconnect.png"></img>断开</td>
+				<td>断开当前数据库连接。</td>
+			</tr>
+			<tr>
+				<td>管理服务器</td>
+				<td>打开<a href="server_manager_dialog.html">管理服务器对话框</a>，进行当前数据库的管理。</td>
+			</tr>
+			<tr>
+				<td><img src="images/sql.png"></img>新建查询</td>
+				<td>在<b>主面板</b>创建新的<a href="sql_query_panel.html">SQL执行面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/debug_start.gif"></img>SQL调试</td>
+				<td>在<b>主面板</b>创建新的SQL调试面板。</td>
+			</tr>
+			<tr>
+				<td><img src="images/edit.png"></img>修改</td>
+				<td>打开<a href="db_connection_dialog.html">数据库连接对话框</a>，修改数据库连接的属性。</td>
+			</tr>
+			<tr>
+				<td><img src="images/delete.png"></img>删除</td>
+				<td>删除选中的数据库连接。</td>
+			</tr>
+			<tr>
+				<td><img src="images/refresh.png"></img>刷新</td>
+				<td>刷新数据库连接。</td>
+			</tr>
+			<tr>
+				<td><img src="images/property.png"></img>属性</td>
+				<td>打开<a href="db_connection_dialog.html">数据库连接对话框</a>，查看数据库连接的属性。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-3">监控及告警</h3>
+	<p>&emsp;&emsp;监控及警告导航包括主机、数据库和告警配置。</p>
+	<p>
+		<img src="images/home_page_monitor_and_warning_navigation.png" />
+	</p>
+
+	<strong>导航说明</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/server_engine.png"></img>主机</td>
+				<td>打开<a href="mainframe_panel.html">主机监控面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database.png"></img>数据库</td>
+				<td>打开<a href="database_panel.html">数据库监控面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/alert_config.png"></img>告警配置</td>
+				<td>打开<a href="alert_config_panel.html">告警配置面板</a>。</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<h3 id="tabs-4">系统管理</h3>
+	<p>&emsp;&emsp;系统管理导航包括用户管理、角色管理和系统配置。</p>
+	<p>
+		<img src="images/home_page_system_manager_navigation.png" />
+	</p>
+
+	<strong>导航说明</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/server_engine.png"></img>用户管理</td>
+				<td>打开<a href="user_panel.html">用户管理面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/database.png"></img>角色管理</td>
+				<td>打开<a href="role_panel.html">角色管理面板</a>。</td>
+			</tr>
+			<tr>
+				<td><img src="images/alert_config.png"></img>系统配置</td>
+				<td>打开<a href="system_config_panel.html">系统配置面板</a>。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-5">主面板</h3>
+	<p>&emsp;&emsp;主面板用来承载主页面板、SQL执行面板、主机面板等各种功能面板。默认打开主页面板，主页面板中包括SQL手册、系统管理员手册
+		、程序员手册。如下图所示:</p>
+	<p>
+		<img src="images/main_panel.png" />
+	</p>
+
+	<strong>功能按钮说明</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>按钮</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="images/home.png"></img>显示主页</td>
+				<td>在主面板中显示主页面板。</td>
+			</tr>
+			<tr>
+				<td><img src="images/close_all.png"></img>关闭所有选项卡</td>
+				<td>关闭主面板中除主页面板的其他面板。</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 id="tabs-6">主页底部</h3>
+	<p>&emsp;&emsp;DEM主底部部包括两部分，左侧选中数据库连接的连接信息，右侧为DEM版本号，点击版本号将弹出DEM关于对话框，如下图所示:</p>
+	<p>
+		<img src="images/home_page_foot.png" />
+	</p>
+
+	<p>
+		<img src="images/about.png" />
+	</p>
+</body>
+</html>

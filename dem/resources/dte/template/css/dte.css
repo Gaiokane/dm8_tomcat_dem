@@ -1,0 +1,59 @@
+body > .container-fluid {
+    padding: 60px 15px 0;
+}
+
+.container-fluid .text-muted {
+    margin: 40px 0;
+}
+
+hr {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
+    border-bottom-width: 0px;
+    color: black;
+    size: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.overview-label
+{
+    margin-top: 5px;
+    margin-left: 10px;
+	margin-right: 10px;
+    font-size: 11px;
+}
+.overview-label> p
+{
+    margin: 0 0 5px
+}
+
+
+.tab {margin:10px; padding:10;}
+.tab_menu { clear:both;margin:0; padding:0;}
+.tab_menu *{ margin:0; padding:0;}
+.tab_menu li { float:left; text-align:center; cursor:pointer; list-style:none; padding:1px 6px; margin-right:4px; background:#F1F1F1; border:1px solid #898989; border-bottom:none;}
+.tab_menu li.hover { background:#DFDFDF;}
+.tab_menu li.selected { color:#FFF; background:#6D84B4;}
+.tab_box { clear:both; border:1px solid #898989; height:100%;margin:0px; padding:10;}
+.tab_box.tab_box_con.hide{display:none} 
+.border{
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+	border-color: rgb(221, 221, 221);
+} 
+
+
+
+
+
+
+

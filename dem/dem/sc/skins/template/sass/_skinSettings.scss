@@ -1,0 +1,94 @@
+/* ------------------------------ 颜色 ----------------------------------------- */
+$selected_blue: var(--theme_color_selected);
+$over_blue: var(--theme_color_over);
+
+/* ------------------------------  border 边框----------------------------------------- */
+$border_color_default: var(--theme_border_color_default);
+$border_color_default_rgb: var(--theme_border_color_default_rgb);
+$border_color_disabled: $border_color_default;
+$border_default: 1px solid $border_color_default;
+$border_dialog: 1px solid $border_color_default;
+$border_disabled: 1px solid $border_color_disabled;
+$border_selected: 1px solid var(--theme_color_selected);
+$border_over: 1px solid var(--theme_color_over);
+
+/* ------------------------------ color 字体颜色----------------------------------------- */
+$color_default: var(--theme_color_default);
+$color_over: $color_default;
+$color_selected: $color_over;
+$color_selectedOver: $color_over;
+$color_disabled: var(--theme_color_disabled);
+$color_error: var(--theme_color_error);
+
+$color_hover:$color_default;
+$color_header: $color_default;
+$color_link: var(--theme_color_selected);
+$color_link_over: var(--theme_color_over);
+$color_link_active: $color_link;
+$color_link_visited: var(--theme_color_link_visited);
+
+/* ------------------------------ font 字体----------------------------------------- */
+$font_size_default: var(--theme_font_size);
+$font_family_default:var(--theme_font_family);
+
+/* ------------------------------ 背景色 ----------------------------------------- */
+$bgcolor_0:var(--theme_bgcolor_0);  //hover：#3F4753；  /* window、dialog、menu */
+
+$bgcolor_1_rgb:var(--theme_bgcolor_1_rgb);
+$bgcolor_1:var(--theme_bgcolor_1);                 /* tab、section */
+
+$bgcolor_2:$bgcolor_1;                 /* toolstrip、table */
+
+$bgcolor_3:$bgcolor_1;   /* button、formItem */
+$border_3: $border_default;
+
+$bgcolor_transparent: transparent;   /* form、layout、canvas */
+$bgcolor_selected: var(--theme_bgcolor_selected);         /* 选中 */
+$bgcolor_over: var(--theme_bgcolor_over);             /* 鼠标上移 */
+$bgcolor_selectedOver: $bgcolor_selected;
+$bgcolor_hover:$bgcolor_1_rgb;            /* 鼠标上移后的提示框 */
+$bgcolor_disabled: $border_color_disabled;
+$bgcolor_selectedText:darkblue;
+
+/* ------------------------------ 组件 ----------------------------------------- */
+// scroll bar
+$scroll_bgcolor:$bgcolor_selected;
+$scroll_bgcolor_over:$bgcolor_over;
+
+// dialog
+$windowHeader_bgcolor: $bgcolor_1;     /* window header */
+
+// tab
+$tabbar_size: 26px;
+$tabbar_border_color:$border_color_default_rgb;
+$tabbutton_bgcolor: $bgcolor_1_rgb;
+$tabbutton_border: 1px solid $border_color_default_rgb;
+$tabbutton_color:$color_default;
+$tabbutton_bgcolor_selected:$bgcolor_0;
+$tabbutton_color_selected:$color_selected;
+$tabbutton_border_color_disabled:$border_color_disabled;
+$tabbutton_color_disabled:$color_disabled;
+$tabbutton_bgcolor_disabled:$tabbutton_bgcolor;
+
+// section
+$sectionHeader_bgcolor: $bgcolor_1;
+$sectionHeader_border: 1px solid var(--theme_border_color_default_rgb);
+$section_border: $border_default;
+$sectionHeader_closed_border_bottom:none;
+
+// listgrid
+$cell_darker_bgcolor:transparent;        /* listgrid cell */
+$headerButton_border:$border_default;
+$headerButton_bgcolor:transparent;
+$headerButton_bgcolor_disabled:transparent;
+
+// button
+$button_border: $border_3;
+$button_bgcolor: $bgcolor_3;
+$button_border_disabled:$border_disabled;
+$button_bgcolor_disabled:transparent;
+$button_color_down:$color_default;
+
+// form
+$item_bgcolor: $bgcolor_3;
+$item_border:$border_3;

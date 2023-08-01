@@ -1,0 +1,13 @@
+<DataSource	ID="SelectOtherItem" inheritsFrom="SelectItem" Constructor="SelectOtherItem" >
+	<fields>
+		<field name="separatorTitle"	type="string" title="Separator Text"
+            hint="Text for the separator option"/>
+		<field name="otherTitle"		type="string" title="Other Text"
+            hint="Title for the 'Other' option"/>
+		<field name="selectOtherPrompt"		type="string" title="Select Other Title"
+            hint="Title to show in prompt for 'Other' value"/>
+	</fields>
+    <methods>
+        <method action="event" name="changed" basic="true" whenRuleTip="true" />
+    </methods>
+</DataSource>

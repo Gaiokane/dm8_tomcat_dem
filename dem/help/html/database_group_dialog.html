@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>集群监控</title>
+</head>
+
+<body>
+	<h2>集群监控</h2>
+	<p>
+		&emsp;&emsp;如果想对数据库集群进行监控，可以在<a href="database_panel.html">数据库监控面板</a>的<b>添加</b>按钮下拉菜单中选择<b>集群</b>，打开集群添加对话框进行添加。集群站点的添加有两种方式：一是站点扫描，指定一个站点自动扫描出所有站点；二是手动添加所有站点。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_group_dialog.png" alt="" />
+	</p>
+
+	<p>
+		<strong>集群名称</strong><br />集群监控的名称。
+	</p>
+	<p>
+		<strong>描述</strong><br />描述信息。
+	</p>
+	<p>
+		<strong>集群类型</strong><br />集群的类型。（目前支持MPP、数据守护DW、读写分离RW、自定义OTHER）
+	</p>
+	<p>
+		<strong>站点扫描</strong><br /> 站点自动扫描。 点击打开<a href="#site_config_dialog">站点配置对话框</a>，指定一个集群中的站点，注意如果是存在主备关系的集群指定的站点必须是主机，点击<b>确定</b>后会自动扫描出集群中的所有站点并弹出<a
+			href="#site_choose_dialog">站点选择对话框</a>；
+	</p>
+	<p>
+		<strong>站点列表</strong><br /> 集群的站点列表。
+	</p>
+	<blockquote>
+		<div>
+			<img src="images/add.png" alt="" />添加：点击表格右上角<b>添加</b>按钮，打开<a
+				href="#site_config_dialog">站点配置对话框</a>，完成站点信息配置后点击<b>确定</b>按钮添加到该列表中。
+		</div>
+		<div>
+			<img src="images/edit.png" alt="" />编辑：选中一个站点，点击表格右上角<b>编辑</b>按钮，打开<a
+				href="#site_config_dialog">站点配置对话框</a>，修改站点信息后点击<b>确定</b>按钮完成修改。
+		</div>
+		<div>
+			<img src="images/delete.png" alt="" />删除：选中需要删除的站点点击表格右上角<b>删除</b>按钮。
+		</div>
+	</blockquote>
+	<h3 id="site_config_dialog">站点配置对话框</h3>
+
+	<p>
+		<img src="images/database_group_db.png" alt="" />
+	</p>
+	<p>
+		<strong>主机</strong><br />
+		数据库连接的主机地址。这是一个下拉列表，只能选择下拉列表中的主机地址（即已经启动数据库代理的主机）。也可以在输入框中输入字符串过滤下拉列表快速查找到主机地址。如图所示：
+	</p>
+	<p>
+		<img src="images/database_single_host.png" alt="" />
+	</p>
+
+	<p>
+		<strong>端口号</strong><br /> 数据库连接的端口号。
+	</p>
+
+	<p>
+		<strong>用户名</strong><br /> 数据库连接的用户名。
+	</p>
+	<p>
+		<strong>密码</strong><br /> 数据库连接的密码。
+	</p>
+	<h3 id="site_choose_dialog">站点选择对话框</h3>
+	<p>
+		<strong><img src="images/database_group_scan_site_choose.png"
+			alt="" /> </strong>
+	</p>
+	<p>
+		<strong>站点选择列表</strong>
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>原站点</td>
+				<td><p>
+						原有的站点。<br />
+					</p></td>
+			</tr>
+			<tr>
+				<td>新站点</td>
+				<td><p>新扫描出来的站点。</p></td>
+			</tr>
+			<tr>
+				<td>操作</td>
+				<td>操作有以下三种：<br /> <br />添加：勾选表示添加新扫描出来的站点；不勾选表示忽略新扫描出来的站点。<br />
+					<br />替换：勾选表示用新扫描出来的站点替换原有站点；不勾选表示使用原有站点。<br /> <br />删除：勾选表示删除原有站点；不勾选表示保留原有站点。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

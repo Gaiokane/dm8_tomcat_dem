@@ -1,0 +1,2 @@
+<DataSource ID="AbsoluteForm" inheritsFrom="DynamicForm" Constructor="AbsoluteForm">
+</DataSource>

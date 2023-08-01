@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.inspect.IInspectService
+path: EB4C5A474E97344D14AAE24D3A3A998F.gwt.rpc

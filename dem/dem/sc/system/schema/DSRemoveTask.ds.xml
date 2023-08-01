@@ -1,0 +1,3 @@
+<DataSource ID="DSRemoveTask" inheritsFrom="ServiceTask" Constructor="DSRemoveTask">
+</DataSource>
+

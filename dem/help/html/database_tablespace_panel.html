@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>表空间分析</title>
+</head>
+
+<body>
+	<h2>表空间分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>表空间分析</b>可以打开表空间分析面板，该页面用于查看最近一段时间内数据库实例各个表空间的使用情况。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_tablespace_panel.png" alt="" />
+	</p>
+
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的表空间的使用情况。</p>
+	<p>
+		<strong>表空间信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;列表中为当前收集到的最新的表空间监控信息。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名称</td>
+				<td>表空间名称。</td>
+			</tr>
+			<tr>
+				<td>大小</td>
+				<td>表空间大小。</td>
+			</tr>
+			<tr>
+				<td>空闲空间</td>
+				<td>表空间空闲空间大小。</td>
+			</tr>
+			<tr>
+				<td>使用率</td>
+				<td>表空间使用率。</td>
+			</tr>
+			<tr>
+				<td>文件数</td>
+				<td>表空间文件个数。</td>
+			</tr>
+			<tr>
+				<td>自动扩展</td>
+				<td>是否可以自动扩容。</td>
+			</tr>
+			<tr>
+				<td>最大大小</td>
+				<td>表空间限制最大大小。</td>
+			</tr>
+			<tr>
+				<td>类型</td>
+				<td>表空间类型。（永久、临时）</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>表空间状态。（联机、脱机）</td>
+			</tr>
+			<tr>
+				<td>完整路径</td>
+				<td>表空间文件完整路径。</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<strong>表空间使用率图表</strong>
+	</p>
+	<p>&emsp;&emsp;页面下方的一组图表反映了最近一段时间内各个表空间使用率。每个表空间一个曲线图，横坐标是时间，纵坐标是磁盘使用率。</p>
+</body>
+</html>

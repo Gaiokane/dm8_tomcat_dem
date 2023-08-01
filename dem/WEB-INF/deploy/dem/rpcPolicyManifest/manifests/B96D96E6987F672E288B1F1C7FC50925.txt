@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.admin.IUserService
+path: 6E4918C5658FE013FF34937D73D50778.gwt.rpc

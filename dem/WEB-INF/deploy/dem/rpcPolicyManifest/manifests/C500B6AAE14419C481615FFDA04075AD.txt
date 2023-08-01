@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IExplainPlanService
+path: 05FE44A7B9F57DB732198EDFA65E2A5A.gwt.rpc

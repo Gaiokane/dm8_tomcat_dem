@@ -1,0 +1,43 @@
+<DataSource ID="QuartzTriggers"
+			serverConstructor="com.isomorphic.scheduler.QuartzTriggers"
+>
+
+	<fields>
+		<field name="jobGroup" type="string" showIf="false" required="true"/>
+		<field name="jobName" type="string" showIf="false" required="true"/>
+
+		<field name="group" type="string" primaryKey="true" required="true"/>
+		<field name="name" type="string" primaryKey="true" required="true"/>
+		<field name="description" type="string"/>
+
+		<field name="dataMap" type="Object" showIf="false"/>
+
+		<field name="startTime" type="datetime"/>
+		<field name="endTime" type="datetime"/>
+
+		<field name="cronExpression" type="text" required="true"/>
+		<field name="timeZone" type="text" editorType="ComboBoxItem" addUnknownValues="false"
+               textMatchStyle="substring"
+               optionDataSource="QuartzTimeZone" valueField="ID" displayField="ID"/>
+
+		<field name="misfireInstruction" type="intEnum" defaultValue="0">
+		  <valueMap>
+				<value ID="0">MISFIRE_INSTRUCTION_SMART_POLICY</value>
+                <value ID="-1">MISFIRE_INSTRUCTION_IGNORE_MISFIRE_POLICY</value>
+				<value ID="1">MISFIRE_INSTRUCTION_FIRE_ONCE_NOW</value>
+				<value ID="2">MISFIRE_INSTRUCTION_DO_NOTHING</value>
+			</valueMap>
+		</field>
+
+		<field name="state" type="intEnum" canEdit="false">
+			<valueMap>
+				<value ID="0">Normal</value>
+				<value ID="1">Paused</value>
+				<value ID="2">Complete</value>
+				<value ID="3">Error</value>
+				<value ID="4">Blocked</value>
+				<value ID="-1">None</value>
+			</valueMap>
+		</field>
+	</fields>
+</DataSource>

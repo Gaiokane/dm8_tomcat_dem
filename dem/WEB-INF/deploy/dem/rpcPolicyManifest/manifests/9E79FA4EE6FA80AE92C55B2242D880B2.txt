@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IAgentService
+path: AA01795F8A4E857F1E3E6B048CA17FAD.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IDependObjectService
+path: C1141224900779D0EEE20A1D92314BE8.gwt.rpc

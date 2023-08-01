@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<title>事件分析</title>
+</head>
+
+<body>
+	<h2>事件分析</h2>
+	<p>
+		&emsp;&emsp;从<a href="database_panel.html">数据库监控面板</a>中的数据库列表的操作下拉菜单中点击<b>事件分析</b>可以打开事件分析面板，该页面用于查看最近一段时间内数据库实例事件等待情况。如下图所示:
+	</p>
+	<p>
+		<img src="images/database_event_panel.png" alt="" />
+	</p>
+
+	<p>
+		<strong>时间按钮</strong>
+	</p>
+	<p>
+		<img src="images/intv_ts_button.png" alt="" />
+	</p>
+	<p>&emsp;&emsp;点击按钮可以切换查看最近各个不同时间段内的事件的等待情况。</p>
+	<p>
+		<strong>事件等待时间图表</strong>
+	</p>
+	<p>&emsp;&emsp;图表中显示的是最长等待时间排名前5的五种事件类型的曲线图。横坐标是时间，纵坐标是等待时间，单位1/100秒。</p>
+	<p>
+		<strong>事件等待信息列表</strong>
+	</p>
+	<p>&emsp;&emsp;列表中为当前所选时间段内的事件等待信息。列表中的记录按日期分组显示。</p>
+	<table>
+		<thead>
+			<tr>
+				<th>字段</th>
+				<th>说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>事件编号</td>
+				<td>事件的编号。</td>
+			</tr>
+			<tr>
+				<td>事件名称</td>
+				<td>事件的名称。</td>
+			</tr>
+			<tr>
+				<td>等待次数</td>
+				<td>事件已等待次数。</td>
+			</tr>
+			<tr>
+				<td>等待时间</td>
+				<td>最近一次等待时间，单位1/100秒。</td>
+			</tr>
+			<tr>
+				<td>平均等待时间</td>
+				<td>平均等待时间，单位微秒。</td>
+			</tr>
+			<tr>
+				<td>最长等待时间</td>
+				<td>最长等待时间，单位微秒。</td>
+			</tr>
+			<tr>
+				<td>最短等待时间</td>
+				<td>最短等待时间，单位微秒。</td>
+			</tr>
+			<tr>
+				<td>等待事件类型编号</td>
+				<td>所等待的事件的类型编号。</td>
+			</tr>
+			<tr>
+				<td>等待事件类型名称</td>
+				<td>所等待的时间的类型名称。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

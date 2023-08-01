@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IMultiConnSQLTemplateService
+path: 3BE599D2641980645F0DAB3A87CF0BD7.gwt.rpc

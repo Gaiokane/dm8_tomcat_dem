@@ -1,0 +1,2 @@
+serviceClass: com.dameng.dem.client.service.dbtool.manager.IExportScriptService
+path: 20C43EFC5EA2DFD80BFEE49F148965AB.gwt.rpc
