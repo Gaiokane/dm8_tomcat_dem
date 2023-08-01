@@ -48,7 +48,7 @@ docker push gaiokane/dm8_tomcat_dem
 ```
 
 ## 部署
-* 1.在达梦服务端初始化数据库，执行脚本 dem_init.sql [点击下载](dem_init.sql)
+* 1.在达梦服务端初始化数据库，执行脚本 dem_init.sql [点击下载](https://raw.githubusercontent.com/Gaiokane/dm8_tomcat_dem/master/dem_init.sql)
 ```
 # 将脚本 dem_init.sql 放到达梦数据库数据映射目录中，如/mnt/data/dm8/data/DAMENG/dem_init.sql
 
